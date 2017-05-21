@@ -5,9 +5,9 @@ namespace RestaurantSystem.Data.Repositories
     using RestaurantSystem.Data.Repositories.Abstraction;
     using RestaurantSystem.Models;
 
-    public class Address : GenericRepository<Address>, IRepository<Address>
+    public class AddressRepository : GenericRepository<AddressRepository>, IRepository<AddressRepository>
     {
-        public Address(IRestaurantSystemDbContext context)
+        public AddressRepository(IRestaurantSystemDbContext context)
             : base(context)
         {
         }

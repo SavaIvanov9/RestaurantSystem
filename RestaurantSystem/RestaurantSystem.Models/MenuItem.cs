@@ -53,11 +53,11 @@
         }
 
         [Required]
-        public virtual MenuItemType MenuType { get; set; }
+        public virtual MenuItemType MenuItemType { get; set; }
 
         [Required]
         [ForeignKey("MenuItemType")]
-        public long MenuTypeId { get; set; }
+        public long MenuItemTypeId { get; set; }
 
         public string Recipe { get; set; }
 

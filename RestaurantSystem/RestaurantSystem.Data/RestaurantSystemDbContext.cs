@@ -9,10 +9,10 @@
     {
         public RestaurantSystemDbContext() : base("RestaurantSystem")
         {
-            Database.SetInitializer(
-               new MigrateDatabaseToLatestVersion<RestaurantSystemDbContext, Configuration>());
+            //Database.SetInitializer(
+            //   new MigrateDatabaseToLatestVersion<RestaurantSystemDbContext, Configuration>());
 
-            //Database.SetInitializer(new DropCreateDatabaseAlways<JustSnakeDbContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantSystemDbContext>());
         }
 
         public virtual IDbSet<Address> Address { get; set; }

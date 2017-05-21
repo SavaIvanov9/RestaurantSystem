@@ -15,7 +15,7 @@
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.menuItems = new HashSet<MenuItem>(); 
+            this.menuItems = new HashSet<MenuItem>();
         }
 
         [Key]
