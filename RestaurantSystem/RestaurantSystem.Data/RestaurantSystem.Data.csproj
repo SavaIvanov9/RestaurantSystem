@@ -54,6 +54,16 @@
     <Compile Include="Repositories\Abstraction\GenericRepository.cs" />
     <Compile Include="Repositories\Abstraction\IGenericRepository.cs" />
     <Compile Include="Repositories\Address.cs" />
+    <Compile Include="Repositories\CityRepository.cs" />
+    <Compile Include="Repositories\ComponentRepository.cs" />
+    <Compile Include="Repositories\MenuItemRepository.cs" />
+    <Compile Include="Repositories\MenuItemTypeRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ProductTypeRepository.cs" />
+    <Compile Include="Repositories\RestaurantBranchRepository.cs" />
+    <Compile Include="Repositories\SaleRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
+    <Compile Include="Repositories\WaiterRepository.cs" />
     <Compile Include="RestaurantSystemData.cs" />
     <Compile Include="RestaurantSystemDbContext.cs" />
   </ItemGroup>
