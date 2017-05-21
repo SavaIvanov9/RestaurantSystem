@@ -50,10 +50,11 @@
         }
 
         [Required]
-        public ProductType ProductType { get; set; }
+        public virtual ProductType ProductType { get; set; }
 
         [Required]
-        public ProductType ProductId { get; set; }
+        [ForeignKey("ProductType")]
+        public long ProductId { get; set; }
 
         [Required]
         public decimal Price { get; set; }

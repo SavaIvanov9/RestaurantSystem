@@ -57,7 +57,7 @@ namespace RestaurantSystem.Models
 
         public string ProductTypeCode { get; set; }
 
-        public ICollection<Product> Products
+        public virtual ICollection<Product> Products
         {
             get
             {

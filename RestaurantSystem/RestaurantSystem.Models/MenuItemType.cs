@@ -56,7 +56,7 @@
         public string MenuItemTypeCode { get; set; }
 
         [Required]
-        public ICollection<MenuItem> MenuItems
+        public virtual ICollection<MenuItem> MenuItems
         {
             get
             {

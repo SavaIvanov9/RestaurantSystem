@@ -45,10 +45,11 @@
         }
 
         [Required]
-        public long CityId { get; set; }
+        [ForeignKey("City")]
+        public virtual long CityId { get; set; }
 
         [Required]
-        public City City { get; set; }
+        public virtual City City { get; set; }
 
         [Required]
         [MaxLength(5)]

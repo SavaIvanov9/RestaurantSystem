@@ -52,7 +52,7 @@
             }
         }
 
-        public ICollection<Address> Addresses
+        public virtual ICollection<Address> Addresses
         {
             get
             {

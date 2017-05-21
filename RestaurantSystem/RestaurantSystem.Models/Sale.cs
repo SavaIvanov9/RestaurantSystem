@@ -52,9 +52,10 @@ namespace RestaurantSystem.Models
         public byte Table { get; set; }
 
         [Required]
-        public Waiter Waiter { get; set; }
+        public virtual Waiter Waiter { get; set; }
 
         [Required]
+        [ForeignKey("Waiter")]
         public long WaiterId { get; set; }
     }
 }

@@ -58,7 +58,7 @@
         [Required]
         public decimal Quantity { get; set; }
 
-        public ICollection<MenuItem> MenuItems
+        public virtual ICollection<MenuItem> MenuItems
         {
             get
             {

@@ -53,9 +53,10 @@
         }
 
         [Required]
-        public MenuItemType MenuType { get; set; }
+        public virtual MenuItemType MenuType { get; set; }
 
         [Required]
+        [ForeignKey("MenuItemType")]
         public long MenuTypeId { get; set; }
 
         public string Recipe { get; set; }
@@ -63,7 +64,7 @@
         [Required]
         public decimal Price { get; set; }
 
-        public ICollection<Component> Components
+        public virtual ICollection<Component> Components
         {
             get
             {

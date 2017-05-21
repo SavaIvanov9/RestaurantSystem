@@ -52,7 +52,7 @@
             }
         }
 
-        public ICollection<Sale> Sales
+        public virtual ICollection<Sale> Sales
         {
             get
             {
