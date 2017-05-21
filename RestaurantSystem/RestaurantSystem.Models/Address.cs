@@ -52,7 +52,7 @@
         public virtual City City { get; set; }
 
         [Required]
-        [MaxLength(5)]
+        //[MaxLength(5)]
         public byte PostCode { get; set; }
 
         public string Street { get; set; }
