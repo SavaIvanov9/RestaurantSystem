@@ -4,7 +4,7 @@
     using RestaurantSystem.Data.Repositories.Abstraction;
     using RestaurantSystem.Models;
 
-    public class MenuItemTypeRepository : GenericRepository<MenuItemTypeRepository>, IRepository<MenuItemTypeRepository>
+    public class MenuItemTypeRepository : GenericRepository<MenuItemType>, IRepository<MenuItemType>
     {
         public MenuItemTypeRepository(IRestaurantSystemDbContext context)
             : base(context)

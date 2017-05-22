@@ -4,7 +4,7 @@
     using RestaurantSystem.Data.Repositories.Abstraction;
     using RestaurantSystem.Models;
 
-    public class RestaurantBranchRepository : GenericRepository<RestaurantBranchRepository>, IRepository<RestaurantBranchRepository>
+    public class RestaurantBranchRepository : GenericRepository<RestaurantBranch>, IRepository<RestaurantBranch>
     {
         public RestaurantBranchRepository(IRestaurantSystemDbContext context)
             : base(context)
