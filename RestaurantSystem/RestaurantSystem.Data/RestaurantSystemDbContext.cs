@@ -19,22 +19,32 @@
                 
         public virtual IDbSet<City> City { get; set; }
                 
-        public virtual IDbSet<MenuItemComponent> Component { get; set; }
-                
+        public virtual IDbSet<MenuItemComponent> MenuItemComponent { get; set; }
+
         public virtual IDbSet<MenuItem> MenuItem { get; set; }
-                
+
+        public virtual IDbSet<MenuItemsStore> MenuItemsStore { get; set; }
+
         public virtual IDbSet<MenuItemType> MenuItemType { get; set; }
-                
+
         public virtual IDbSet<Product> Product { get; set; }
-                
+
+        public virtual IDbSet<ProductsStore> ProductsStore { get; set; }
+
         public virtual IDbSet<ProductType> ProductType { get; set; }
                 
         public virtual IDbSet<RestaurantBranch> RestaurantBranch { get; set; }
-                
+
         public virtual IDbSet<Sale> Sale { get; set; }
-                
+
+        public virtual IDbSet<SaleComponent> SaleComponent { get; set; }
+
         public virtual IDbSet<Supplier> Supplier { get; set; }
-                
+
+        public virtual IDbSet<SupplyDocument> SupplyDocument { get; set; }
+
+        public virtual IDbSet<SupplyDocumentComponent> SupplyDocumentComponent { get; set; }
+
         public virtual IDbSet<Waiter> Waiter { get; set; }
         
         public new IDbSet<T> Set<T>() where T : class
