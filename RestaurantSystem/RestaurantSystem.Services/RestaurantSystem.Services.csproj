@@ -46,6 +46,7 @@
     <Compile Include="Abstraction\IPDFProcessingService.cs" />
     <Compile Include="Abstraction\IXMLProcessingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XMLProcessingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestaurantSystem.Data\RestaurantSystem.Data.csproj">

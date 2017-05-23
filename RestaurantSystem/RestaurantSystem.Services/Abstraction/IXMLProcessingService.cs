@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RestaurantSystem.Services.Abstraction
+﻿namespace RestaurantSystem.Services.Abstraction
 {
-    interface IXMLProcessingService
+    using RestaurantSystem.Data.Abstraction;
+    using RestaurantSystem.XMLManaging;
+    using RestaurantSystem.Infrastructure.Enumerations;
+    using System;
+
+    public interface IXMLProcessingService
     {
+        Tuple<DocumentProcessingResult, string> ImportDocument(ImportingType importing,
+            IRestaurantSystemData data, IXMLManager xmlManager, byte[] document);
     }
 }
