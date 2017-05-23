@@ -29,11 +29,17 @@
         public CityRepository City =>
             (CityRepository)this.GetRepository<City>();
 
-        public MenuItemComponentRepository Component =>
+        public MenuItemComponentRepository MenuItemComponent =>
             (MenuItemComponentRepository)this.GetRepository<MenuItemComponent>();
+
+        public MeasuringUnitRepository MeasuringUnit =>
+            (MeasuringUnitRepository)this.GetRepository<MeasuringUnit>();
 
         public MenuItemRepository MenuItem =>
             (MenuItemRepository)this.GetRepository<MenuItem>();
+
+        public MenuItemsStoreRepository MenuItemsStore =>
+            (MenuItemsStoreRepository)this.GetRepository<MenuItemsStore>();
 
         public MenuItemTypeRepository MenuItemType =>
             (MenuItemTypeRepository)this.GetRepository<MenuItemType>();
@@ -41,17 +47,29 @@
         public ProductRepository Product =>
             (ProductRepository)this.GetRepository<Product>();
 
+        public ProductsStoreRepository ProductsStore =>
+            (ProductsStoreRepository)this.GetRepository<ProductsStore>();
+
         public ProductTypeRepository ProductType =>
             (ProductTypeRepository)this.GetRepository<ProductType>();
 
         public RestaurantBranchRepository RestaurantBranch =>
             (RestaurantBranchRepository)this.GetRepository<RestaurantBranch>();
 
+        public SaleComponentRepository SaleComponent =>
+            (SaleComponentRepository)this.GetRepository<SaleComponent>();
+
         public SaleRepository Sale =>
             (SaleRepository)this.GetRepository<Sale>();
 
         public SupplierRepository Supplier =>
             (SupplierRepository)this.GetRepository<Supplier>();
+
+        public SupplyDocumentRepository SupplyDocument =>
+            (SupplyDocumentRepository)this.GetRepository<SupplyDocument>();
+
+        public SupplyDocumentComponentRepository SupplyDocumentComponent =>
+            (SupplyDocumentComponentRepository)this.GetRepository<SupplyDocumentComponent>();
 
         public WaiterRepository Waiter =>
             (WaiterRepository)this.GetRepository<Waiter>();
