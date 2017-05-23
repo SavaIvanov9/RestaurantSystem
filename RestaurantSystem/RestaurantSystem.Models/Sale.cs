@@ -51,7 +51,7 @@ namespace RestaurantSystem.Models
         }
 
         [Required]
-        public byte Table { get; set; }
+        public byte TableNumber { get; set; }
 
         [Required]
         public virtual Waiter Waiter { get; set; }
