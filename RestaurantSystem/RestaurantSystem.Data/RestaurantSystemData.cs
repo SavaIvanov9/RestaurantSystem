@@ -29,8 +29,8 @@
         public CityRepository City =>
             (CityRepository)this.GetRepository<City>();
 
-        public ComponentRepository Component =>
-            (ComponentRepository)this.GetRepository<MenuItemComponent>();
+        public MenuItemComponentRepository Component =>
+            (MenuItemComponentRepository)this.GetRepository<MenuItemComponent>();
 
         public MenuItemRepository MenuItem =>
             (MenuItemRepository)this.GetRepository<MenuItem>();

@@ -6,7 +6,7 @@
     {
         AddressRepository Address { get; }
         CityRepository City { get; }
-        ComponentRepository Component { get; }
+        MenuItemComponentRepository Component { get; }
         MenuItemRepository MenuItem { get; }
         MenuItemTypeRepository MenuItemType { get; }
         ProductRepository Product { get; }
