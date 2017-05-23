@@ -6,12 +6,12 @@
 
     public class JsonManager : IJsonManager
     {
-        public ICollection<Product> ImportProductsFile(byte[] document)
+        public IList<Product> ImportProductsFile(byte[] document)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Sale> ImportSalesFile(byte[] document)
+        public IList<Sale> ImportSalesFile(byte[] document)
         {
             throw new NotImplementedException();
         }

@@ -6,7 +6,7 @@
 
     public class PDFManager : IPDFManager
     {
-        public byte[] ExportSalesFile(ICollection<Sale> sales)
+        public byte[] ExportSalesFile(IList<Sale> sales)
         {
             throw new NotImplementedException();
         }

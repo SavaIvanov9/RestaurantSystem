@@ -5,6 +5,6 @@
 
     public interface IPDFManager
     {
-        byte[] ExportSalesFile(ICollection<Sale> sales);
+        byte[] ExportSalesFile(IList<Sale> sales);
     }
 }
