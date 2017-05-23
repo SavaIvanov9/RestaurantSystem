@@ -10,17 +10,26 @@
 
     public class ExcelProcessingService : IExcelProcessingService
     {
-        public Tuple<DocumentProcessingResult, string> ImportSales(IRestaurantSystemData data,
-            IExcelManager excelManager, byte[] document)
+        public Tuple<DocumentProcessingResult, string> ImportDocument(ImportingType importing,
+            IRestaurantSystemData data, IExcelManager excelManager, byte[] document)
         {
             Tuple<DocumentProcessingResult, string> result = new Tuple<DocumentProcessingResult, string>
-                (DocumentProcessingResult.SuccessfulProcessing, "Sales imported successfully!");
+                (DocumentProcessingResult.SuccessfulProcessing, $"{importing.ToString()} imported successfully!");
 
             try
             {
-                var sales = excelManager.ImportSalesFile(document);
+                if (importing == ImportingType.Sales)
+                {
+                    var sales = excelManager.ImportSalesFile(document);
 
-                AddSales(data, sales);
+                    AddSales(data, sales);
+                }
+                else if (importing == ImportingType.Products)
+                {
+                    var products = excelManager.ImportProductsFile(document);
+
+                    AddProducts(data, products);
+                }
             }
             catch (Exception ex)
             {
@@ -36,6 +45,18 @@
             for (int i = 0; i < sales.Count; i++)
             {
                 data.Sale.Add(sales[i]);
+
+                CheckForSave(i, data);
+            }
+
+            data.SaveChanges();
+        }
+
+        private void AddProducts(IRestaurantSystemData data, IList<Product> products)
+        {
+            for (int i = 0; i < products.Count; i++)
+            {
+                data.Product.Add(products[i]);
 
                 CheckForSave(i, data);
             }

@@ -7,7 +7,7 @@
 
     public interface IExcelProcessingService
     {
-        Tuple<DocumentProcessingResult, string> ImportSales(IRestaurantSystemData data,
-            IExcelManager excelManager, byte[] document);
+        Tuple<DocumentProcessingResult, string> ImportDocument(ImportingType importing,
+            IRestaurantSystemData data, IExcelManager excelManager, byte[] document);
     }
 }

@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\ExcelProcessingService.cs" />
+    <Compile Include="ExcelProcessingService.cs" />
     <Compile Include="Abstraction\IExcelProcessingService.cs" />
     <Compile Include="Abstraction\IJsonProcessingService.cs" />
     <Compile Include="Abstraction\IPDFProcessingService.cs" />
