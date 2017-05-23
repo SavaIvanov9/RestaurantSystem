@@ -3,11 +3,11 @@
     using RestaurantSystem.Data.Abstraction;
     using RestaurantSystem.XMLManaging;
     using RestaurantSystem.Infrastructure.Enumerations;
-    using System;
+    using RestaurantSystem.Services.XMLProcessing;
 
     public interface IXMLProcessingService
     {
-        Tuple<DocumentProcessingResult, string> ImportDocument(ImportingType importing,
+        XMLProcessingResult ImportDocument(ImportingType importing,
             IRestaurantSystemData data, IXMLManager xmlManager, byte[] document);
     }
 }

@@ -1,20 +1,24 @@
 ﻿namespace RestaurantSystem.Services
 {
     using RestaurantSystem.Data.Abstraction;
-    using RestaurantSystem.XMLManaging;
     using RestaurantSystem.Infrastructure.Enumerations;
     using RestaurantSystem.Models;
     using RestaurantSystem.Services.Abstraction;
+    using RestaurantSystem.Services.XMLProcessing;
+    using RestaurantSystem.XMLManaging;
     using System;
     using System.Collections.Generic;
 
     public class XMLProcessingService : IXMLProcessingService
     {
-        public Tuple<DocumentProcessingResult, string> ImportDocument(ImportingType importing,
+        public XMLProcessingResult ImportDocument(ImportingType importing,
             IRestaurantSystemData data, IXMLManager xmlManager, byte[] document)
         {
-            Tuple<DocumentProcessingResult, string> result = new Tuple<DocumentProcessingResult, string>
-                 (DocumentProcessingResult.SuccessfulProcessing, $"{importing.ToString()} imported successfully!");
+            var result = new XMLProcessingResult
+            {
+                Result = DocumentProcessingResult.SuccessfulProcessing,
+                Message = $"{importing.ToString()} imported successfully!"
+            };
 
             try
             {
@@ -33,8 +37,8 @@
             }
             catch (Exception ex)
             {
-                result = new Tuple<DocumentProcessingResult, string>
-                    (DocumentProcessingResult.UnSuccessfulProcessing, ex.Message);
+                result.Result = DocumentProcessingResult.UnSuccessfulProcessing;
+                result.Message = ex.Message;
             }
 
             return result;

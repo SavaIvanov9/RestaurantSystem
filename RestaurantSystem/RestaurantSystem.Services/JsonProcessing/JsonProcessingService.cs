@@ -1,20 +1,23 @@
 ﻿namespace RestaurantSystem.Services
 {
     using RestaurantSystem.Data.Abstraction;
-    using RestaurantSystem.ExcelManaging;
     using RestaurantSystem.Infrastructure.Enumerations;
+    using RestaurantSystem.JsonManaging;
     using RestaurantSystem.Models;
     using RestaurantSystem.Services.Abstraction;
+    using RestaurantSystem.Services.JsonProcessing;
     using System;
     using System.Collections.Generic;
-    using RestaurantSystem.JsonManaging;
 
     public class JsonProcessingService : IJsonProcessingService
     {
-        public Tuple<DocumentProcessingResult, string> ImportDocument(ImportingType importing, IRestaurantSystemData data, IJsonManager jsonManager, byte[] document)
+        public JsonProcessingResult ImportDocument(ImportingType importing, IRestaurantSystemData data, IJsonManager jsonManager, byte[] document)
         {
-            Tuple<DocumentProcessingResult, string> result = new Tuple<DocumentProcessingResult, string>
-                (DocumentProcessingResult.SuccessfulProcessing, $"{importing.ToString()} imported successfully!");
+            var result = new JsonProcessingResult
+            {
+                Result = DocumentProcessingResult.SuccessfulProcessing,
+                Message = $"{importing.ToString()} imported successfully!"
+            };
 
             try
             {
@@ -33,8 +36,8 @@
             }
             catch (Exception ex)
             {
-                result = new Tuple<DocumentProcessingResult, string>
-                    (DocumentProcessingResult.UnSuccessfulProcessing, ex.Message);
+                result.Result = DocumentProcessingResult.UnSuccessfulProcessing;
+                result.Message = ex.Message;
             }
 
             return result;

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RestaurantSystem.Services.XMLProcessing
+﻿namespace RestaurantSystem.Services.XMLProcessing
 {
-    class XMLProcessingResult
+    using RestaurantSystem.Infrastructure.Enumerations;
+
+    public class XMLProcessingResult
     {
+        public DocumentProcessingResult Result { get; set; }
+        public string Message { get; set; }
     }
 }
