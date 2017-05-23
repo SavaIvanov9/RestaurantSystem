@@ -5,6 +5,8 @@
 
     interface IXMLManager
     {
-        ICollection<Product> ImportFile(byte[] document);
+        ICollection<Product> ImportProductsFile(byte[] document);
+
+        ICollection<Sale> ImportSalesFile(byte[] document);
     }
 }

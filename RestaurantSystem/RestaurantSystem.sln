@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.XMLManagin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.ExcelManaging", "RestaurantSystem.ExcelManaging\RestaurantSystem.ExcelManaging.csproj", "{2FF651F2-16C5-483C-841B-878850E85AD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.PDFManaging", "RestaurantSystem.PDFManaging\RestaurantSystem.PDFManaging.csproj", "{8D0E3659-49AC-4FB8-BF63-7B8EEE285CFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{2FF651F2-16C5-483C-841B-878850E85AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FF651F2-16C5-483C-841B-878850E85AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FF651F2-16C5-483C-841B-878850E85AD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D0E3659-49AC-4FB8-BF63-7B8EEE285CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0E3659-49AC-4FB8-BF63-7B8EEE285CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0E3659-49AC-4FB8-BF63-7B8EEE285CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0E3659-49AC-4FB8-BF63-7B8EEE285CFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +86,6 @@ Global
 		{4F762513-DB5C-4213-BEF0-FB40452EAC80} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
 		{E7470FBD-D7F8-4FCD-AB05-BAE83F8CF8C2} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
 		{2FF651F2-16C5-483C-841B-878850E85AD2} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
+		{8D0E3659-49AC-4FB8-BF63-7B8EEE285CFF} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
 	EndGlobalSection
 EndGlobal
