@@ -8,15 +8,37 @@
     public interface IRestaurantSystemDbContext : IDisposable
     {
         IDbSet<Address> Address { get; set; }
+
         IDbSet<City> City { get; set; }
-        IDbSet<MenuItemComponent> Component { get; set; }
+
+        IDbSet<MeasuringUnit> MeasuringUnit { get; set; }
+
+        IDbSet<MenuItemComponent> MenuItemComponent { get; set; }
+
         IDbSet<MenuItem> MenuItem { get; set; }
+
+        IDbSet<MenuItemsStore> MenuItemsStore { get; set; }
+
         IDbSet<MenuItemType> MenuItemType { get; set; }
+
         IDbSet<Product> Product { get; set; }
+
+        IDbSet<ProductsStore> ProductsStore { get; set; }
+
         IDbSet<ProductType> ProductType { get; set; }
+
         IDbSet<RestaurantBranch> RestaurantBranch { get; set; }
+
         IDbSet<Sale> Sale { get; set; }
+
+        IDbSet<SaleComponent> SaleComponent { get; set; }
+
         IDbSet<Supplier> Supplier { get; set; }
+
+        IDbSet<SupplyDocument> SupplyDocument { get; set; }
+
+        IDbSet<SupplyDocumentComponent> SupplyDocumentComponent { get; set; }
+
         IDbSet<Waiter> Waiter { get; set; }
 
         int SaveChanges();

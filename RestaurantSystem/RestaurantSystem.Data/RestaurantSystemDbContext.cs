@@ -16,9 +16,11 @@
         }
 
         public virtual IDbSet<Address> Address { get; set; }
-                
+
         public virtual IDbSet<City> City { get; set; }
-                
+
+        public virtual IDbSet<MeasuringUnit> MeasuringUnit { get; set; }
+
         public virtual IDbSet<MenuItemComponent> MenuItemComponent { get; set; }
 
         public virtual IDbSet<MenuItem> MenuItem { get; set; }
