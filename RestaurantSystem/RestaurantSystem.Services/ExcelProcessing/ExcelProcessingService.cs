@@ -5,16 +5,20 @@
     using RestaurantSystem.Infrastructure.Enumerations;
     using RestaurantSystem.Models;
     using RestaurantSystem.Services.Abstraction;
+    using RestaurantSystem.Services.ExcelProcessing;
     using System;
     using System.Collections.Generic;
 
     public class ExcelProcessingService : IExcelProcessingService
     {
-        public Tuple<DocumentProcessingResult, string> ImportDocument(ImportingType importing,
+        public ExcelProcessingResult ImportDocument(ImportingType importing,
             IRestaurantSystemData data, IExcelManager excelManager, byte[] document)
         {
-            Tuple<DocumentProcessingResult, string> result = new Tuple<DocumentProcessingResult, string>
-                (DocumentProcessingResult.SuccessfulProcessing, $"{importing.ToString()} imported successfully!");
+            var result = new ExcelProcessingResult
+            {
+                Result = DocumentProcessingResult.SuccessfulProcessing,
+                Message = $"{importing.ToString()} imported successfully!"
+            };
 
             try
             {
@@ -33,8 +37,8 @@
             }
             catch (Exception ex)
             {
-                result = new Tuple<DocumentProcessingResult, string>
-                    (DocumentProcessingResult.UnSuccessfulProcessing, ex.Message);
+                result.Result = DocumentProcessingResult.UnSuccessfulProcessing;
+                result.Message = ex.Message;
             }
 
             return result;
