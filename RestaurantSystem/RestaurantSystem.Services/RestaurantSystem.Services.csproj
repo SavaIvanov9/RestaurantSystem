@@ -45,6 +45,7 @@
     <Compile Include="Abstraction\IJsonProcessingService.cs" />
     <Compile Include="Abstraction\IPDFProcessingService.cs" />
     <Compile Include="Abstraction\IXMLProcessingService.cs" />
+    <Compile Include="JsonProcessingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XMLProcessingService.cs" />
   </ItemGroup>
