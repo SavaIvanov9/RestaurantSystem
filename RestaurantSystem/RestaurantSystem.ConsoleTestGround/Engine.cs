@@ -19,7 +19,7 @@ namespace RestaurantSystem.ConsoleTestGround
             var db = new RestaurantSystemData();
 
             db.SaveChanges();
-            Console.WriteLine(db.Address.All().ToList().Count);
+            Console.WriteLine(db.Addresses.All().ToList().Count);
         }
     }
 }

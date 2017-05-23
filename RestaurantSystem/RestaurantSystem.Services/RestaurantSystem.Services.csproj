@@ -40,14 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExcelProcessingService.cs" />
-    <Compile Include="Abstraction\IExcelProcessingService.cs" />
-    <Compile Include="Abstraction\IJsonProcessingService.cs" />
-    <Compile Include="Abstraction\IPDFProcessingService.cs" />
-    <Compile Include="Abstraction\IXMLProcessingService.cs" />
-    <Compile Include="JsonProcessingService.cs" />
+    <Compile Include="ExcelProcessing\ExcelProcessingService.cs" />
+    <Compile Include="ExcelProcessing\IExcelProcessingService.cs" />
+    <Compile Include="JsonProcessing\IJsonProcessingService.cs" />
+    <Compile Include="PDFProcessing\IPDFProcessingService.cs" />
+    <Compile Include="PDFProcessing\PDFProcessingResult.cs" />
+    <Compile Include="XMLProcessing\IXMLProcessingService.cs" />
+    <Compile Include="JsonProcessing\JsonProcessingService.cs" />
+    <Compile Include="PDFProcessing\PDFProcessingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XMLProcessingService.cs" />
+    <Compile Include="XMLProcessing\XMLProcessingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestaurantSystem.Data\RestaurantSystem.Data.csproj">

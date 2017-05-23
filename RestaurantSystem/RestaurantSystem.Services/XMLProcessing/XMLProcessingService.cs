@@ -44,7 +44,7 @@
         {
             for (int i = 0; i < sales.Count; i++)
             {
-                data.Sale.Add(sales[i]);
+                data.Sales.Add(sales[i]);
 
                 CheckForSave(i, data);
             }
@@ -56,7 +56,7 @@
         {
             for (int i = 0; i < products.Count; i++)
             {
-                data.Product.Add(products[i]);
+                data.Products.Add(products[i]);
 
                 CheckForSave(i, data);
             }

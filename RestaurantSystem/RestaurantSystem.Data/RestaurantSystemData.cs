@@ -23,55 +23,55 @@
             this._repositories = new Dictionary<Type, object>();
         }
 
-        public AddressRepository Address =>
+        public AddressRepository Addresses =>
             (AddressRepository)this.GetRepository<Address>();
 
-        public CityRepository City =>
+        public CityRepository Cities =>
             (CityRepository)this.GetRepository<City>();
 
-        public MenuItemComponentRepository MenuItemComponent =>
+        public MenuItemComponentRepository MenuItemComponents =>
             (MenuItemComponentRepository)this.GetRepository<MenuItemComponent>();
 
-        public MeasuringUnitRepository MeasuringUnit =>
+        public MeasuringUnitRepository MeasuringUnits =>
             (MeasuringUnitRepository)this.GetRepository<MeasuringUnit>();
 
-        public MenuItemRepository MenuItem =>
+        public MenuItemRepository MenuItems =>
             (MenuItemRepository)this.GetRepository<MenuItem>();
 
-        public MenuItemsStoreRepository MenuItemsStore =>
+        public MenuItemsStoreRepository MenuItemsStores =>
             (MenuItemsStoreRepository)this.GetRepository<MenuItemsStore>();
 
-        public MenuItemTypeRepository MenuItemType =>
+        public MenuItemTypeRepository MenuItemTypes =>
             (MenuItemTypeRepository)this.GetRepository<MenuItemType>();
 
-        public ProductRepository Product =>
+        public ProductRepository Products =>
             (ProductRepository)this.GetRepository<Product>();
 
-        public ProductsStoreRepository ProductsStore =>
+        public ProductsStoreRepository ProductsStores =>
             (ProductsStoreRepository)this.GetRepository<ProductsStore>();
 
-        public ProductTypeRepository ProductType =>
+        public ProductTypeRepository ProductTypes =>
             (ProductTypeRepository)this.GetRepository<ProductType>();
 
-        public RestaurantBranchRepository RestaurantBranch =>
+        public RestaurantBranchRepository RestaurantBranches =>
             (RestaurantBranchRepository)this.GetRepository<RestaurantBranch>();
 
-        public SaleComponentRepository SaleComponent =>
+        public SaleComponentRepository SaleComponents =>
             (SaleComponentRepository)this.GetRepository<SaleComponent>();
 
-        public SaleRepository Sale =>
+        public SaleRepository Sales =>
             (SaleRepository)this.GetRepository<Sale>();
 
-        public SupplierRepository Supplier =>
+        public SupplierRepository Suppliers =>
             (SupplierRepository)this.GetRepository<Supplier>();
 
-        public SupplyDocumentRepository SupplyDocument =>
+        public SupplyDocumentRepository SupplyDocuments =>
             (SupplyDocumentRepository)this.GetRepository<SupplyDocument>();
 
-        public SupplyDocumentComponentRepository SupplyDocumentComponent =>
+        public SupplyDocumentComponentRepository SupplyDocumentComponents =>
             (SupplyDocumentComponentRepository)this.GetRepository<SupplyDocumentComponent>();
 
-        public WaiterRepository Waiter =>
+        public WaiterRepository Waiters =>
             (WaiterRepository)this.GetRepository<Waiter>();
 
         public void SaveChanges()

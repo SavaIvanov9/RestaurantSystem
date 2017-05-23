@@ -4,39 +4,39 @@
 
     public interface IRestaurantSystemData
     {
-        AddressRepository Address { get; }
+        AddressRepository Addresses { get; }
 
-        CityRepository City { get; }
+        CityRepository Cities { get; }
 
-        MeasuringUnitRepository MeasuringUnit { get; }
+        MeasuringUnitRepository MeasuringUnits { get; }
 
-        MenuItemComponentRepository MenuItemComponent { get; }
+        MenuItemComponentRepository MenuItemComponents { get; }
 
-        MenuItemRepository MenuItem { get; }
+        MenuItemRepository MenuItems { get; }
 
-        MenuItemsStoreRepository MenuItemsStore { get; }
+        MenuItemsStoreRepository MenuItemsStores { get; }
 
-        MenuItemTypeRepository MenuItemType { get; }
+        MenuItemTypeRepository MenuItemTypes { get; }
 
-        ProductRepository Product { get; }
+        ProductRepository Products { get; }
 
-        ProductsStoreRepository ProductsStore { get; }
+        ProductsStoreRepository ProductsStores { get; }
 
-        ProductTypeRepository ProductType { get; }
+        ProductTypeRepository ProductTypes { get; }
 
-        RestaurantBranchRepository RestaurantBranch { get; }
+        RestaurantBranchRepository RestaurantBranches { get; }
 
-        SaleRepository Sale { get; }
+        SaleRepository Sales { get; }
 
-        SaleComponentRepository SaleComponent { get; }
+        SaleComponentRepository SaleComponents { get; }
 
-        SupplierRepository Supplier { get; }
+        SupplierRepository Suppliers { get; }
 
-        SupplyDocumentRepository SupplyDocument { get; }
+        SupplyDocumentRepository SupplyDocuments { get; }
 
-        SupplyDocumentComponentRepository SupplyDocumentComponent { get; }
+        SupplyDocumentComponentRepository SupplyDocumentComponents { get; }
 
-        WaiterRepository Waiter { get; }
+        WaiterRepository Waiters { get; }
 
         void SaveChanges();
     }
