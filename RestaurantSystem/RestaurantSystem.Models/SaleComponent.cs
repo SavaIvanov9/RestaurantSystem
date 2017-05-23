@@ -1,15 +1,16 @@
 ﻿namespace RestaurantSystem.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Address
+    public class SaleComponent
     {
         private DateTime createdOn;
         private bool isDeleted;
 
-        public Address()
+        public SaleComponent()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
@@ -17,6 +18,23 @@
 
         [Key]
         public long Id { get; set; }
+
+        [Required]
+        [ForeignKey("MenuItem")]
+        public virtual long MenuItemId { get; set; }
+
+        [Required]
+        public virtual MenuItem MenuItem { get; set; }
+
+        public decimal Quantity { get; set; }
+
+        //public decimal SalesPrice { get; set; }
+
+        [Required]
+        [ForeignKey("Sale")]
+        public virtual long SaleId { get; set; }
+
+        public virtual Sale Sale { get; set; }
 
         public DateTime CreatedOn
         {
@@ -44,21 +62,8 @@
             }
         }
 
-        [Required]
-        [ForeignKey("City")]
-        public virtual long CityId { get; set; }
-
-        [Required]
-        public virtual City City { get; set; }
-
-        [Required]
-        //[MaxLength(5)]
-        public byte PostCode { get; set; }
-
-        public string Street { get; set; }
-
-        public string ContactName { get; set; }
-
-        public string PhoneNumber { get; set; }
     }
 }
+
+
+

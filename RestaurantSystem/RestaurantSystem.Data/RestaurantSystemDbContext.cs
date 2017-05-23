@@ -19,7 +19,7 @@
                 
         public virtual IDbSet<City> City { get; set; }
                 
-        public virtual IDbSet<Component> Component { get; set; }
+        public virtual IDbSet<MenuItemComponent> Component { get; set; }
                 
         public virtual IDbSet<MenuItem> MenuItem { get; set; }
                 

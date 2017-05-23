@@ -1,6 +1,7 @@
 ﻿namespace RestaurantSystem.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,11 +9,15 @@
     {
         private DateTime createdOn;
         private bool isDeleted;
+        private ICollection<SupplyDocumentComponent> supplyDocumentComponents;
+        private ICollection<MenuItemComponent> menuItemComponents;
 
         public Product()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
+            this.supplyDocumentComponents = new HashSet<SupplyDocumentComponent>();
+            this.menuItemComponents = new HashSet<MenuItemComponent>();
         }
 
         [Key]
@@ -50,13 +55,37 @@
         }
 
         [Required]
-        public virtual ProductType ProductType { get; set; }
+        public virtual MeasuringUnit MeasuringUnit { get; set; }
 
         [Required]
-        [ForeignKey("ProductType")]
-        public long ProductId { get; set; }
+        [ForeignKey("MeasuringUnit")]
+        public long MeasuringUnitId { get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        public decimal AveragePrice { get; set; }
+
+        public virtual ICollection<SupplyDocumentComponent> SupplyDocumentComponents
+        {
+            get
+            {
+                return this.supplyDocumentComponents;
+            }
+            set
+            {
+                this.supplyDocumentComponents = value;
+            }
+        }
+
+        public virtual ICollection<MenuItemComponent> MenuItemComponents
+        {
+            get
+            {
+                return this.menuItemComponents;
+            }
+            set
+            {
+                this.menuItemComponents = value;
+            }
+        }
     }
 }

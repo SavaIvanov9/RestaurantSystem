@@ -5,26 +5,36 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Component
+    public class MenuItemsStore
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<MenuItem> menuItems;
 
-        public Component()
+        public MenuItemsStore()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.menuItems = new HashSet<MenuItem>();
         }
 
         [Key]
         public long Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
-        [Index(IsUnique = true)]
-        public string Name { get; set; }
+        [ForeignKey("MenuItem")]
+        public virtual long MenuItemId { get; set; }
+
+        [Required]
+        public virtual MenuItem MenuItem { get; set; }
+
+        public decimal Quantity { get; set; }
+
+        //public decimal Price { get; set; }
+
+        //[Required]
+        //[ForeignKey("RestaurantBranch")]
+        //public virtual long RestaurantBranchId { get; set; }
+
+        //public virtual RestaurantBranch RestaurantBranch { get; set; }
 
         public DateTime CreatedOn
         {
@@ -52,23 +62,9 @@
             }
         }
 
-        [Required]
-        public string ProductTypeCode { get; set; }
-
-        [Required]
-        public decimal Quantity { get; set; }
-
-        public virtual ICollection<MenuItem> MenuItems
-        {
-            get
-            {
-                return this.menuItems;
-            }
-
-            set
-            {
-                this.menuItems = value;
-            }
-        }
     }
 }
+
+
+
+

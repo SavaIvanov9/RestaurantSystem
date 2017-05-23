@@ -13,8 +13,6 @@ namespace RestaurantSystem.Models
         private DateTime createdOn;
         private bool isDeleted;
         private ICollection<Sale> sales;
-        private ICollection<MenuItem> menuItems;
-        private ICollection<Product> products;
 
         public RestaurantBranch()
         {
@@ -63,6 +61,20 @@ namespace RestaurantSystem.Models
         [ForeignKey("Address")]
         public long AddressId { get; set; }
 
+        [Required]
+        public virtual ProductsStore ProductsStore { get; set; }
+
+        [Required]
+        [ForeignKey("ProductsStore")]
+        public long ProductsStoreId { get; set; }
+
+        [Required]
+        public virtual MenuItemsStore MenuItemsStore { get; set; }
+
+        [Required]
+        [ForeignKey("MenuItemsStore")]
+        public long MenuItemsStoreId { get; set; }
+
         public virtual ICollection<Sale> Sales
         {
             get
@@ -73,32 +85,6 @@ namespace RestaurantSystem.Models
             set
             {
                 this.sales = value;
-            }
-        }
-
-        public virtual ICollection<MenuItem> MenuItems
-        {
-            get
-            {
-                return this.menuItems;
-            }
-
-            set
-            {
-                this.menuItems = value;
-            }
-        }
-
-        public virtual ICollection<Product> Products
-        {
-            get
-            {
-                return this.products;
-            }
-
-            set
-            {
-                this.products = value;
             }
         }
     }

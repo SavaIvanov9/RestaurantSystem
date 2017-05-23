@@ -1,22 +1,30 @@
 ﻿namespace RestaurantSystem.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Address
+    public class MeasuringUnit
     {
         private DateTime createdOn;
         private bool isDeleted;
+        private ICollection<Product> products;
 
-        public Address()
+        public MeasuringUnit()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
+            this.products = new HashSet<Product>();
         }
 
         [Key]
         public long Id { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        [Index(IsUnique = true)]
+        public string Name { get; set; }
 
         public DateTime CreatedOn
         {
@@ -44,21 +52,18 @@
             }
         }
 
-        [Required]
-        [ForeignKey("City")]
-        public virtual long CityId { get; set; }
+        public virtual ICollection<Product> Products
+        {
+            get
+            {
+                return this.products;
+            }
 
-        [Required]
-        public virtual City City { get; set; }
-
-        [Required]
-        //[MaxLength(5)]
-        public byte PostCode { get; set; }
-
-        public string Street { get; set; }
-
-        public string ContactName { get; set; }
-
-        public string PhoneNumber { get; set; }
+            set
+            {
+                value = this.products;
+            }
+        }
     }
 }
+

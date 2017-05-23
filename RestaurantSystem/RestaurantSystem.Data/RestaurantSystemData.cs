@@ -30,7 +30,7 @@
             (CityRepository)this.GetRepository<City>();
 
         public ComponentRepository Component =>
-            (ComponentRepository)this.GetRepository<Component>();
+            (ComponentRepository)this.GetRepository<MenuItemComponent>();
 
         public MenuItemRepository MenuItem =>
             (MenuItemRepository)this.GetRepository<MenuItem>();

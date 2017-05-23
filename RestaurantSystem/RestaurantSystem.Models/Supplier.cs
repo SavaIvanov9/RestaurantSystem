@@ -12,11 +12,13 @@ namespace RestaurantSystem.Models
     {
         private DateTime createdOn;
         private bool isDeleted;
+        private ICollection<SupplyDocument> supplyDocuments;
 
         public Supplier()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
+            this.supplyDocuments = new HashSet<SupplyDocument>();
         }
 
         [Key]
@@ -59,5 +61,18 @@ namespace RestaurantSystem.Models
         [Required]
         [ForeignKey("Address")]
         public long AddressId { get; set; }
+
+        public ICollection<SupplyDocument> SupplyDocuments
+        {
+            get
+            {
+                return this.supplyDocuments;
+            }
+            set
+            {
+                this.supplyDocuments = value;
+            }
+        }
+
     }
 }

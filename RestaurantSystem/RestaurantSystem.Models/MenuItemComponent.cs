@@ -1,28 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RestaurantSystem.Models
+﻿namespace RestaurantSystem.Models
 {
-    public class Sale   //TODO: Sales price - to override the sales price in MenuItem
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    public class MenuItemComponent
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<SaleComponent> saleComponents;
+        private MenuItem menuItem;
 
-        public Sale()
+        public MenuItemComponent()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.saleComponents = new HashSet<SaleComponent>();
         }
 
         [Key]
         public long Id { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        [Index(IsUnique = true)]
+        public string Name { get; set; }
 
         public DateTime CreatedOn
         {
@@ -51,27 +52,30 @@ namespace RestaurantSystem.Models
         }
 
         [Required]
-        public byte Table { get; set; }
+        [ForeignKey("Product")]
+        public virtual long ProductId { get; set; }
+
+        public virtual Product Product { get; set; }
 
         [Required]
-        public virtual Waiter Waiter { get; set; }
+        public decimal Quantity { get; set; }
 
         [Required]
-        [ForeignKey("Waiter")]
-        public long WaiterId { get; set; }
+        [ForeignKey("MenuItem")]
+        public virtual long MenuItemId { get; set; }
 
-        public virtual ICollection<SaleComponent> SaleComponents
+
+        public virtual MenuItem MenuItem
         {
             get
             {
-                return this.saleComponents;
+                return this.menuItem;
             }
 
             set
             {
-                this.saleComponents = value;
+                this.menuItem = value;
             }
         }
-
     }
 }

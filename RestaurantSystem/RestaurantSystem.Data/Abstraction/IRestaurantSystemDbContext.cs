@@ -9,7 +9,7 @@
     {
         IDbSet<Address> Address { get; set; }
         IDbSet<City> City { get; set; }
-        IDbSet<Component> Component { get; set; }
+        IDbSet<MenuItemComponent> Component { get; set; }
         IDbSet<MenuItem> MenuItem { get; set; }
         IDbSet<MenuItemType> MenuItemType { get; set; }
         IDbSet<Product> Product { get; set; }

@@ -9,13 +9,13 @@
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<Component> components;
+        private ICollection<MenuItemComponent> components;
 
         public MenuItem()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.components = new HashSet<Component>();
+            this.components = new HashSet<MenuItemComponent>();
         }
 
         [Key]
@@ -62,9 +62,12 @@
         public string Recipe { get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        public decimal CostPrice { get; set; }
 
-        public virtual ICollection<Component> Components
+        [Required]
+        public decimal SalesPrice { get; set; }
+
+        public virtual ICollection<MenuItemComponent> Components
         {
             get
             {

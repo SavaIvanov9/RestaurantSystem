@@ -54,15 +54,21 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="City.cs" />
-    <Compile Include="Component.cs" />
+    <Compile Include="MenuItemComponent.cs" />
+    <Compile Include="MeasuringUnit.cs" />
     <Compile Include="MenuItem.cs" />
+    <Compile Include="MenuItemsStore.cs" />
     <Compile Include="MenuItemType.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductsStore.cs" />
     <Compile Include="ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantBranch.cs" />
     <Compile Include="Sale.cs" />
+    <Compile Include="SaleComponent.cs" />
     <Compile Include="Supplier.cs" />
+    <Compile Include="SupplyDocument.cs" />
+    <Compile Include="SupplyDocumentComponent.cs" />
     <Compile Include="Waiter.cs" />
   </ItemGroup>
   <ItemGroup>

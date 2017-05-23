@@ -1,24 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RestaurantSystem.Models
+﻿namespace RestaurantSystem.Models
 {
-    public class Sale   //TODO: Sales price - to override the sales price in MenuItem
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    public class SupplyDocument
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<SaleComponent> saleComponents;
 
-        public Sale()
+        private ICollection<SupplyDocumentComponent> supplyDocumentComponents;
+
+        public SupplyDocument()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.saleComponents = new HashSet<SaleComponent>();
+            this.supplyDocumentComponents = new HashSet<SupplyDocumentComponent>();
         }
 
         [Key]
@@ -51,27 +49,30 @@ namespace RestaurantSystem.Models
         }
 
         [Required]
-        public byte Table { get; set; }
+        public long ReferenceNumber { get; set; }
 
         [Required]
-        public virtual Waiter Waiter { get; set; }
+        public DateTime DocumentDate { get; set; }
 
         [Required]
-        [ForeignKey("Waiter")]
-        public long WaiterId { get; set; }
+        [ForeignKey("Supplier")]
+        public virtual long SupplierId { get; set; }
 
-        public virtual ICollection<SaleComponent> SaleComponents
+        [Required]
+        public virtual Supplier Supplier { get; set; }
+
+        public virtual ICollection<SupplyDocumentComponent> SupplyDocumentComponents
         {
             get
             {
-                return this.saleComponents;
+                return this.supplyDocumentComponents;
             }
 
             set
             {
-                this.saleComponents = value;
+                value = this.supplyDocumentComponents;
             }
         }
-
     }
 }
+
