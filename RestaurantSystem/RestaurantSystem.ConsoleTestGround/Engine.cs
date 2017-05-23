@@ -16,14 +16,10 @@ namespace RestaurantSystem.ConsoleTestGround
         {
             Console.WriteLine("RestaurantSystem.ConsoleTestGround started.");
 
-            var db = new RestaurantSystemDbContext();
-
-            Database.SetInitializer(
-                new MigrateDatabaseToLatestVersion
-                    <RestaurantSystemDbContext, Configuration>());
+            var db = new RestaurantSystemData();
 
             db.SaveChanges();
-            Console.WriteLine(db.Address.ToList().Count);
+            Console.WriteLine(db.Address.All().ToList().Count);
         }
     }
 }

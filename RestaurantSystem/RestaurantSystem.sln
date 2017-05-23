@@ -21,6 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.ConsoleTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.Web", "RestaurantSystem.Web\RestaurantSystem.Web.csproj", "{72771109-2229-448B-8437-925B1F8138E0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{2669B6DE-FCBD-4853-95C3-2B94EA718C18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.JsonManaging", "RestaurantSystem.JsonManaging\RestaurantSystem.JsonManaging.csproj", "{4F762513-DB5C-4213-BEF0-FB40452EAC80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.XMLManaging", "RestaurantSystem.XMLManaging\RestaurantSystem.XMLManaging.csproj", "{E7470FBD-D7F8-4FCD-AB05-BAE83F8CF8C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.ExcelManaging", "RestaurantSystem.ExcelManaging\RestaurantSystem.ExcelManaging.csproj", "{2FF651F2-16C5-483C-841B-878850E85AD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +55,18 @@ Global
 		{72771109-2229-448B-8437-925B1F8138E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72771109-2229-448B-8437-925B1F8138E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72771109-2229-448B-8437-925B1F8138E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F762513-DB5C-4213-BEF0-FB40452EAC80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F762513-DB5C-4213-BEF0-FB40452EAC80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F762513-DB5C-4213-BEF0-FB40452EAC80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F762513-DB5C-4213-BEF0-FB40452EAC80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7470FBD-D7F8-4FCD-AB05-BAE83F8CF8C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7470FBD-D7F8-4FCD-AB05-BAE83F8CF8C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7470FBD-D7F8-4FCD-AB05-BAE83F8CF8C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7470FBD-D7F8-4FCD-AB05-BAE83F8CF8C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF651F2-16C5-483C-841B-878850E85AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF651F2-16C5-483C-841B-878850E85AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF651F2-16C5-483C-841B-878850E85AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF651F2-16C5-483C-841B-878850E85AD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +77,8 @@ Global
 		{ECC4DC8C-FB71-4C61-897C-84BE7944D91C} = {15843B1E-BA23-40CA-BA42-B01E9A95009A}
 		{7D920805-3A6F-4E2C-8790-E4BCF066C7F2} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
 		{72771109-2229-448B-8437-925B1F8138E0} = {5DEAFEEC-6719-42A3-B0CE-436E1212DA88}
+		{4F762513-DB5C-4213-BEF0-FB40452EAC80} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
+		{E7470FBD-D7F8-4FCD-AB05-BAE83F8CF8C2} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
+		{2FF651F2-16C5-483C-841B-878850E85AD2} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
 	EndGlobalSection
 EndGlobal
