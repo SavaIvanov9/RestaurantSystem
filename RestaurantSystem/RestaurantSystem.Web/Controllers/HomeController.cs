@@ -21,7 +21,7 @@
 
             //ViewData["Message"] = "Your application description page.";
 
-            var count = this.Data.Address
+            var count = this.Data.Addresses
                 .All()
                 .ToList()
                 .Count;

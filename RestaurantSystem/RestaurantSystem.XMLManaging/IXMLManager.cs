@@ -3,10 +3,10 @@
     using RestaurantSystem.Models;
     using System.Collections.Generic;
 
-    interface IXMLManager
+    public interface IXMLManager
     {
-        ICollection<Product> ImportProductsFile(byte[] document);
+        IList<Product> ImportProductsFile(byte[] document);
 
-        ICollection<Sale> ImportSalesFile(byte[] document);
+        IList<Sale> ImportSalesFile(byte[] document);
     }
 }
