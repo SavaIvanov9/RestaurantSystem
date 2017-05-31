@@ -53,7 +53,7 @@
 
         [Required]
         //[MaxLength(5)]
-        public byte PostCode { get; set; }
+        public short PostCode { get; set; }
 
         public string Street { get; set; }
 
