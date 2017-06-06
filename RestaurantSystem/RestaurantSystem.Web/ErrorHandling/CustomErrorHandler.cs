@@ -11,6 +11,8 @@
     using RestaurantSystem.Data;
     using RestaurantSystem.Models;
     using System.Text;
+    using RestaurantSystem.ErrorLogData;
+    using RestaurantSystem.ErrorLogData.Models;
 
     public class CustomErrorHandler
     {
@@ -54,11 +56,19 @@
 
             try
             {
-                var db = new RestaurantSystemData();
+                //var db = new RestaurantSystemData();
 
-                db.Waiters.Add(new Waiter
+                //db.Waiters.Add(new Waiter
+                //{
+                //    Name = exception.Message + Guid.NewGuid()
+                //});
+
+                var db = new ErrorDbContext();
+
+                db.Error.Add(new Error
                 {
-                    Name = exception.Message + Guid.NewGuid()
+                    Name = exception.Message,
+                    Content = exception.ToString()
                 });
 
                 db.SaveChanges();
@@ -70,8 +80,7 @@
                 message.Append(" Could not save log.");
                 message.AppendLine(ex.ToString());
             }
-
-
+            
             return context.Response.WriteAsync(message.ToString());
         }
     }
