@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using RestaurantSystem.Data.Abstraction;
+    using System;
     using System.Linq;
 
     public class HomeController : BaseController
@@ -36,6 +37,11 @@
             ViewData["Message"] = "Your contact page.";
 
             return View();
+        }
+
+        public IActionResult TestError()
+        {
+            throw new Exception("Test error");
         }
 
         public IActionResult Error()

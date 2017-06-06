@@ -99,6 +99,8 @@
         {
             if (repositoryType.IsAssignableFrom(typeof(Address)))
                 type = typeof(AddressRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(Waiter)))
+                type = typeof(WaiterRepository);
         }
     }
 }

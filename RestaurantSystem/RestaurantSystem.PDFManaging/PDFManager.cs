@@ -12,7 +12,7 @@
         private const string FileFooter = "Total sales: ";
         private readonly string fileName = Directory.GetCurrentDirectory() + "/Reports/Report.pdf";
 
-        public void ExportSalesFile(IList<Sale> sales)
+        public byte[] ExportSalesFile(IList<Sale> sales)
         {
             // The numbers below are margins to be used in the document - left, right, top, bottom
             Document doc = new Document(PageSize.LETTER, 10, 10, 42, 35);
@@ -25,6 +25,7 @@
             this.CreateTable(sales, doc);
 
             doc.Close();
+            return new byte[10];
         }
 
         private void CreateTitleHeader(Document doc)

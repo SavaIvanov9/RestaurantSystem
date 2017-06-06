@@ -7,6 +7,10 @@
     using Microsoft.Extensions.Logging;
     using RestaurantSystem.Data;
     using RestaurantSystem.Data.Abstraction;
+    using RestaurantSystem.Web.ErrorHandling;
+    using System.Globalization;
+    using Microsoft.AspNetCore.Http;
+    using RestaurantSystem.Models;
 
     public class Startup
     {
@@ -44,7 +48,8 @@
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseCustomErrorHandler();
+                //app.UseExceptionHandler("/Home/Error");
             }
 
             app.UseStaticFiles();

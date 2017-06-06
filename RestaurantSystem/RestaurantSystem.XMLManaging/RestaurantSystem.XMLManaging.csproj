@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FakeXMLManager.cs" />
     <Compile Include="IXMLManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XMLManager.cs" />
