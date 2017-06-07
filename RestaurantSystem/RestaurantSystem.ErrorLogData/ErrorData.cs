@@ -12,8 +12,7 @@
         private readonly IErrorDbContext _context;
         private readonly IDictionary<Type, object> _repositories;
 
-        public ErrorData()
-            : this(new ErrorDbContext())
+        public ErrorData() : this(new ErrorDbContext())
         {
         }
 

@@ -7,10 +7,9 @@
     using Microsoft.Extensions.Logging;
     using RestaurantSystem.Data;
     using RestaurantSystem.Data.Abstraction;
+    using RestaurantSystem.ErrorLogData;
+    using RestaurantSystem.ErrorLogData.Abstraction;
     using RestaurantSystem.Web.ErrorHandling;
-    using System.Globalization;
-    using Microsoft.AspNetCore.Http;
-    using RestaurantSystem.Models;
 
     public class Startup
     {
@@ -30,7 +29,8 @@
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IRestaurantSystemData, RestaurantSystemData>();
-
+            services.AddTransient<IErrorData, ErrorData>();
+            
             // Add framework services.
             services.AddMvc();
         }

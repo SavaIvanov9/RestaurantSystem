@@ -13,9 +13,20 @@
     using System.Text;
     using RestaurantSystem.ErrorLogData;
     using RestaurantSystem.ErrorLogData.Models;
+    using RestaurantSystem.ErrorLogData.Abstraction;
+    using RestaurantSystem.Infrastructure;
+    using RestaurantSystem.Infrastructure.Constants;
 
-    public class CustomErrorHandler
+    public class CustomErrorHandler : BaseErrorHandler
     {
+        public CustomErrorHandler()
+        {
+        }
+
+        public CustomErrorHandler(IErrorData data) : base(data)
+        {
+        }
+
         private readonly RequestDelegate _next;
 
         public CustomErrorHandler(RequestDelegate next)
@@ -37,7 +48,7 @@
             //return _next(httpContext);
         }
 
-        private static Task HandleExceptionAsync(HttpContext context, Exception exception)
+        private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             //var code = HttpStatusCode.InternalServerError; // 500 if unexpected
 
@@ -56,31 +67,63 @@
 
             try
             {
-                //var db = new RestaurantSystemData();
+                var system = this.Data.SystemEnvironmentRepository
+                    .All()
+                    .Where(x => x.IsDeleted != true
+                        && x.Name == SystemEnvironments.RestaurantSystemWebMvc.ToString())
+                    .FirstOrDefault();
 
-                //db.Waiters.Add(new Waiter
-                //{
-                //    Name = exception.Message + Guid.NewGuid()
-                //});
-
-                var db = new ErrorDbContext();
-
-                db.Error.Add(new Error
+                if (system == null)
                 {
-                    Name = exception.Message,
-                    Content = exception.ToString()
-                });
+                    var restaurantSystemWebMvc = new SystemEnvironment
+                    {
+                        Name = SystemEnvironments.RestaurantSystemWebMvc.ToString(),
+                        Description = GlobalConstants.RestaurantSystemDescription,
+                    };
 
-                db.SaveChanges();
+                    this.Data.SystemEnvironmentRepository
+                        .Add(restaurantSystemWebMvc);
+
+                    this.Data.SaveChanges();
+
+                    restaurantSystemWebMvc.Errors.Add(new Error
+                    {
+                        Name = exception.Message,
+                        Content = exception.ToString(),
+                    });
+
+                    this.Data.SystemEnvironmentRepository
+                        .Update(restaurantSystemWebMvc);
+                }
+                else
+                {
+                    system.Errors
+                        .Add(new Error
+                        {
+                            Name = exception.Message,
+                            Content = exception.ToString(),
+                            SystemEnvironmentId = system.Id,
+                            SystemEnvironment = system
+                        });
+
+                    this.Data.SystemEnvironmentRepository
+                        .Update(system);
+                }
+
+                this.Data.SaveChanges();
 
                 message.Append(" Log saved successfully.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 message.Append(" Could not save log.");
-                message.AppendLine(ex.ToString());
+                if (GlobalConstants.IsDevelopment)
+                {
+                    message.AppendLine();
+                    message.AppendLine(ex.ToString());
+                }
             }
-            
+
             return context.Response.WriteAsync(message.ToString());
         }
     }
