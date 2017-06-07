@@ -72,15 +72,6 @@ namespace RestaurantSystem.ErrorLogDataManager
             }
             else
             {
-                //system.Errors
-                //    .Add(new Error
-                //    {
-                //        Name = "Test message",
-                //        Content = "Test content",
-                //        //SystemEnvironmentId = system.Id,
-                //        //SystemEnvironment = system
-                //    });
-
                 this._data.ErrorRepository
                     .Add(new Error
                     {
@@ -92,13 +83,6 @@ namespace RestaurantSystem.ErrorLogDataManager
 
                 this._data.SystemEnvironmentRepository
                     .Update(system);
-
-                //this.Data.ErrorRepository
-                //.Add(new Error
-                //{
-                //    Name = exception.Message,
-                //    Content = exception.ToString()
-                //});
             }
 
             this._data.SaveChanges();
@@ -169,7 +153,7 @@ namespace RestaurantSystem.ErrorLogDataManager
                 Console.WriteLine($"{align}Error System Id: {error.SystemEnvironmentId}/{error.SystemEnvironment.Id}");
                 Console.WriteLine($"{align}Error Created On: {error.CreatedOn}");
                 Console.WriteLine($"{align}Error IsDeleted: {error.IsDeleted}");
-                //Console.WriteLine($"    Error Content: {error.Content}");
+                Console.WriteLine($"{align}Error Content: {error.Content}");
                 Console.WriteLine();
             }
         }
