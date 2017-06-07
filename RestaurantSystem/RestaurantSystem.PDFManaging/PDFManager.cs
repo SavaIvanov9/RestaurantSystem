@@ -16,21 +16,22 @@
         {
             // The numbers below are margins to be used in the document - left, right, top, bottom
             Document doc = new Document(PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(this.fileName, FileMode.Create));
-
-            doc.Open();
-
-            this.CreateTitleHeader(doc);
-            this.CreateTableHeader(doc);
-            this.CreateTable(sales, doc);
-
-            doc.Close();
-            return new byte[10];
+            
+            using (MemoryStream stream = new MemoryStream())
+            {
+                PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(this.fileName, FileMode.Create));
+                doc.Open();
+                this.CreateTitleHeader(doc);
+                this.CreateTableHeader(doc);
+                this.CreateTable(sales, doc);
+                doc.Close();
+                return stream.ToArray();
+            }
         }
 
         private void CreateTitleHeader(Document doc)
         {
-            PdfPTable titleHeader = new PdfPTable(1); // the number is the number of columns
+            PdfPTable titleHeader = new PdfPTable(1); // this number is the number of columns
             PdfPCell cellHeader = new PdfPCell(this.MakeBold(FileHeader));
             cellHeader.HorizontalAlignment = 1;
 
