@@ -51,8 +51,7 @@
                 this.isDeleted = value;
             }
         }
-
-
+        
         public virtual ICollection<Error> Errors
         {
             get
