@@ -1,6 +1,4 @@
-﻿
-
-namespace RestaurantSystem.ErrorLogDataManager
+﻿namespace RestaurantSystem.ErrorLogDataManager
 {
     using RestaurantSystem.ErrorLogData;
     using System;

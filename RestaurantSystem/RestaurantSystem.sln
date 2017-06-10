@@ -41,6 +41,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.TestGround
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.ErrorLogDataManager", "RestaurantSystem.ErrorLogDataManager\RestaurantSystem.ErrorLogDataManager.csproj", "{4059E586-FC8C-4BAE-ADF1-A026979C8208}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlLite.TestGround", "SqlLite.TestGround\SqlLite.TestGround.csproj", "{5FE67F36-87C5-4DE0-9110-AC433A22392F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.FileManager", "RestaurantSystem.FileManager\RestaurantSystem.FileManager.csproj", "{C85C2A43-A7AF-4982-BD1A-DE326C969216}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,14 @@ Global
 		{4059E586-FC8C-4BAE-ADF1-A026979C8208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4059E586-FC8C-4BAE-ADF1-A026979C8208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4059E586-FC8C-4BAE-ADF1-A026979C8208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FE67F36-87C5-4DE0-9110-AC433A22392F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FE67F36-87C5-4DE0-9110-AC433A22392F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FE67F36-87C5-4DE0-9110-AC433A22392F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FE67F36-87C5-4DE0-9110-AC433A22392F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C85C2A43-A7AF-4982-BD1A-DE326C969216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C85C2A43-A7AF-4982-BD1A-DE326C969216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C85C2A43-A7AF-4982-BD1A-DE326C969216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C85C2A43-A7AF-4982-BD1A-DE326C969216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,5 +129,7 @@ Global
 		{A85A095C-1FEA-41D0-9C56-03C0DBF614DF} = {15843B1E-BA23-40CA-BA42-B01E9A95009A}
 		{087D1FEB-8A85-4780-8CA7-D05DF12B64DD} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
 		{4059E586-FC8C-4BAE-ADF1-A026979C8208} = {15843B1E-BA23-40CA-BA42-B01E9A95009A}
+		{5FE67F36-87C5-4DE0-9110-AC433A22392F} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
+		{C85C2A43-A7AF-4982-BD1A-DE326C969216} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
 	EndGlobalSection
 EndGlobal
