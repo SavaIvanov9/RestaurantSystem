@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
 
-namespace RestaurantSystem.Data.JsonModels
+namespace RestaurantSystem.JsonModels.JsonModels
 {
     public class JsonRestaurantBranch
     {

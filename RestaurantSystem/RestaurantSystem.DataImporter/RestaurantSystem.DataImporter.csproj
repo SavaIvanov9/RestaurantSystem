@@ -40,13 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Importers\Json\IJsonImporter.cs" />
+    <Compile Include="Importers\Json\JsonImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestObjectRandomGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\RestaurantSystem.JsonModels.csproj">
+      <Project>{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}</Project>
+      <Name>RestaurantSystem.JsonModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.Data\RestaurantSystem.Data.csproj">
       <Project>{23371684-3944-4594-A807-22304240BDCE}</Project>
       <Name>RestaurantSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Models\RestaurantSystem.Models.csproj">
+      <Project>{882EB16C-CD96-422E-86CF-B1F4F4992DF3}</Project>
+      <Name>RestaurantSystem.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

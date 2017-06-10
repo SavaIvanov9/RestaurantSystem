@@ -1,31 +1,25 @@
-﻿namespace RestaurantSystem.Data.JsonModels
+﻿namespace RestaurantSystem.JsonModels.JsonModels
 {
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
-    public class JsonStoredProduct
+    public class JsonSupplyDocument
     {
         private DateTime createdOn;
         private bool isDeleted;
 
-        public JsonStoredProduct()
+        private ICollection<JsonSupplyDocumentComponent> supplyDocumentComponents;
+
+        public JsonSupplyDocument()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
+            this.supplyDocumentComponents = new HashSet<JsonSupplyDocumentComponent>();
         }
 
         [JsonIgnore]
         public long Id { get; set; }
-
-        [JsonIgnore]
-        public virtual long ProductId { get; set; }
-
-        public virtual JsonProduct Product { get; set; }
-
-        public decimal Quantity { get; set; }
 
         [JsonIgnore]
         public DateTime CreatedOn
@@ -56,8 +50,27 @@
             }
         }
 
+        public long ReferenceNumber { get; set; }
+
+        public DateTime DocumentDate { get; set; }
+
+        [JsonIgnore]
+        public virtual long SupplierId { get; set; }
+
+        public virtual JsonSupplier Supplier { get; set; }
+
+        public virtual ICollection<JsonSupplyDocumentComponent> SupplyDocumentComponents
+        {
+            get
+            {
+                return this.supplyDocumentComponents;
+            }
+
+            set
+            {
+                value = this.supplyDocumentComponents;
+            }
+        }
     }
 }
-
-
 

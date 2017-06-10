@@ -1,22 +1,20 @@
-﻿namespace RestaurantSystem.Data.JsonModels
+﻿namespace RestaurantSystem.JsonModels.JsonModels
 {
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
-    public class JsonWaiter
+    public class JsonMenuItemType
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<JsonSale> sales;
+        private ICollection<JsonMenuItem> menuItems;
 
-        public JsonWaiter()
+        public JsonMenuItemType()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.sales = new HashSet<JsonSale>();
+            this.menuItems = new HashSet<JsonMenuItem>();
         }
 
         [JsonIgnore]
@@ -53,17 +51,19 @@
             }
         }
 
+        public string MenuItemTypeCode { get; set; }
+
         [JsonIgnore]
-        public virtual ICollection<JsonSale> Sales
+        public virtual ICollection<JsonMenuItem> MenuItems
         {
             get
             {
-                return this.sales;
+                return this.menuItems;
             }
 
             set
             {
-                this.sales = value;
+                this.menuItems = value;
             }
         }
     }

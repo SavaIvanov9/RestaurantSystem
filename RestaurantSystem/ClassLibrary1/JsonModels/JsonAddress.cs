@@ -1,28 +1,21 @@
-﻿namespace RestaurantSystem.Data.JsonModels
+﻿namespace RestaurantSystem.JsonModels.JsonModels
 {
     using Newtonsoft.Json;
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
-    public class JsonMenuItemType
+    public class JsonAddress
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<JsonMenuItem> menuItems;
 
-        public JsonMenuItemType()
+        public JsonAddress()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.menuItems = new HashSet<JsonMenuItem>();
         }
 
         [JsonIgnore]
         public long Id { get; set; }
-
-        public string Name { get; set; }
 
         [JsonIgnore]
         public DateTime CreatedOn
@@ -53,20 +46,17 @@
             }
         }
 
-        public string MenuItemTypeCode { get; set; }
-
         [JsonIgnore]
-        public virtual ICollection<JsonMenuItem> MenuItems
-        {
-            get
-            {
-                return this.menuItems;
-            }
+        public virtual long CityId { get; set; }
 
-            set
-            {
-                this.menuItems = value;
-            }
-        }
+        public JsonCity City { get; set; }
+
+        public short PostCode { get; set; }
+
+        public string Street { get; set; }
+
+        public string ContactName { get; set; }
+
+        public string PhoneNumber { get; set; }
     }
 }

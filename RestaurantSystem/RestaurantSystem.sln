@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commons", "Commons", "{04DBB175-AFCA-413F-A7FB-738D33461E41}"
 EndProject
@@ -44,6 +44,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlLite.TestGround", "SqlLite.TestGround\SqlLite.TestGround.csproj", "{5FE67F36-87C5-4DE0-9110-AC433A22392F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.FileManager", "RestaurantSystem.FileManager\RestaurantSystem.FileManager.csproj", "{C85C2A43-A7AF-4982-BD1A-DE326C969216}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.JsonModelMapper", "RestaurantSystem.JsonModelMapper\RestaurantSystem.JsonModelMapper.csproj", "{0C2D8F5F-88D2-49C7-A338-C36C1F45C0C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.JsonModels", "ClassLibrary1\RestaurantSystem.JsonModels.csproj", "{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +115,14 @@ Global
 		{C85C2A43-A7AF-4982-BD1A-DE326C969216}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C85C2A43-A7AF-4982-BD1A-DE326C969216}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C85C2A43-A7AF-4982-BD1A-DE326C969216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C2D8F5F-88D2-49C7-A338-C36C1F45C0C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C2D8F5F-88D2-49C7-A338-C36C1F45C0C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C2D8F5F-88D2-49C7-A338-C36C1F45C0C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C2D8F5F-88D2-49C7-A338-C36C1F45C0C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,5 +143,7 @@ Global
 		{4059E586-FC8C-4BAE-ADF1-A026979C8208} = {15843B1E-BA23-40CA-BA42-B01E9A95009A}
 		{5FE67F36-87C5-4DE0-9110-AC433A22392F} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
 		{C85C2A43-A7AF-4982-BD1A-DE326C969216} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
+		{0C2D8F5F-88D2-49C7-A338-C36C1F45C0C7} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
+		{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8} = {04DBB175-AFCA-413F-A7FB-738D33461E41}
 	EndGlobalSection
 EndGlobal

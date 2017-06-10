@@ -1,19 +1,23 @@
 ﻿namespace RestaurantSystem.JsonManaging
 {
-    using RestaurantSystem.Models;
-    using System;
+    using Newtonsoft.Json;
+    using RestaurantSystem.JsonModels.JsonModels;
     using System.Collections.Generic;
 
     public class JsonManager : IJsonManager
     {
-        public IList<Product> ImportProductsFile(byte[] document)
+        public IList<JsonSupplyDocument> ImportProductsFile(byte[] document)
         {
-            throw new NotImplementedException();
+            var result = JsonConvert.DeserializeObject<List<JsonSupplyDocument>>(document.ToString());
+
+            return result;
         }
 
-        public IList<Sale> ImportSalesFile(byte[] document)
+        public IList<JsonSale> ImportSalesFile(byte[] document)
         {
-            throw new NotImplementedException();
+            var result = JsonConvert.DeserializeObject<List<JsonSale>>(document.ToString());
+
+            return result;
         }
     }
 }

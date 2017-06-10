@@ -67,6 +67,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\RestaurantSystem.JsonModels.csproj">
+      <Project>{ff1bf15b-926c-4d1b-9282-4a35b7b09eb8}</Project>
+      <Name>RestaurantSystem.JsonModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.ConsoleTestGround\RestaurantSystem.ConsoleTestGround.csproj">
       <Project>{7D920805-3A6F-4E2C-8790-E4BCF066C7F2}</Project>
       <Name>RestaurantSystem.ConsoleTestGround</Name>

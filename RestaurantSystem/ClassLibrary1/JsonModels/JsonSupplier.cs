@@ -1,36 +1,26 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RestaurantSystem.Data.JsonModels
+namespace RestaurantSystem.JsonModels.JsonModels
 {
-    public class JsonSale   //TODO: Sales price - to override the sales price in MenuItem
+    public class JsonSupplier
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<JsonSaleComponent> saleComponents;
+        private ICollection<JsonSupplyDocument> supplyDocuments;
 
-        public JsonSale()
+        public JsonSupplier()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.saleComponents = new HashSet<JsonSaleComponent>();
+            this.supplyDocuments = new HashSet<JsonSupplyDocument>();
         }
 
         [JsonIgnore]
         public long Id { get; set; }
 
-        [JsonIgnore]
-        public virtual long RestaurantBranchId { get; set; }
-
-        [JsonIgnore]
-        public virtual JsonRestaurantBranch RestaurantBranch { get; set; }
-
+        public string Name { get; set; }
 
         [JsonIgnore]
         public DateTime CreatedOn
@@ -61,23 +51,21 @@ namespace RestaurantSystem.Data.JsonModels
             }
         }
 
-        public byte TableNumber { get; set; }
-
-        public virtual JsonWaiter Waiter { get; set; }
+        public virtual JsonAddress Address { get; set; }
 
         [JsonIgnore]
-        public long WaiterId { get; set; }
+        public long AddressId { get; set; }
 
-        public virtual ICollection<JsonSaleComponent> SaleComponents
+        [JsonIgnore]
+        public ICollection<JsonSupplyDocument> SupplyDocuments
         {
             get
             {
-                return this.saleComponents;
+                return this.supplyDocuments;
             }
-
             set
             {
-                this.saleComponents = value;
+                this.supplyDocuments = value;
             }
         }
 

@@ -2,16 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity.Migrations;
 using System.Data.Entity;
-using RestaurantSystem.Data.Migrations;
-using RestaurantSystem.Models;
 using RestaurantSystem.ErrorLogData;
-using RestaurantSystem.ErrorLogData.Models;
 using Newtonsoft.Json;
 using RestaurantSystem.DataImporter;
+using RestaurantSystem.JsonModels.JsonModels;
 
 namespace RestaurantSystem.TestGround
 {
@@ -27,9 +22,9 @@ namespace RestaurantSystem.TestGround
 
             Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantSystemDbContext>());
 
-            TestData();
+            //TestData();
             //TestErrorDb();
-            //this.TestModelGenerator();
+            this.TestModelGenerator();
         }
 
         public void TestData()
@@ -73,9 +68,15 @@ namespace RestaurantSystem.TestGround
             var objGenerator = new TestObjectRandomGenerator();
             var someSale = objGenerator.GenerateSale();
             var someSupplyDocument = objGenerator.GenerateSupplyDocument();
+            var someSupplyDocumentCollection = new List<JsonSupplyDocument>();
+            someSupplyDocumentCollection.Add(someSupplyDocument);
+            someSupplyDocumentCollection.Add(objGenerator.GenerateSupplyDocument());
+
             string saleToJson = JsonConvert.SerializeObject(someSale, Formatting.Indented);
-            string supplyDocumentToJson = JsonConvert.SerializeObject(someSupplyDocument, Formatting.Indented);
+            string supplyDocumentToJson = JsonConvert.SerializeObject(someSupplyDocumentCollection, Formatting.Indented);
             Console.WriteLine(supplyDocumentToJson);
+
+            someSupplyDocumentCollection = JsonConvert.DeserializeObject<List<JsonSupplyDocument>>(supplyDocumentToJson);
         }
     }
 }

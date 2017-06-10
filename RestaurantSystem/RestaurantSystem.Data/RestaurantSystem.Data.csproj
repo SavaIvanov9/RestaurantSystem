@@ -52,21 +52,6 @@
   <ItemGroup>
     <Compile Include="Abstraction\IRestaurantSystemData.cs" />
     <Compile Include="Abstraction\IRestaurantSystemDbContext.cs" />
-    <Compile Include="JsonModels\JsonAddress.cs" />
-    <Compile Include="JsonModels\JsonCity.cs" />
-    <Compile Include="JsonModels\JsonMeasuringUnit.cs" />
-    <Compile Include="JsonModels\JsonMenuItem.cs" />
-    <Compile Include="JsonModels\JsonMenuItemComponent.cs" />
-    <Compile Include="JsonModels\JsonMenuItemType.cs" />
-    <Compile Include="JsonModels\JsonProduct.cs" />
-    <Compile Include="JsonModels\JsonRestaurantBranch.cs" />
-    <Compile Include="JsonModels\JsonSale.cs" />
-    <Compile Include="JsonModels\JsonSaleComponent.cs" />
-    <Compile Include="JsonModels\JsonStoredProduct.cs" />
-    <Compile Include="JsonModels\JsonSupplier.cs" />
-    <Compile Include="JsonModels\JsonSupplyDocument.cs" />
-    <Compile Include="JsonModels\JsonSupplyDocumentComponent.cs" />
-    <Compile Include="JsonModels\JsonWaiter.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Abstraction\GenericRepository.cs" />

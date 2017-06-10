@@ -1,39 +1,26 @@
-﻿namespace RestaurantSystem.Data.JsonModels
+﻿namespace RestaurantSystem.JsonModels.JsonModels
 {
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
-    public class JsonSaleComponent
+    public class JsonMenuItem
     {
         private DateTime createdOn;
         private bool isDeleted;
+        private ICollection<JsonMenuItemComponent> components;
 
-        public JsonSaleComponent()
+        public JsonMenuItem()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
+            this.components = new HashSet<JsonMenuItemComponent>();
         }
 
         [JsonIgnore]
         public long Id { get; set; }
 
-        [JsonIgnore]
-        public virtual long MenuItemId { get; set; }
-
-        public virtual JsonMenuItem MenuItem { get; set; }
-
-        public decimal Quantity { get; set; }
-
-        //public decimal SalesPrice { get; set; }
-
-        [JsonIgnore]
-        public virtual long SaleId { get; set; }
-
-        [JsonIgnore]
-        public virtual JsonSale Sale { get; set; }
+        public string Name { get; set; }
 
         [JsonIgnore]
         public DateTime CreatedOn
@@ -64,8 +51,29 @@
             }
         }
 
+        public virtual JsonMenuItemType MenuItemType { get; set; }
+
+        [JsonIgnore]
+        public long MenuItemTypeId { get; set; }
+
+        public string Recipe { get; set; }
+
+        [JsonIgnore]
+        public decimal CostPrice { get; set; }
+
+        [JsonIgnore]
+        public decimal SalesPrice { get; set; }
+
+        public virtual ICollection<JsonMenuItemComponent> Components
+        {
+            get
+            {
+                return this.components;
+            }
+            set
+            {
+                this.components = value;
+            }
+        }
     }
 }
-
-
-
