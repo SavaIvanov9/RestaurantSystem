@@ -9,10 +9,9 @@
     {
         public RestaurantSystemDbContext() : base("RestaurantSystem")
         {
-            Database.SetInitializer(
-               new MigrateDatabaseToLatestVersion<RestaurantSystemDbContext, Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<RestaurantSystemDbContext, Configuration>());
 
-            //Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantSystemDbContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantSystemDbContext>());
         }
 
         public virtual IDbSet<Address> Address { get; set; }
@@ -25,13 +24,13 @@
 
         public virtual IDbSet<MenuItem> MenuItem { get; set; }
 
-        public virtual IDbSet<MenuItemsStore> MenuItemsStore { get; set; }
+        //public virtual IDbSet<MenuItemsStore> MenuItemsStore { get; set; }
 
         public virtual IDbSet<MenuItemType> MenuItemType { get; set; }
 
         public virtual IDbSet<Product> Product { get; set; }
 
-        public virtual IDbSet<ProductsStore> ProductsStore { get; set; }
+        public virtual IDbSet<StoredProduct> StoredProduct { get; set; }
 
         public virtual IDbSet<ProductType> ProductType { get; set; }
                 

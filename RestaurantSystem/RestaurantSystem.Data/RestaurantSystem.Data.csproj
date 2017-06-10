@@ -36,6 +36,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -49,6 +52,21 @@
   <ItemGroup>
     <Compile Include="Abstraction\IRestaurantSystemData.cs" />
     <Compile Include="Abstraction\IRestaurantSystemDbContext.cs" />
+    <Compile Include="JsonModels\JsonAddress.cs" />
+    <Compile Include="JsonModels\JsonCity.cs" />
+    <Compile Include="JsonModels\JsonMeasuringUnit.cs" />
+    <Compile Include="JsonModels\JsonMenuItem.cs" />
+    <Compile Include="JsonModels\JsonMenuItemComponent.cs" />
+    <Compile Include="JsonModels\JsonMenuItemType.cs" />
+    <Compile Include="JsonModels\JsonProduct.cs" />
+    <Compile Include="JsonModels\JsonRestaurantBranch.cs" />
+    <Compile Include="JsonModels\JsonSale.cs" />
+    <Compile Include="JsonModels\JsonSaleComponent.cs" />
+    <Compile Include="JsonModels\JsonStoredProduct.cs" />
+    <Compile Include="JsonModels\JsonSupplier.cs" />
+    <Compile Include="JsonModels\JsonSupplyDocument.cs" />
+    <Compile Include="JsonModels\JsonSupplyDocumentComponent.cs" />
+    <Compile Include="JsonModels\JsonWaiter.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Abstraction\GenericRepository.cs" />
@@ -61,7 +79,7 @@
     <Compile Include="Repositories\MenuItemsStoreRepository.cs" />
     <Compile Include="Repositories\MenuItemTypeRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
-    <Compile Include="Repositories\ProductsStoreRepository.cs" />
+    <Compile Include="Repositories\StoredProductsRepository.cs" />
     <Compile Include="Repositories\ProductTypeRepository.cs" />
     <Compile Include="Repositories\RestaurantBranchRepository.cs" />
     <Compile Include="Repositories\SaleComponentRepository.cs" />
@@ -83,5 +101,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

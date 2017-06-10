@@ -1,32 +1,29 @@
-﻿namespace RestaurantSystem.Models
+﻿namespace RestaurantSystem.Data.JsonModels
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class City
+    public class JsonSupplyDocument
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<Address> addresses;
 
-        public City()
+        private ICollection<JsonSupplyDocumentComponent> supplyDocumentComponents;
+
+        public JsonSupplyDocument()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.addresses = new HashSet<Address>();
+            this.supplyDocumentComponents = new HashSet<JsonSupplyDocumentComponent>();
         }
 
-        //[JsonIgnore]
-        [Key]
+        [JsonIgnore]
         public long Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        [Index(IsUnique = true)]
-        public string Name { get; set; }
-
+        [JsonIgnore]
         public DateTime CreatedOn
         {
             get
@@ -39,8 +36,10 @@
             }
         }
 
+        [JsonIgnore]
         public DateTime? ModifiedOn { get; set; }
 
+        [JsonIgnore]
         public bool IsDeleted
         {
             get
@@ -53,16 +52,25 @@
             }
         }
 
-        public virtual ICollection<Address> Addresses
+        public long ReferenceNumber { get; set; }
+
+        public DateTime DocumentDate { get; set; }
+
+        [JsonIgnore]
+        public virtual long SupplierId { get; set; }
+
+        public virtual JsonSupplier Supplier { get; set; }
+
+        public virtual ICollection<JsonSupplyDocumentComponent> SupplyDocumentComponents
         {
             get
             {
-                return this.addresses;
+                return this.supplyDocumentComponents;
             }
 
             set
             {
-                value = this.addresses;
+                value = this.supplyDocumentComponents;
             }
         }
     }

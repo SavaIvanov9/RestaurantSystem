@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,31 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantSystem.Models
+namespace RestaurantSystem.Data.JsonModels
 {
-    public class Sale   //TODO: Sales price - to override the sales price in MenuItem
+    public class JsonSale   //TODO: Sales price - to override the sales price in MenuItem
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<SaleComponent> saleComponents;
+        private ICollection<JsonSaleComponent> saleComponents;
 
-        public Sale()
+        public JsonSale()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.saleComponents = new HashSet<SaleComponent>();
+            this.saleComponents = new HashSet<JsonSaleComponent>();
         }
 
-        [Key]
+        [JsonIgnore]
         public long Id { get; set; }
 
-        [Required]
-        [ForeignKey("RestaurantBranch")]
+        [JsonIgnore]
         public virtual long RestaurantBranchId { get; set; }
 
-        public virtual RestaurantBranch RestaurantBranch { get; set; }
+        [JsonIgnore]
+        public virtual JsonRestaurantBranch RestaurantBranch { get; set; }
 
 
+        [JsonIgnore]
         public DateTime CreatedOn
         {
             get
@@ -43,8 +45,10 @@ namespace RestaurantSystem.Models
             }
         }
 
+        [JsonIgnore]
         public DateTime? ModifiedOn { get; set; }
 
+        [JsonIgnore]
         public bool IsDeleted
         {
             get
@@ -57,17 +61,14 @@ namespace RestaurantSystem.Models
             }
         }
 
-        [Required]
         public byte TableNumber { get; set; }
 
-        [Required]
-        public virtual Waiter Waiter { get; set; }
+        public virtual JsonWaiter Waiter { get; set; }
 
-        [Required]
-        [ForeignKey("Waiter")]
+        [JsonIgnore]
         public long WaiterId { get; set; }
 
-        public virtual ICollection<SaleComponent> SaleComponents
+        public virtual ICollection<JsonSaleComponent> SaleComponents
         {
             get
             {

@@ -1,32 +1,31 @@
-﻿namespace RestaurantSystem.Models
+﻿namespace RestaurantSystem.Data.JsonModels
 {
+    using Newtonsoft.Json;
+    using RestaurantSystem.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class City
+    public class JsonCity
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<Address> addresses;
+        private ICollection<JsonAddress> addresses;
 
-        public City()
+        public JsonCity()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.addresses = new HashSet<Address>();
+            this.addresses = new HashSet<JsonAddress>();
         }
 
-        //[JsonIgnore]
-        [Key]
+        [JsonIgnore]
         public long Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        [Index(IsUnique = true)]
         public string Name { get; set; }
 
+        [JsonIgnore]
         public DateTime CreatedOn
         {
             get
@@ -39,8 +38,10 @@
             }
         }
 
+        [JsonIgnore]
         public DateTime? ModifiedOn { get; set; }
 
+        [JsonIgnore]
         public bool IsDeleted
         {
             get
@@ -53,7 +54,8 @@
             }
         }
 
-        public virtual ICollection<Address> Addresses
+        [JsonIgnore]
+        public ICollection<JsonAddress> Addresses
         {
             get
             {

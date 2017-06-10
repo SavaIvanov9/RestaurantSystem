@@ -1,41 +1,33 @@
-﻿namespace RestaurantSystem.Models
+﻿namespace RestaurantSystem.Data.JsonModels
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class ProductsStore
+    public class JsonStoredProduct
     {
         private DateTime createdOn;
         private bool isDeleted;
 
-        public ProductsStore()
+        public JsonStoredProduct()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
         }
 
-        [Key]
+        [JsonIgnore]
         public long Id { get; set; }
 
-        [Required]
-        [ForeignKey("Product")]
+        [JsonIgnore]
         public virtual long ProductId { get; set; }
 
-        [Required]
-        public virtual Product Product { get; set; }
+        public virtual JsonProduct Product { get; set; }
 
         public decimal Quantity { get; set; }
 
-        //public decimal Price { get; set; }
-
-        //[Required]
-        //[ForeignKey("RestaurantBranch")]
-        //public virtual long RestaurantBranchId { get; set; }
-
-        //public virtual RestaurantBranch RestaurantBranch { get; set; }
-
+        [JsonIgnore]
         public DateTime CreatedOn
         {
             get
@@ -48,8 +40,10 @@
             }
         }
 
+        [JsonIgnore]
         public DateTime? ModifiedOn { get; set; }
 
+        [JsonIgnore]
         public bool IsDeleted
         {
             get

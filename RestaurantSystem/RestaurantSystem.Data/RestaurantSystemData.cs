@@ -38,8 +38,8 @@
         public MenuItemRepository MenuItems =>
             (MenuItemRepository)this.GetRepository<MenuItem>();
 
-        public MenuItemsStoreRepository MenuItemsStores =>
-            (MenuItemsStoreRepository)this.GetRepository<MenuItemsStore>();
+        //public MenuItemsStoreRepository MenuItemsStores =>
+        //    (MenuItemsStoreRepository)this.GetRepository<MenuItemsStore>();
 
         public MenuItemTypeRepository MenuItemTypes =>
             (MenuItemTypeRepository)this.GetRepository<MenuItemType>();
@@ -47,8 +47,8 @@
         public ProductRepository Products =>
             (ProductRepository)this.GetRepository<Product>();
 
-        public ProductsStoreRepository ProductsStores =>
-            (ProductsStoreRepository)this.GetRepository<ProductsStore>();
+        public StoredProductsRepository StoredProducts =>
+            (StoredProductsRepository)this.GetRepository<StoredProduct>();
 
         public ProductTypeRepository ProductTypes =>
             (ProductTypeRepository)this.GetRepository<ProductType>();

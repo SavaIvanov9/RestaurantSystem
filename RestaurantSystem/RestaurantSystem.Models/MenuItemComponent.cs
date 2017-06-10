@@ -20,10 +20,10 @@
         [Key]
         public long Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        [Index(IsUnique = true)]
-        public string Name { get; set; }
+        //[Required]
+        //[MaxLength(50)]
+        //[Index(IsUnique = true)]
+        //public string Name { get; set; }
 
         public DateTime CreatedOn
         {

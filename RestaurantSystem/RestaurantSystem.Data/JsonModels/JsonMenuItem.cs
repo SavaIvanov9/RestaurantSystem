@@ -1,32 +1,30 @@
-﻿namespace RestaurantSystem.Models
+﻿namespace RestaurantSystem.Data.JsonModels
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class City
+    public class JsonMenuItem
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<Address> addresses;
+        private ICollection<JsonMenuItemComponent> components;
 
-        public City()
+        public JsonMenuItem()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.addresses = new HashSet<Address>();
+            this.components = new HashSet<JsonMenuItemComponent>();
         }
 
-        //[JsonIgnore]
-        [Key]
+        [JsonIgnore]
         public long Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        [Index(IsUnique = true)]
         public string Name { get; set; }
 
+        [JsonIgnore]
         public DateTime CreatedOn
         {
             get
@@ -39,8 +37,10 @@
             }
         }
 
+        [JsonIgnore]
         public DateTime? ModifiedOn { get; set; }
 
+        [JsonIgnore]
         public bool IsDeleted
         {
             get
@@ -53,18 +53,29 @@
             }
         }
 
-        public virtual ICollection<Address> Addresses
+        public virtual JsonMenuItemType MenuItemType { get; set; }
+
+        [JsonIgnore]
+        public long MenuItemTypeId { get; set; }
+
+        public string Recipe { get; set; }
+
+        [JsonIgnore]
+        public decimal CostPrice { get; set; }
+
+        [JsonIgnore]
+        public decimal SalesPrice { get; set; }
+
+        public virtual ICollection<JsonMenuItemComponent> Components
         {
             get
             {
-                return this.addresses;
+                return this.components;
             }
-
             set
             {
-                value = this.addresses;
+                this.components = value;
             }
         }
     }
 }
-

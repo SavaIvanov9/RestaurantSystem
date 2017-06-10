@@ -14,13 +14,13 @@
 
         MenuItemRepository MenuItems { get; }
 
-        MenuItemsStoreRepository MenuItemsStores { get; }
+        //MenuItemsStoreRepository MenuItemsStores { get; }
 
         MenuItemTypeRepository MenuItemTypes { get; }
 
         ProductRepository Products { get; }
 
-        ProductsStoreRepository ProductsStores { get; }
+        StoredProductsRepository StoredProducts { get; }
 
         ProductTypeRepository ProductTypes { get; }
 

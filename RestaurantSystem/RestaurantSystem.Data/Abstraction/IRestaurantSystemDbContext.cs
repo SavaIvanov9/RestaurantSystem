@@ -17,13 +17,13 @@
 
         IDbSet<MenuItem> MenuItem { get; set; }
 
-        IDbSet<MenuItemsStore> MenuItemsStore { get; set; }
+        //IDbSet<MenuItemsStore> MenuItemsStore { get; set; }
 
         IDbSet<MenuItemType> MenuItemType { get; set; }
 
         IDbSet<Product> Product { get; set; }
 
-        IDbSet<ProductsStore> ProductsStore { get; set; }
+        IDbSet<StoredProduct> StoredProduct { get; set; }
 
         IDbSet<ProductType> ProductType { get; set; }
 

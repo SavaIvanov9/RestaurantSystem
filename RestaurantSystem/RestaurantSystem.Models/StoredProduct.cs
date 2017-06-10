@@ -5,27 +5,36 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class City
+    public class StoredProduct
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<Address> addresses;
 
-        public City()
+        public StoredProduct()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.addresses = new HashSet<Address>();
         }
 
-        //[JsonIgnore]
         [Key]
         public long Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
-        [Index(IsUnique = true)]
-        public string Name { get; set; }
+        [ForeignKey("Product")]
+        public virtual long ProductId { get; set; }
+
+        [Required]
+        public virtual Product Product { get; set; }
+
+        public decimal Quantity { get; set; }
+
+        //public decimal Price { get; set; }
+
+        //[Required]
+        //[ForeignKey("RestaurantBranch")]
+        //public virtual long RestaurantBranchId { get; set; }
+
+        //public virtual RestaurantBranch RestaurantBranch { get; set; }
 
         public DateTime CreatedOn
         {
@@ -53,18 +62,8 @@
             }
         }
 
-        public virtual ICollection<Address> Addresses
-        {
-            get
-            {
-                return this.addresses;
-            }
-
-            set
-            {
-                value = this.addresses;
-            }
-        }
     }
 }
+
+
 

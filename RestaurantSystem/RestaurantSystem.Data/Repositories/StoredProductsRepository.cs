@@ -4,9 +4,9 @@
     using RestaurantSystem.Data.Repositories.Abstraction;
     using RestaurantSystem.Models;
 
-    public class ProductsStoreRepository : GenericRepository<ProductsStore>, IRepository<ProductsStore>
+    public class StoredProductsRepository : GenericRepository<StoredProduct>, IRepository<StoredProduct>
     {
-        public ProductsStoreRepository(IRestaurantSystemDbContext context)
+        public StoredProductsRepository(IRestaurantSystemDbContext context)
             : base(context)
         {
         }

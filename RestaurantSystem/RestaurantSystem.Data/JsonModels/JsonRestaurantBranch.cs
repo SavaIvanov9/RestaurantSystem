@@ -5,32 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
-namespace RestaurantSystem.Models
+namespace RestaurantSystem.Data.JsonModels
 {
-    public class RestaurantBranch
+    public class JsonRestaurantBranch
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<Sale> sales;
-        private ICollection<StoredProduct> storedProducts;
+        private ICollection<JsonSale> sales;
+        private ICollection<JsonStoredProduct> storedProducts;
 
-        public RestaurantBranch()
+        public JsonRestaurantBranch()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.sales = new HashSet<Sale>();
-            this.storedProducts = new HashSet<StoredProduct>();
+            this.sales = new HashSet<JsonSale>();
+            this.storedProducts = new HashSet<JsonStoredProduct>();
         }
 
-        [Key]
+        [JsonIgnore]
         public long Id { get; set; }
 
-        [Required]
-        [MaxLength(30)]
-        [Index(IsUnique = true)]
         public string Name { get; set; }
 
+        [JsonIgnore]
         public DateTime CreatedOn
         {
             get
@@ -43,8 +42,10 @@ namespace RestaurantSystem.Models
             }
         }
 
+        [JsonIgnore]
         public DateTime? ModifiedOn { get; set; }
 
+        [JsonIgnore]
         public bool IsDeleted
         {
             get
@@ -57,28 +58,13 @@ namespace RestaurantSystem.Models
             }
         }
 
-        [Required]
-        public virtual Address Address { get; set; }
+        public virtual JsonAddress Address { get; set; }
 
-        [Required]
-        [ForeignKey("Address")]
+        [JsonIgnore]
         public long AddressId { get; set; }
 
-        //[Required]
-        //public virtual StoredProduct ProductsStore { get; set; }
 
-        //[Required]
-        //[ForeignKey("ProductsStore")]
-        //public long ProductsStoreId { get; set; }
-
-        //[Required]
-        //public virtual MenuItemsStore MenuItemsStore { get; set; }
-
-        //[Required]
-        //[ForeignKey("MenuItemsStore")]
-        //public long MenuItemsStoreId { get; set; }
-
-        public virtual ICollection<Sale> Sales
+        public virtual ICollection<JsonSale> Sales
         {
             get
             {
@@ -91,7 +77,7 @@ namespace RestaurantSystem.Models
             }
         }
 
-        public virtual ICollection<StoredProduct> StoredProducts
+        public virtual ICollection<JsonStoredProduct> StoredProducts
         {
             get
             {

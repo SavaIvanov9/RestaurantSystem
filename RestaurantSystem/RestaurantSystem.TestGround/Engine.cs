@@ -10,6 +10,8 @@ using RestaurantSystem.Data.Migrations;
 using RestaurantSystem.Models;
 using RestaurantSystem.ErrorLogData;
 using RestaurantSystem.ErrorLogData.Models;
+using Newtonsoft.Json;
+using RestaurantSystem.DataImporter;
 
 namespace RestaurantSystem.TestGround
 {
@@ -18,8 +20,16 @@ namespace RestaurantSystem.TestGround
         public void Start()
         {
             Console.WriteLine("RestaurantSystem.TestGround started.");
-            //TestData();
-            TestErrorDb();
+
+
+            //Database.SetInitializer(
+            //new MigrateDatabaseToLatestVersion<RestaurantSystemDbContext, Configuration>());
+
+            Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantSystemDbContext>());
+
+            TestData();
+            //TestErrorDb();
+            //this.TestModelGenerator();
         }
 
         public void TestData()
@@ -55,6 +65,17 @@ namespace RestaurantSystem.TestGround
             Console.WriteLine(error.Name);
             Console.WriteLine(error.Name);
             Console.WriteLine(error.Content);
+
+        }
+
+        public void TestModelGenerator()
+        {
+            var objGenerator = new TestObjectRandomGenerator();
+            var someSale = objGenerator.GenerateSale();
+            var someSupplyDocument = objGenerator.GenerateSupplyDocument();
+            string saleToJson = JsonConvert.SerializeObject(someSale, Formatting.Indented);
+            string supplyDocumentToJson = JsonConvert.SerializeObject(someSupplyDocument, Formatting.Indented);
+            Console.WriteLine(supplyDocumentToJson);
         }
     }
 }

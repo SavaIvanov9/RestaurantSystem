@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,29 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantSystem.Models
+namespace RestaurantSystem.Data.JsonModels
 {
-    public class ProductType
+    public class JsonSupplier
     {
         private DateTime createdOn;
         private bool isDeleted;
-        //private ICollection<Product> products;
+        private ICollection<JsonSupplyDocument> supplyDocuments;
 
-        public ProductType()
+        public JsonSupplier()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            //this.products = new HashSet<Product>();
+            this.supplyDocuments = new HashSet<JsonSupplyDocument>();
         }
 
-        [Key]
+        [JsonIgnore]
         public long Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        [Index(IsUnique = true)]
         public string Name { get; set; }
 
+        [JsonIgnore]
         public DateTime CreatedOn
         {
             get
@@ -41,8 +40,10 @@ namespace RestaurantSystem.Models
             }
         }
 
+        [JsonIgnore]
         public DateTime? ModifiedOn { get; set; }
 
+        [JsonIgnore]
         public bool IsDeleted
         {
             get
@@ -55,19 +56,23 @@ namespace RestaurantSystem.Models
             }
         }
 
-        public string ProductTypeCode { get; set; }
+        public virtual JsonAddress Address { get; set; }
 
-        //public virtual ICollection<Product> Products
-        //{
-        //    get
-        //    {
-        //        return this.products;
-        //    }
+        [JsonIgnore]
+        public long AddressId { get; set; }
 
-        //    set
-        //    {
-        //        value = this.products;
-        //    }
-        //}
+        [JsonIgnore]
+        public ICollection<JsonSupplyDocument> SupplyDocuments
+        {
+            get
+            {
+                return this.supplyDocuments;
+            }
+            set
+            {
+                this.supplyDocuments = value;
+            }
+        }
+
     }
 }

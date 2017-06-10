@@ -38,6 +38,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql, Version=3.2.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.3.2.3\lib\net451\Npgsql.dll</HintPath>
     </Reference>
@@ -64,6 +67,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RestaurantSystem.ConsoleTestGround\RestaurantSystem.ConsoleTestGround.csproj">
+      <Project>{7D920805-3A6F-4E2C-8790-E4BCF066C7F2}</Project>
+      <Name>RestaurantSystem.ConsoleTestGround</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.DataImporter\RestaurantSystem.DataImporter.csproj">
+      <Project>{ECC4DC8C-FB71-4C61-897C-84BE7944D91C}</Project>
+      <Name>RestaurantSystem.DataImporter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.Data\RestaurantSystem.Data.csproj">
       <Project>{23371684-3944-4594-a807-22304240bdce}</Project>
       <Name>RestaurantSystem.Data</Name>
