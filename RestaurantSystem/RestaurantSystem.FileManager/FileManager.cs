@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RestaurantSystem.FileManager
+﻿namespace RestaurantSystem.FileManager
 {
+    using System;
+    using System.IO;
+
     public class FileManager : IFileManager
     {
         public byte[] ReadFile(string path)
