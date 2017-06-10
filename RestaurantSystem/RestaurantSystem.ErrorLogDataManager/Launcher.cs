@@ -1,10 +1,10 @@
-﻿namespace RestaurantSystem.ConsoleTestGround
+﻿namespace RestaurantSystem.ErrorLogDataManager
 {
     class Launcher
     {
         static void Main(string[] args)
         {
-            var engine = new Engine();
+            var engine = new ErrorLogDataManagerEngine();
             engine.Start();
         }
     }

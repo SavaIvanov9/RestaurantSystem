@@ -15,7 +15,9 @@
             //Database.SetInitializer(new DropCreateDatabaseAlways<ErrorDbContext>());
         }
 
-        public IDbSet<Error> Error { get; set; }
+        public virtual IDbSet<Error> Error { get; set; }
+
+        public virtual IDbSet<SystemEnvironment> SystemEnvironment { get; set; }
 
         public new IDbSet<T> Set<T>() where T : class
         {

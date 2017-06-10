@@ -3,26 +3,26 @@
     using Microsoft.AspNetCore.Mvc;
     using RestaurantSystem.Data.Abstraction;
 
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
-        private IRestaurantSystemData data;
+        private IRestaurantSystemData _data;
 
         public BaseController(IRestaurantSystemData data)
         {
-            this.Data = data;
+            this._data = data;
         }
 
         protected IRestaurantSystemData Data
         {
             get
             {
-                return this.data;
+                return this._data;
             }
+
             private set
             {
-                this.data = value;
+                this._data = value;
             }
         }
     }
-
 }

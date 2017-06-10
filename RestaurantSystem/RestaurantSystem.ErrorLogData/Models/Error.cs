@@ -49,5 +49,12 @@
                 this.isDeleted = value;
             }
         }
+
+        //[Required]
+        [ForeignKey("SystemEnvironment")]
+        public virtual long SystemEnvironmentId { get; set; }
+
+        //[ForeignKey("SystemEnvironmentId")]
+        public virtual SystemEnvironment SystemEnvironment { get; set; }
     }
 }

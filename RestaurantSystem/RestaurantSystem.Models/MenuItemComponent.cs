@@ -63,8 +63,7 @@
         [Required]
         [ForeignKey("MenuItem")]
         public virtual long MenuItemId { get; set; }
-
-
+        
         public virtual MenuItem MenuItem
         {
             get

@@ -7,8 +7,7 @@
 
     public class HomeController : BaseController
     {
-        public HomeController(IRestaurantSystemData data) :
-         base(data)
+        public HomeController(IRestaurantSystemData data) : base(data)
         {
         }
 

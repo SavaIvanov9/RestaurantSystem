@@ -1,25 +1,30 @@
-﻿namespace RestaurantSystem.ErrorData.Models
+﻿namespace RestaurantSystem.ErrorLogData.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Error
+    public class SystemEnvironment
     {
         private DateTime createdOn;
         private bool isDeleted;
+        private ICollection<Error> errors;
 
-        public Error()
+        public SystemEnvironment()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
+            this.errors = new HashSet<Error>();
         }
 
         [Key]
         public long Id { get; set; }
 
         [Required]
-        public string Content { get; set; }
+        public string Name { get; set; }
+
+        [Required]
+        public string Description { get; set; }
 
         public DateTime CreatedOn
         {
@@ -44,6 +49,18 @@
             set
             {
                 this.isDeleted = value;
+            }
+        }
+        
+        public virtual ICollection<Error> Errors
+        {
+            get
+            {
+                return this.errors;
+            }
+            set
+            {
+                this.errors = value;
             }
         }
     }
