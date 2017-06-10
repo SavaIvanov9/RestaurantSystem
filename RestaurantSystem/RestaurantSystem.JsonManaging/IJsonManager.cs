@@ -6,8 +6,8 @@
 
     public interface IJsonManager
     {
-        IList<JsonSupplyDocument> ImportProductsFile(byte[] document);
+        IList<SupplyDocument> ImportProductsFile(byte[] document);
 
-        IList<JsonSale> ImportSalesFile(byte[] document);
+        IList<Sale> ImportSalesFile(byte[] document);
     }
 }

@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0C2D8F5F-88D2-49C7-A338-C36C1F45C0C7}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RestaurantSystem.JsonModelMapper</RootNamespace>
-    <AssemblyName>RestaurantSystem.JsonModelMapper</AssemblyName>
+    <ProjectGuid>{EE5EA432-BD31-4433-9A30-74F2552E75B7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>JsonFilesGenerator</RootNamespace>
+    <AssemblyName>JsonFilesGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,18 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IJsonModelMapper.cs" />
-    <Compile Include="JsonModelMapper.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="ITestObjectRandomGenerator.cs" />
+    <Compile Include="Launcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestObjectRandomGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\RestaurantSystem.JsonModels.csproj">
-      <Project>{ff1bf15b-926c-4d1b-9282-4a35b7b09eb8}</Project>
+      <Project>{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}</Project>
       <Name>RestaurantSystem.JsonModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestaurantSystem.Models\RestaurantSystem.Models.csproj">
-      <Project>{882eb16c-cd96-422e-86cf-b1f4f4992df3}</Project>
-      <Name>RestaurantSystem.Models</Name>
+    <ProjectReference Include="..\RestaurantSystem.FileManager\RestaurantSystem.FileManager.csproj">
+      <Project>{c85c2a43-a7af-4982-bd1a-de326c969216}</Project>
+      <Name>RestaurantSystem.FileManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Infrastructure\RestaurantSystem.Infrastructure.csproj">
+      <Project>{982413ee-b429-41cd-9e27-ed319a6e1281}</Project>
+      <Name>RestaurantSystem.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

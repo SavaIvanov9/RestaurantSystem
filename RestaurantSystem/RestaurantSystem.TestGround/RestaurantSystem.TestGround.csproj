@@ -71,6 +71,10 @@
       <Project>{ff1bf15b-926c-4d1b-9282-4a35b7b09eb8}</Project>
       <Name>RestaurantSystem.JsonModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JsonFilesGenerator\JsonFilesGenerator.csproj">
+      <Project>{EE5EA432-BD31-4433-9A30-74F2552E75B7}</Project>
+      <Name>JsonFilesGenerator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.ConsoleTestGround\RestaurantSystem.ConsoleTestGround.csproj">
       <Project>{7D920805-3A6F-4E2C-8790-E4BCF066C7F2}</Project>
       <Name>RestaurantSystem.ConsoleTestGround</Name>
@@ -86,6 +90,10 @@
     <ProjectReference Include="..\RestaurantSystem.ErrorLogData\RestaurantSystem.ErrorLogData.csproj">
       <Project>{a85a095c-1fea-41d0-9c56-03c0dbf614df}</Project>
       <Name>RestaurantSystem.ErrorLogData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Infrastructure\RestaurantSystem.Infrastructure.csproj">
+      <Project>{982413ee-b429-41cd-9e27-ed319a6e1281}</Project>
+      <Name>RestaurantSystem.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.Models\RestaurantSystem.Models.csproj">
       <Project>{882eb16c-cd96-422e-86cf-b1f4f4992df3}</Project>

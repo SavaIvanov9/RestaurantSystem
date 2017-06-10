@@ -57,6 +57,10 @@
       <Project>{23371684-3944-4594-A807-22304240BDCE}</Project>
       <Name>RestaurantSystem.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.JsonModelMapper\RestaurantSystem.JsonModelMapper.csproj">
+      <Project>{0C2D8F5F-88D2-49C7-A338-C36C1F45C0C7}</Project>
+      <Name>RestaurantSystem.JsonModelMapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.Models\RestaurantSystem.Models.csproj">
       <Project>{882eb16c-cd96-422e-86cf-b1f4f4992df3}</Project>
       <Name>RestaurantSystem.Models</Name>

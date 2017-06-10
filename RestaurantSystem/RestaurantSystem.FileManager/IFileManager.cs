@@ -1,5 +1,4 @@
-﻿
-namespace RestaurantSystem.FileManager
+﻿namespace RestaurantSystem.FileManager
 {
     using System;
 

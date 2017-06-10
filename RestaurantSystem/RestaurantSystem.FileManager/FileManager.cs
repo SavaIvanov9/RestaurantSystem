@@ -19,7 +19,7 @@
         {
             try
             {
-                directory = directory ?? System.Reflection.Assembly.GetExecutingAssembly().Location;
+                directory = directory ?? Directory.GetCurrentDirectory();
                 string path = Path.Combine(directory, fileName);
 
                 File.WriteAllBytes(path, file);

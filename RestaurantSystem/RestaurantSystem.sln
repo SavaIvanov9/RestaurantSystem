@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.JsonModelM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.JsonModels", "ClassLibrary1\RestaurantSystem.JsonModels.csproj", "{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFilesGenerator", "JsonFilesGenerator\JsonFilesGenerator.csproj", "{EE5EA432-BD31-4433-9A30-74F2552E75B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE5EA432-BD31-4433-9A30-74F2552E75B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE5EA432-BD31-4433-9A30-74F2552E75B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE5EA432-BD31-4433-9A30-74F2552E75B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE5EA432-BD31-4433-9A30-74F2552E75B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
