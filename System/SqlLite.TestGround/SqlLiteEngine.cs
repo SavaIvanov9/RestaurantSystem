@@ -14,9 +14,9 @@ namespace SqlLite.TestGround
         {
             Console.WriteLine("SqlLiteEngine started");
 
-            var c = db.Items.ToList().Count();
+            //var c = db.Items.ToList().Count();
 
-            Console.WriteLine(c);
+            //Console.WriteLine(c);
         }
     }
 }

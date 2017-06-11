@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commons", "Commons", "{04DBB175-AFCA-413F-A7FB-738D33461E41}"
 EndProject
@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.Data", "Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.DataImporter", "RestaurantSystem.DataImporter\RestaurantSystem.DataImporter.csproj", "{ECC4DC8C-FB71-4C61-897C-84BE7944D91C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.Web", "RestaurantSystem.Web\RestaurantSystem.Web.csproj", "{72771109-2229-448B-8437-925B1F8138E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantSystem.Web", "RestaurantSystem.Web\RestaurantSystem.Web.csproj", "{72771109-2229-448B-8437-925B1F8138E0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{2669B6DE-FCBD-4853-95C3-2B94EA718C18}"
 EndProject
@@ -50,6 +50,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.JsonModels", "ClassLibrary1\RestaurantSystem.JsonModels.csproj", "{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFilesGenerator", "JsonFilesGenerator\JsonFilesGenerator.csproj", "{EE5EA432-BD31-4433-9A30-74F2552E75B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.PricingData", "RestaurantSystem.PricingData\RestaurantSystem.PricingData.csproj", "{C2067359-DC4D-43EC-BFF9-780DF50BA958}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PricingData.TestGround", "PricingData.TestGround\PricingData.TestGround.csproj", "{0BA74D85-9908-4127-8F0F-9387591C3219}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +133,14 @@ Global
 		{EE5EA432-BD31-4433-9A30-74F2552E75B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE5EA432-BD31-4433-9A30-74F2552E75B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE5EA432-BD31-4433-9A30-74F2552E75B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2067359-DC4D-43EC-BFF9-780DF50BA958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2067359-DC4D-43EC-BFF9-780DF50BA958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2067359-DC4D-43EC-BFF9-780DF50BA958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2067359-DC4D-43EC-BFF9-780DF50BA958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA74D85-9908-4127-8F0F-9387591C3219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BA74D85-9908-4127-8F0F-9387591C3219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BA74D85-9908-4127-8F0F-9387591C3219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BA74D85-9908-4127-8F0F-9387591C3219}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -151,5 +163,7 @@ Global
 		{C85C2A43-A7AF-4982-BD1A-DE326C969216} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
 		{0C2D8F5F-88D2-49C7-A338-C36C1F45C0C7} = {2669B6DE-FCBD-4853-95C3-2B94EA718C18}
 		{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8} = {04DBB175-AFCA-413F-A7FB-738D33461E41}
+		{C2067359-DC4D-43EC-BFF9-780DF50BA958} = {15843B1E-BA23-40CA-BA42-B01E9A95009A}
+		{0BA74D85-9908-4127-8F0F-9387591C3219} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
 	EndGlobalSection
 EndGlobal

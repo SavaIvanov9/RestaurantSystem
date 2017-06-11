@@ -31,7 +31,7 @@
                 {
                     var products = jsonManager.ImportProductsFile(document);
 
-                    AddProducts(data, products);
+                    //AddProducts(data, products);
                 }
             }
             catch (Exception ex)
