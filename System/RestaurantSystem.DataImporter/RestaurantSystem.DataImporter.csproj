@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Importers\Json\IJsonImporter.cs" />
-    <Compile Include="Importers\Json\JsonImporter.cs" />
+    <Compile Include="JsonImporter\Abstraction\IExecutable.cs" />
+    <Compile Include="JsonImporter\Abstraction\IJsonImporter.cs" />
+    <Compile Include="JsonImporter\Importers\AddressImporter.cs" />
+    <Compile Include="JsonImporter\Importers\CityImporter.cs" />
+    <Compile Include="JsonImporter\Importers\MeasuringUnitImporter.cs" />
+    <Compile Include="JsonImporter\JsonImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,5 +62,6 @@
       <Name>RestaurantSystem.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

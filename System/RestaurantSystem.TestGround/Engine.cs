@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 using RestaurantSystem.DataImporter;
 using RestaurantSystem.JsonModels.JsonModels;
 using JsonFilesGenerator;
+using RestaurantSystem.Models;
+using RestaurantSystem.DataImporter.JsonImporter;
+using RestaurantSystem.Data.Migrations;
 
 namespace RestaurantSystem.TestGround
 {
@@ -16,29 +19,54 @@ namespace RestaurantSystem.TestGround
         public void Start()
         {
             Console.WriteLine("RestaurantSystem.TestGround started.");
+            
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<RestaurantSystemDbContext, Configuration>());
 
+            //Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantSystemDbContext>());
 
-            //Database.SetInitializer(
-            //new MigrateDatabaseToLatestVersion<RestaurantSystemDbContext, Configuration>());
-
-            Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantSystemDbContext>());
-
-            //TestData();
+            TestData();
             //TestErrorDb();
-            this.TestModelGenerator();
+
+            //this.TestModelGenerator();
         }
 
         public void TestData()
         {
             var db = new RestaurantSystemData();
 
-            //db.Waiters.Add(new Waiter
-            //{
-            //    Name = "1"
-            //});
-
-            //db.SaveChanges();
             Console.WriteLine(db.Addresses.All().ToList().Count);
+            Console.WriteLine(db.Cities.All().ToList().Count);
+
+            var testData = new List<SupplyDocument>()
+            {
+                new SupplyDocument()
+                {
+                    ReferenceNumber = 1,
+                    DocumentDate = DateTime.Now,
+                    Supplier = new Supplier
+                    {
+                        Name = "Test name 1",
+                        Address = new Address
+                        {
+                            PostCode = 1234,
+                            Street = "street",
+                            ContactName = "contact",
+                            PhoneNumber = "123455",
+                            City = new City
+                            {
+                                Name = "Sofia"
+                            }
+                        }
+                    }
+                }
+            };
+
+            var jsonImporter = new JsonImporter();
+            jsonImporter.Import(testData);
+
+            Console.WriteLine(db.Addresses.All().ToList().Count);
+            Console.WriteLine(db.Cities.All().ToList().Count);
+
         }
 
         public void TestErrorDb()
