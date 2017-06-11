@@ -9,8 +9,7 @@
     {
         public ErrorDbContext() : base("RestaurantSystemErrorData")
         {
-            Database.SetInitializer(
-               new MigrateDatabaseToLatestVersion<ErrorDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ErrorDbContext, Configuration>());
 
             //Database.SetInitializer(new DropCreateDatabaseAlways<ErrorDbContext>());
         }

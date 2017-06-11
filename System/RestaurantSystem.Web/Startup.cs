@@ -41,16 +41,16 @@
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
-            }
-            else
-            {
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //    app.UseBrowserLink();
+            //}
+            //else
+            //{
                 app.UseCustomErrorHandler();
                 //app.UseExceptionHandler("/Home/Error");
-            }
+            //}
 
             app.UseStaticFiles();
 

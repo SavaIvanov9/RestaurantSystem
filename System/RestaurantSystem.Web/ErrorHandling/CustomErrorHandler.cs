@@ -118,11 +118,11 @@
             {
                 message.Append(" Could not save log.");
 
-                if (GlobalConstants.IsDevelopment)
-                {
+                //if (GlobalConstants.IsDevelopment)
+                //{
                     message.AppendLine();
                     message.AppendLine(ex.ToString());
-                }
+                //}
             }
 
             return context.Response.WriteAsync(message.ToString());

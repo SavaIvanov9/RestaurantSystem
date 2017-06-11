@@ -34,7 +34,7 @@
 
         private void ConfigureDb()
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<ErrorDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ErrorDbContext, Configuration>());
             //Database.SetInitializer(new DropCreateDatabaseAlways<ErrorDbContext>());
         }
 
