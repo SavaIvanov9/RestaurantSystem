@@ -59,12 +59,12 @@ namespace RestaurantSystem.Models
             }
         }
 
-        [Required]
+        //[Required]
         public virtual Address Address { get; set; }
 
-        [Required]
+        //[Required]
         [ForeignKey("Address")]
-        public long AddressId { get; set; }
+        public long? AddressId { get; set; }
 
         //[Required]
         //public virtual StoredProduct ProductsStore { get; set; }

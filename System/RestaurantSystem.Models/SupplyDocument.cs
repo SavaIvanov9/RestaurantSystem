@@ -22,9 +22,9 @@
         [Key]
         public long Id { get; set; }
 
-        [Required]
+        //[Required]
         [ForeignKey("RestaurantBranch")]
-        public virtual long RestaurantBranchId { get; set; }
+        public virtual long? RestaurantBranchId { get; set; }
 
         public virtual RestaurantBranch RestaurantBranch { get; set; }
 

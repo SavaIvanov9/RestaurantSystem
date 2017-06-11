@@ -1,5 +1,4 @@
-﻿
-namespace RestaurantSystem.Web
+﻿namespace RestaurantSystem.Web
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -12,10 +11,6 @@ namespace RestaurantSystem.Web
     using RestaurantSystem.ErrorLogData.Abstraction;
     using RestaurantSystem.Web.ErrorHandling;
     using RestaurantSystem.Web.StartUpConfigs;
-
-    //using Microsoft.EntityFrameworkCore;
-    //using Microsoft.Extensions.DependencyInjection;
-    //using RestaurantSystem.Web.Models;
 
     public class Startup
     {
@@ -42,9 +37,6 @@ namespace RestaurantSystem.Web
             
             // Add framework services.
             services.AddMvc();
-
-            //services.AddDbContext<RestaurantSystemWebContext>(options =>
-            //        options.UseSqlServer(Configuration.GetConnectionString("RestaurantSystemWebContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

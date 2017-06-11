@@ -21,7 +21,7 @@ namespace RestaurantSystem.TestGround
             Console.WriteLine(db.SupplyDocuments.All().ToList().Count);
 
             var i = new TestDataImporter();
-            i.Import(db);
+            i.ImportWaiters(db);
 
             Console.WriteLine(db.SupplyDocuments.All().ToList().Count);
         }

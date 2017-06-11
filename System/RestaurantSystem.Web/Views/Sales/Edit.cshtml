@@ -1,0 +1,72 @@
+@model RestaurantSystem.Models.Sale
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Sale</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="RestaurantBranchId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="RestaurantBranchId" class="form-control" asp-items="ViewBag.RestaurantBranchId"></select>
+                <span asp-validation-for="RestaurantBranchId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CreatedOn" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CreatedOn" class="form-control" />
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ModifiedOn" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ModifiedOn" class="form-control" />
+                <span asp-validation-for="ModifiedOn" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="IsDeleted" />
+                    <label asp-for="IsDeleted"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TableNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TableNumber" class="form-control" />
+                <span asp-validation-for="TableNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="WaiterId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="WaiterId" class="form-control" asp-items="ViewBag.WaiterId"></select>
+                <span asp-validation-for="WaiterId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

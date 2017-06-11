@@ -43,6 +43,11 @@ namespace RestaurantSystem.TestGround
             db.Addresses.Update(addr);
             db.SaveChanges();
 
+            //var branch = new RestaurantBranch
+            //{
+                
+            //};
+
             var doc = new SupplyDocument
             {
                 DocumentDate = DateTime.Now,
@@ -92,6 +97,19 @@ namespace RestaurantSystem.TestGround
             };
 
             doc.SupplyDocumentComponents.Add(component);
+            db.SaveChanges();
+        }
+
+        public void ImportWaiters(IRestaurantSystemData db)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                db.Waiters.Add(new Waiter
+                {
+                    Name = $"Test waiter {i}"
+                });
+            }
+
             db.SaveChanges();
         }
     }

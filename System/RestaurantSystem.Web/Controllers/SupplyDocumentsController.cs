@@ -28,16 +28,16 @@ namespace RestaurantSystem.Web.Controllers
         }
 
         // GET: SupplyDocuments/Details/5
-        public async Task<IActionResult> Details(long? id)
+        public IActionResult Details(long? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var supplyDocument = await this.Data.SupplyDocuments
+            var supplyDocument = this.Data.SupplyDocuments
                 .All()
-                .SingleOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefault(m => m.Id == id);
 
             if (supplyDocument == null)
             {
