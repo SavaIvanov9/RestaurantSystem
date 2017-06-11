@@ -71,7 +71,7 @@ namespace RestaurantSystem.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RestaurantBranchId,CreatedOn,ModifiedOn,TableNumber,WaiterId")] Sale sale)
+        public IActionResult Create([Bind("Id,RestaurantBranchId,CreatedOn,ModifiedOn,TableNumber,WaiterId")] Sale sale)
         {
             if (ModelState.IsValid)
             {
