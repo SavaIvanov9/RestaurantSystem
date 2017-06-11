@@ -1,33 +1,29 @@
 namespace RestaurantSystem.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.EntityFrameworkCore;
     using RestaurantSystem.Data.Abstraction;
     using RestaurantSystem.Models;
     using RestaurantSystem.Web.Models;
     using System.Linq;
     using System.Threading.Tasks;
-    using RestaurantSystem.Data;
 
-    public class SupplyDocumentsController : BaseController
+    public class WaiterController : BaseController
     {
-        public SupplyDocumentsController(IRestaurantSystemData data) : base(data)
+        public WaiterController(IRestaurantSystemData data) : base(data)
         {
         }
 
-        // GET: SupplyDocuments
+        // GET: Waiter
         public IActionResult Index()
         {
-            var documents = this.Data.SupplyDocuments
+            return View(this.Data.Waiters
                 .All()
                 .Where(x => x.IsDeleted != true)
-                .ToList();
-
-            return View(documents);
+                .ToList());
         }
 
-        // GET: SupplyDocuments/Details/5
+        // GET: Waiter/Details/5
         public IActionResult Details(long? id)
         {
             if (id == null)
@@ -35,56 +31,41 @@ namespace RestaurantSystem.Web.Controllers
                 return NotFound();
             }
 
-            var supplyDocument = this.Data.SupplyDocuments
+            var waiter = this.Data.Waiters
                 .All()
                 .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
 
-            if (supplyDocument == null)
+            if (waiter == null)
             {
                 return NotFound();
             }
 
-            return View(supplyDocument);
+            return View(waiter);
         }
 
-        // GET: SupplyDocuments/Create
+        // GET: Waiter/Create
         public IActionResult Create()
         {
-            ViewData["SupplierId"] = new SelectList(
-                this.Data.Suppliers
-                    .All()
-                    .Where(x => x.IsDeleted != true)
-                    .ToList(),
-                "Id", "Name");
-
             return View();
         }
 
-        // POST: SupplyDocuments/Create
+        // POST: Waiter/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,CreatedOn,ModifiedOn,ReferenceNumber,DocumentDate,SupplierId")] SupplyDocument supplyDocument)
+        public IActionResult Create([Bind("Id,Name,CreatedOn,ModifiedOn,IsDeleted")] Waiter waiter)
         {
             if (ModelState.IsValid)
             {
-                this.Data.SupplyDocuments.Add(supplyDocument);
+                this.Data.Waiters.Add(waiter);
                 this.Data.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewData["SupplierId"] = new SelectList(
-                this.Data.Suppliers
-                    .All()
-                    .Where(x => x.IsDeleted != true)
-                    .ToList(),
-                "Id", "Name", supplyDocument.SupplierId);
-
-            return View(supplyDocument);
+            return View(waiter);
         }
 
-        // GET: SupplyDocuments/Edit/5
+        // GET: Waiter/Edit/5
         public IActionResult Edit(long? id)
         {
             if (id == null)
@@ -92,33 +73,24 @@ namespace RestaurantSystem.Web.Controllers
                 return NotFound();
             }
 
-            var supplyDocument = this.Data.SupplyDocuments
+            var waiter = this.Data.Waiters
                 .All()
                 .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
-
-            if (supplyDocument == null)
+            if (waiter == null)
             {
                 return NotFound();
             }
-
-            ViewData["SupplierId"] = new SelectList(
-                this.Data.Suppliers
-                    .All()
-                    .Where(x => x.IsDeleted != true)
-                    .ToList(), 
-                "Id", "Name", supplyDocument.SupplierId);
-
-            return View(supplyDocument);
+            return View(waiter);
         }
 
-        // POST: SupplyDocuments/Edit/5
+        // POST: Waiter/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(long id, [Bind("Id,CreatedOn,ModifiedOn,ReferenceNumber,DocumentDate,SupplierId")] SupplyDocument supplyDocument)
+        public IActionResult Edit(long id, [Bind("Id,Name,CreatedOn,ModifiedOn")] Waiter waiter)
         {
-            if (id != supplyDocument.Id)
+            if (id != waiter.Id)
             {
                 return NotFound();
             }
@@ -127,12 +99,14 @@ namespace RestaurantSystem.Web.Controllers
             {
                 try
                 {
-                    this.Data.SupplyDocuments.Update(supplyDocument);
+                    this.Data.Waiters
+                        .Update(waiter);
+
                     this.Data.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SupplyDocumentExists(supplyDocument.Id))
+                    if (!WaiterExists(waiter.Id))
                     {
                         return NotFound();
                     }
@@ -141,21 +115,12 @@ namespace RestaurantSystem.Web.Controllers
                         throw;
                     }
                 }
-
                 return RedirectToAction("Index");
             }
-
-            ViewData["SupplierId"] = new SelectList(
-                this.Data.Suppliers
-                    .All()
-                    .Where(x => x.IsDeleted != true)
-                    .ToList(), 
-                "Id", "Name", supplyDocument.SupplierId);
-
-            return View(supplyDocument);
+            return View(waiter);
         }
 
-        // GET: SupplyDocuments/Delete/5
+        // GET: Waiter/Delete/5
         public IActionResult Delete(long? id)
         {
             if (id == null)
@@ -163,38 +128,37 @@ namespace RestaurantSystem.Web.Controllers
                 return NotFound();
             }
 
-            var supplyDocument = this.Data.SupplyDocuments
+            var waiter = this.Data.Waiters
                 .All()
                 .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
 
-            if (supplyDocument == null)
+            if (waiter == null)
             {
                 return NotFound();
             }
 
-            return View(supplyDocument);
+            return View(waiter);
         }
 
-        // POST: SupplyDocuments/Delete/5
+        // POST: Waiter/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(long id)
         {
-            var supplyDocument = this.Data.SupplyDocuments
-               .All()
-               .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
+            var waiter = this.Data.Waiters
+                 .All()
+                 .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
 
-            supplyDocument.IsDeleted = true;
-
-            this.Data.SupplyDocuments.Update(supplyDocument);
+            waiter.IsDeleted = true;
+            this.Data.Waiters.Update(waiter);
             this.Data.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
-        private bool SupplyDocumentExists(long id)
+        private bool WaiterExists(long id)
         {
-            return this.Data.SupplyDocuments
+            return this.Data.Waiters
                 .All()
                 .Any(e => e.Id == id && e.IsDeleted != true);
         }

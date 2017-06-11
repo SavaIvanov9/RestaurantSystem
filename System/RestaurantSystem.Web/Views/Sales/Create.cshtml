@@ -1,4 +1,4 @@
-@model RestaurantSystem.Models.SupplyDocument
+@model RestaurantSystem.Models.Sale
 
 @{
     ViewData["Title"] = "Create";
@@ -8,9 +8,15 @@
 
 <form asp-action="Create">
     <div class="form-horizontal">
-        <h4>SupplyDocument</h4>
+        <h4>Sale</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="RestaurantBranchId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="RestaurantBranchId" class ="form-control" asp-items="ViewBag.RestaurantBranchId"></select>
+            </div>
+        </div>
         <div class="form-group">
             <label asp-for="CreatedOn" class="col-md-2 control-label"></label>
             <div class="col-md-10">
@@ -26,23 +32,16 @@
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="ReferenceNumber" class="col-md-2 control-label"></label>
+            <label asp-for="TableNumber" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="ReferenceNumber" class="form-control" />
-                <span asp-validation-for="ReferenceNumber" class="text-danger"></span>
+                <input asp-for="TableNumber" class="form-control" />
+                <span asp-validation-for="TableNumber" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="DocumentDate" class="col-md-2 control-label"></label>
+            <label asp-for="WaiterId" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="DocumentDate" class="form-control" />
-                <span asp-validation-for="DocumentDate" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="SupplierId" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <select asp-for="SupplierId" class ="form-control" asp-items="ViewBag.SupplierId"></select>
+                <select asp-for="WaiterId" class ="form-control" asp-items="ViewBag.WaiterId"></select>
             </div>
         </div>
         <div class="form-group">

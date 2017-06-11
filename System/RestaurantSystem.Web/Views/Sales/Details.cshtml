@@ -1,4 +1,4 @@
-@model RestaurantSystem.Models.SupplyDocument
+@model RestaurantSystem.Models.Sale
 
 @{
     ViewData["Title"] = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>SupplyDocument</h4>
+    <h4>Sale</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -23,22 +23,22 @@
             @Html.DisplayFor(model => model.ModifiedOn)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ReferenceNumber)
+            @Html.DisplayNameFor(model => model.TableNumber)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ReferenceNumber)
+            @Html.DisplayFor(model => model.TableNumber)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.DocumentDate)
+            @Html.DisplayNameFor(model => model.RestaurantBranch)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.DocumentDate)
+            @Html.DisplayFor(model => model.RestaurantBranch.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Supplier)
+            @Html.DisplayNameFor(model => model.Waiter)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Supplier.Name)
+            @Html.DisplayFor(model => model.Waiter.Name)
         </dd>
     </dl>
 </div>
