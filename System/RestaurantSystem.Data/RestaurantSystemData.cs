@@ -99,6 +99,32 @@
         {
             if (repositoryType.IsAssignableFrom(typeof(Address)))
                 type = typeof(AddressRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(City)))
+                type = typeof(CityRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(MenuItemComponent)))
+                type = typeof(MenuItemComponentRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(MeasuringUnit)))
+                type = typeof(MeasuringUnitRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(MenuItem)))
+                type = typeof(MenuItemRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(MenuItemType)))
+                type = typeof(MenuItemTypeRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(StoredProduct)))
+                type = typeof(StoredProductsRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(ProductType)))
+                type = typeof(ProductTypeRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(RestaurantBranch)))
+                type = typeof(RestaurantBranchRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(SaleComponent)))
+                type = typeof(SaleComponentRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(Sale)))
+                type = typeof(SaleRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(Supplier)))
+                type = typeof(SupplierRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(SupplyDocument)))
+                type = typeof(SupplyDocumentRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(SupplyDocumentComponent)))
+                type = typeof(SupplyDocumentComponentRepository);
             else if (repositoryType.IsAssignableFrom(typeof(Waiter)))
                 type = typeof(WaiterRepository);
         }
