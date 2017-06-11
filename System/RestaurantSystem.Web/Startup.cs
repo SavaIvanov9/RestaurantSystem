@@ -1,4 +1,5 @@
-﻿namespace RestaurantSystem.Web
+﻿
+namespace RestaurantSystem.Web
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -10,11 +11,19 @@
     using RestaurantSystem.ErrorLogData;
     using RestaurantSystem.ErrorLogData.Abstraction;
     using RestaurantSystem.Web.ErrorHandling;
+    using RestaurantSystem.Web.StartUpConfigs;
+
+    //using Microsoft.EntityFrameworkCore;
+    //using Microsoft.Extensions.DependencyInjection;
+    //using RestaurantSystem.Web.Models;
 
     public class Startup
     {
         public Startup(IHostingEnvironment env)
         {
+            ErrorLogDataConfig.Initizlize();
+            RestaurantSystemDataConfig.Initizlize();
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -33,6 +42,9 @@
             
             // Add framework services.
             services.AddMvc();
+
+            //services.AddDbContext<RestaurantSystemWebContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("RestaurantSystemWebContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

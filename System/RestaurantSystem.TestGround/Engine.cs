@@ -45,7 +45,7 @@ namespace RestaurantSystem.TestGround
                     DocumentDate = DateTime.Now,
                     Supplier = new Supplier
                     {
-                        Name = "Test name 1",
+                        Name = "Test name 1z",
                         Address = new Address
                         {
                             PostCode = 1234,

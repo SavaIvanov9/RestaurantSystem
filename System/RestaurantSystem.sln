@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorLogData.TestGrond", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.ErrorReportsData", "RestaurantSystem.ErrorReportsData\RestaurantSystem.ErrorReportsData.csproj", "{6FE08098-AB7C-45AB-9E9D-335E1CA7E629}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystemData.TestGround", "RestaurantSystemData.TestGround\RestaurantSystemData.TestGround.csproj", "{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{6FE08098-AB7C-45AB-9E9D-335E1CA7E629}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FE08098-AB7C-45AB-9E9D-335E1CA7E629}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FE08098-AB7C-45AB-9E9D-335E1CA7E629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -179,5 +185,6 @@ Global
 		{0BA74D85-9908-4127-8F0F-9387591C3219} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
 		{682BCA19-03D2-406C-8BA7-7532AFCF3299} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
 		{6FE08098-AB7C-45AB-9E9D-335E1CA7E629} = {15843B1E-BA23-40CA-BA42-B01E9A95009A}
+		{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
 	EndGlobalSection
 EndGlobal

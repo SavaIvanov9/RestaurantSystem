@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RestaurantSystem.Models
+﻿namespace RestaurantSystem.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class Supplier
     {
         private DateTime createdOn;
@@ -73,6 +70,5 @@ namespace RestaurantSystem.Models
                 this.supplyDocuments = value;
             }
         }
-
     }
 }
