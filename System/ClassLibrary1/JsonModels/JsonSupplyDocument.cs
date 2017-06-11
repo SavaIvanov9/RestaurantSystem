@@ -22,6 +22,12 @@
         public long Id { get; set; }
 
         [JsonIgnore]
+        public virtual long RestaurantBranchId { get; set; }
+
+        public virtual JsonRestaurantBranch RestaurantBranch { get; set; }
+
+
+        [JsonIgnore]
         public DateTime CreatedOn
         {
             get

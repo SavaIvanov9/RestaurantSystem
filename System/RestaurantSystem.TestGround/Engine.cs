@@ -11,6 +11,8 @@ using JsonFilesGenerator;
 using RestaurantSystem.Models;
 using RestaurantSystem.DataImporter.SupplyDocumentImporter;
 using RestaurantSystem.Data.Migrations;
+using RestaurantSystem.DataImporter.SupplyDocumentImporter.Importers;
+using RestaurantSystem.MapperJsonModel;
 
 namespace RestaurantSystem.TestGround
 {
@@ -20,14 +22,33 @@ namespace RestaurantSystem.TestGround
         {
             Console.WriteLine("RestaurantSystem.TestGround started.");
             
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<RestaurantSystemDbContext, Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<RestaurantSystemDbContext, Configuration>());
 
-            //Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantSystemDbContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantSystemDbContext>());
 
-            TestData();
+            //TestData();
             //TestErrorDb();
 
             //this.TestModelGenerator();
+            this.TestImporters();
+        }
+
+        public void TestImporters()
+        {
+            var db = new RestaurantSystemData();
+
+            var si = new SupplierImporter();
+            var objGenerator = new TestObjectRandomGenerator();
+            var mapper = new JsonModelMapper();
+
+            var suppliers = new List<SupplyDocument>();
+            suppliers.Add(mapper.ConvertSupplyDocument(objGenerator.GenerateSupplyDocument()));
+
+            var json = JsonConvert.SerializeObject(suppliers, Formatting.Indented);
+            Console.WriteLine(json);
+
+            var jsonImporter = new SupplyDocumentDataSeeder();
+            jsonImporter.Seed(suppliers, db);
         }
 
         public void TestData()

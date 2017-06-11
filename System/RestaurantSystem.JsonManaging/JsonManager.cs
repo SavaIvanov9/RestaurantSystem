@@ -1,7 +1,7 @@
 ﻿namespace RestaurantSystem.JsonManaging
 {
     using Newtonsoft.Json;
-    using RestaurantSystem.JsonModelMapper;
+    using RestaurantSystem.MapperJsonModel;
     using RestaurantSystem.JsonModels.JsonModels;
     using RestaurantSystem.Models;
     using System.Collections.Generic;

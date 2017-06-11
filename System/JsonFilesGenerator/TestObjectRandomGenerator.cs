@@ -7,11 +7,15 @@ namespace JsonFilesGenerator
     {
         private Random random = new Random();
 
-        public JsonRestaurantBranch GenerateRestaurantBranch()  //Must be used only once to set the original branch. The stores will be filled in when receiving supply documents or sales
+        public JsonRestaurantBranch GenerateRestaurantBranch()
         {
             JsonRestaurantBranch result = new JsonRestaurantBranch();
             result.Name = "Pri Pesho";
-            result.Address = this.GenerateAddress();
+            result.Address = new JsonAddress();
+            result.Address.Street = "Yantra";
+            result.Address.PostCode = 1302;
+            result.Address.City = new JsonCity();
+            result.Address.City.Name = "Sofia";
 
             return result;
         }
@@ -40,6 +44,7 @@ namespace JsonFilesGenerator
         {
             JsonSupplyDocument result = new JsonSupplyDocument();
 
+            result.
             result.ReferenceNumber = random.Next(1, 1000);
             result.DocumentDate = new DateTime(2017, 1, 1).AddDays(random.Next(180));
             result.Supplier = this.GenerateSupplier();

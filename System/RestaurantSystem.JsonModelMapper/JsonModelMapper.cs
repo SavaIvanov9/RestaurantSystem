@@ -1,7 +1,7 @@
 ﻿using RestaurantSystem.JsonModels.JsonModels;
 using RestaurantSystem.Models;
 
-namespace RestaurantSystem.JsonModelMapper
+namespace RestaurantSystem.MapperJsonModel
 {
     public class JsonModelMapper : IJsonModelMapper
     {
@@ -72,7 +72,8 @@ namespace RestaurantSystem.JsonModelMapper
         {
             RestaurantBranch result = new RestaurantBranch();
 
-            result.Name = restaurantBranch.Name; //TODO: The other fileds - not needed so far
+            result.Name = restaurantBranch.Name;
+            result.Address = this.ConvertAddress(restaurantBranch.Address);
 
             return result;
         }
@@ -128,6 +129,7 @@ namespace RestaurantSystem.JsonModelMapper
             result.ReferenceNumber = supplyDocument.ReferenceNumber;
             result.DocumentDate = supplyDocument.DocumentDate;
             result.Supplier = this.ConvertSupplier(supplyDocument.Supplier);
+            result.RestaurantBranch = this.ConvertRestaurantBranch(supplyDocument.RestaurantBranch);
 
             foreach (var item in supplyDocument.SupplyDocumentComponents)
             {

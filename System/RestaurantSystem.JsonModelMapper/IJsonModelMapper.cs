@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantSystem.JsonModelMapper
+namespace RestaurantSystem.MapperJsonModel
 {
     public interface IJsonModelMapper
     {
