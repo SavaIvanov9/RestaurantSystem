@@ -55,6 +55,10 @@
     <Compile Include="XMLProcessing\XMLProcessingService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RestaurantSystem.DataImporter\RestaurantSystem.DataImporter.csproj">
+      <Project>{ecc4dc8c-fb71-4c61-897c-84be7944d91c}</Project>
+      <Name>RestaurantSystem.DataImporter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.Data\RestaurantSystem.Data.csproj">
       <Project>{23371684-3944-4594-a807-22304240bdce}</Project>
       <Name>RestaurantSystem.Data</Name>

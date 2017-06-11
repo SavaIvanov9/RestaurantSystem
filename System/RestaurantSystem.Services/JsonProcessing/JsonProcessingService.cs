@@ -1,6 +1,7 @@
 ﻿namespace RestaurantSystem.Services
 {
     using RestaurantSystem.Data.Abstraction;
+    using RestaurantSystem.DataImporter.SupplyDocumentImporter.Abstraction;
     using RestaurantSystem.Infrastructure.Enumerations;
     using RestaurantSystem.JsonManaging;
     using RestaurantSystem.Models;
@@ -11,36 +12,41 @@
 
     public class JsonProcessingService : IJsonProcessingService
     {
-        public JsonProcessingResult ImportDocument(ImportingType importing, IRestaurantSystemData data, IJsonManager jsonManager, byte[] document)
+        public void ImportDocument(ImportingType importing, IRestaurantSystemData data, IJsonManager jsonManager,
+            byte[] document, ISupplyDocumentDataSeeder seeder)
         {
-            var result = new JsonProcessingResult
-            {
-                Result = DocumentProcessingResult.SuccessfulProcessing,
-                Message = $"{importing.ToString()} imported successfully!"
-            };
+            //var result = new JsonProcessingResult
+            //{
+            //    Result = DocumentProcessingResult.SuccessfulProcessing,
+            //    Message = $"{importing.ToString()} imported successfully!"
+            //};
 
-            try
-            {
-                if (importing == ImportingType.Sales)
-                {
-                    var sales = jsonManager.ImportSalesFile(document);
+            //try
+            //{
+                //if (importing == ImportingType.Sales)
+                //{
+                //    var sales = jsonManager.ImportSalesFile(document);
 
-                    AddSales(data, sales);
-                }
-                else if (importing == ImportingType.Products)
-                {
-                    var products = jsonManager.ImportProductsFile(document);
+                //    AddSales(data, sales);
+                //}
+                //else if (importing == ImportingType.Products)
+                //{
+                //    var documents = jsonManager.ImportProductsFile(document);
 
-                    //AddProducts(data, products);
-                }
-            }
-            catch (Exception ex)
-            {
-                result.Result = DocumentProcessingResult.UnSuccessfulProcessing;
-                result.Message = ex.Message;
-            }
+                //    //AddProducts(data, products);
+                //}
 
-            return result;
+                var documents = jsonManager.ParseProductsFile(document);
+
+                seeder.Seed(documents, data);
+            //}
+            //catch (Exception ex)
+            //{
+            //    result.Result = DocumentProcessingResult.UnSuccessfulProcessing;
+            //    result.Message = ex.Message;
+            //}
+
+            //return result;
         }
 
         private void AddSales(IRestaurantSystemData data, IList<Sale> sales)

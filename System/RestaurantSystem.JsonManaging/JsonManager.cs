@@ -10,7 +10,7 @@
     {
         private JsonModelMapper jsonModelMapper = new JsonModelMapper();
 
-        public IList<SupplyDocument> ImportProductsFile(byte[] document)
+        public IList<SupplyDocument> ParseProductsFile(byte[] document)
         {
             var result = new List<SupplyDocument>();
 
@@ -24,7 +24,7 @@
             return result;
         }
 
-        public IList<Sale> ImportSalesFile(byte[] document)
+        public IList<Sale> ParseSalesFile(byte[] document)
         {
             var result = new List<Sale>();
 

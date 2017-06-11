@@ -21,6 +21,7 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RestaurantSystem.DataImporter\RestaurantSystem.DataImporter.csproj" />
     <ProjectReference Include="..\RestaurantSystem.Data\RestaurantSystem.Data.csproj" />
     <ProjectReference Include="..\RestaurantSystem.ErrorLogData\RestaurantSystem.ErrorLogData.csproj" />
     <ProjectReference Include="..\RestaurantSystem.ExcelManaging\RestaurantSystem.ExcelManaging.csproj" />

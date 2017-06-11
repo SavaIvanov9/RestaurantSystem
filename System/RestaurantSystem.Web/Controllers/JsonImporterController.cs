@@ -3,6 +3,7 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using RestaurantSystem.Data.Abstraction;
+    using RestaurantSystem.DataImporter.SupplyDocumentImporter.Abstraction;
     using RestaurantSystem.Infrastructure.Enumerations;
     using RestaurantSystem.JsonManaging;
     using RestaurantSystem.Services.Abstraction;
@@ -14,14 +15,16 @@
 
     public class JsonImporterController : BaseController
     {
-        private IJsonProcessingService jsonProcessingService;
-        private IJsonManager jsonManager;
+        private readonly IJsonProcessingService jsonProcessingService;
+        private readonly IJsonManager jsonManager;
+        private readonly ISupplyDocumentDataSeeder seeder;
 
         public JsonImporterController(IRestaurantSystemData data, IJsonProcessingService jsonProcessingService,
-            IJsonManager jsonManager) : base(data)
+            IJsonManager jsonManager, ISupplyDocumentDataSeeder seeder) : base(data)
         {
             this.jsonProcessingService = jsonProcessingService;
             this.jsonManager = jsonManager;
+            this.seeder = seeder;
         }
 
         //[HttpPost]
@@ -31,38 +34,29 @@
             return View();
         }
 
-        [HttpPost("ImportFiles")]
+        //[HttpPost("ImportFiles")]
+        [HttpPost("JsonImporter")]
         public async Task<IActionResult> Post(List<IFormFile> files)
         {
-            long size = files.Sum(f => f.Length);
+            //foreach (var formFile in files)
+            //{
+            //    if (formFile.Length > 0)
+            //    {
+            //        using (var stream = new MemoryStream())
+            //        {
+            //            await formFile.CopyToAsync(stream);
 
-            // full path to file in temp location
-            var filePath = Path.GetTempFileName();
+            //            this.jsonProcessingService.ImportDocument(ImportingType.Products,
+            //                this.Data, this.jsonManager, stream.ToArray(), seeder);
+            //        }
+            //    }
+            //}
 
-            foreach (var formFile in files)
-            {
-                //formFile.Length;
+            ViewData["Message"] = "Successful Importing!";
 
-                if (formFile.Length > 0)
-                {
-                    //using (var stream = new FileStream(filePath, FileMode.Create))
-                    //{
-                    //    await formFile.CopyToAsync(stream);
-                    //}
-
-                    using (var stream = new MemoryStream())
-                    {
-                        await formFile.CopyToAsync(stream);
-                    }
-                }
-            }
-
-            //this.jsonProcessingService.ImportDocument(ImportingType.Products, this.Data, this.jsonManager)
-
-            // process uploaded files
-            // Don't rely on or trust the FileName property without validation.
-
-            return Ok(/*new { count = files.Count, size, filePath }*/);
+            //return RedirectToAction("Index");
+            //return Ok();
+            return View("Index");
         }
     }
 }

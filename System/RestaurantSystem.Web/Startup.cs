@@ -7,6 +7,8 @@
     using Microsoft.Extensions.Logging;
     using RestaurantSystem.Data;
     using RestaurantSystem.Data.Abstraction;
+    using RestaurantSystem.DataImporter.SupplyDocumentImporter;
+    using RestaurantSystem.DataImporter.SupplyDocumentImporter.Abstraction;
     using RestaurantSystem.ErrorLogData;
     using RestaurantSystem.ErrorLogData.Abstraction;
     using RestaurantSystem.JsonManaging;
@@ -41,6 +43,8 @@
             services.AddTransient<IJsonProcessingService, JsonProcessingService>();
             services.AddTransient<IJsonManager, JsonManager>();
 
+            services.AddTransient<ISupplyDocumentDataSeeder, SupplyDocumentDataSeeder>();
+            
             // Add framework services.
             services.AddMvc();
         }
