@@ -117,6 +117,7 @@
             catch (Exception ex)
             {
                 message.Append(" Could not save log.");
+
                 if (GlobalConstants.IsDevelopment)
                 {
                     message.AppendLine();

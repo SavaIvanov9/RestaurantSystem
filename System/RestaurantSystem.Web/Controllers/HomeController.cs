@@ -33,6 +33,8 @@
 
         public IActionResult Contact()
         {
+            throw new Exception("Test error");
+
             ViewData["Message"] = "Your contact page.";
 
             return View();
