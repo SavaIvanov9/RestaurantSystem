@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A85A095C-1FEA-41D0-9C56-03C0DBF614DF}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RestaurantSystem.ErrorLogData</RootNamespace>
-    <AssemblyName>RestaurantSystem.ErrorLogData</AssemblyName>
+    <ProjectGuid>{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RestaurantSystemData.TestGround</RootNamespace>
+    <AssemblyName>RestaurantSystemData.TestGround</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -47,22 +49,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\IErrorData.cs" />
-    <Compile Include="Abstraction\IErrorDbContext.cs" />
-    <Compile Include="ErrorData.cs" />
-    <Compile Include="ErrorDbContext.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Error.cs" />
-    <Compile Include="Models\SystemEnvironment.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Abstraction\GenericRepository.cs" />
-    <Compile Include="Repositories\Abstraction\IGenericRepository.cs" />
-    <Compile Include="Repositories\ErrorRepository.cs" />
-    <Compile Include="Repositories\SystemEnvironmentRepository.cs" />
+    <Compile Include="TestDataImporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JsonFilesGenerator\JsonFilesGenerator.csproj">
+      <Project>{ee5ea432-bd31-4433-9a30-74f2552e75b7}</Project>
+      <Name>JsonFilesGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Data\RestaurantSystem.Data.csproj">
+      <Project>{23371684-3944-4594-a807-22304240bdce}</Project>
+      <Name>RestaurantSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.JsonModelMapper\RestaurantSystem.JsonModelMapper.csproj">
+      <Project>{0c2d8f5f-88d2-49c7-a338-c36c1f45c0c7}</Project>
+      <Name>RestaurantSystem.JsonModelMapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Models\RestaurantSystem.Models.csproj">
+      <Project>{882eb16c-cd96-422e-86cf-b1f4f4992df3}</Project>
+      <Name>RestaurantSystem.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

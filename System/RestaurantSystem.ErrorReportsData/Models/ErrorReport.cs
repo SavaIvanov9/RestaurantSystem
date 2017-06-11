@@ -1,30 +1,27 @@
-﻿namespace RestaurantSystem.Models
+﻿namespace RestaurantSystem.ErrorReportsData.Models
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Supplier
+    public class ErrorReport
     {
         private DateTime createdOn;
         private bool isDeleted;
-        private ICollection<SupplyDocument> supplyDocuments;
 
-        public Supplier()
+        public ErrorReport()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
-            this.supplyDocuments = new HashSet<SupplyDocument>();
         }
 
         [Key]
         public long Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
-        [Index(IsUnique = true)]
         public string Name { get; set; }
+
+        [Required]
+        public string Content { get; set; }
 
         public DateTime CreatedOn
         {
@@ -49,25 +46,6 @@
             set
             {
                 this.isDeleted = value;
-            }
-        }
-
-        [Required]
-        public virtual Address Address { get; set; }
-
-        [Required]
-        [ForeignKey("Address")]
-        public long AddressId { get; set; }
-
-        public ICollection<SupplyDocument> SupplyDocuments
-        {
-            get
-            {
-                return this.supplyDocuments;
-            }
-            set
-            {
-                this.supplyDocuments = value;
             }
         }
     }

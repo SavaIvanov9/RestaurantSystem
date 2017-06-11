@@ -1,6 +1,7 @@
 ﻿namespace RestaurantSystem.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,11 +9,13 @@
     {
         private DateTime createdOn;
         private bool isDeleted;
-
+        private ICollection<Supplier> suppliers;
+        
         public Address()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
+            this.suppliers = new HashSet<Supplier>();
         }
 
         [Key]
@@ -60,5 +63,17 @@
         public string ContactName { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public ICollection<Supplier> Suppliers
+        {
+            get
+            {
+                return this.suppliers;
+            }
+            set
+            {
+                this.suppliers = value;
+            }
+        }
     }
 }
