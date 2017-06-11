@@ -1,19 +1,19 @@
-﻿namespace RestaurantSystem.DataImporter.JsonImporter.Importers
+﻿namespace RestaurantSystem.DataImporter.SupplyDocumentImporter.Importers
 {
     using RestaurantSystem.Data.Abstraction;
-    using RestaurantSystem.DataImporter.JsonImporter.Abstraction;
+    using RestaurantSystem.DataImporter.SupplyDocumentImporter.Abstraction;
+    using RestaurantSystem.Infrastructure.Constants;
     using RestaurantSystem.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    public class CityImporter : IExecutable
+    public class CityImporter : BaseImporter, IImporter
     {
-        private int saveChangesCount = 50;
 
         public int Order => 1;
 
-        public Action<IRestaurantSystemData, IList<SupplyDocument>> Execute
+        public Action<IRestaurantSystemData, IList<SupplyDocument>> Import
         {
             get
             {
@@ -23,7 +23,7 @@
 
                     for (int i = 0; i < cities.Count; i++)
                     {
-                        if (!CheckIfCityExists(cities[i], db))
+                        if (!CityExists(cities[i], db))
                         {
                             db.Cities.Add(new City
                             {
@@ -31,7 +31,7 @@
                             });
                         }
 
-                        SaveChanges(i, db);
+                        this.SaveChanges(i, db);
                     }
 
                     db.SaveChanges();
@@ -39,15 +39,7 @@
             }
         }
 
-        private void SaveChanges(int count, IRestaurantSystemData db)
-        {
-            if(count % saveChangesCount == 0)
-            {
-                db.SaveChanges();
-            }
-        }
-
-        private bool CheckIfCityExists(City city, IRestaurantSystemData db)
+        private bool CityExists(City city, IRestaurantSystemData db)
         {
             var result = true;
 

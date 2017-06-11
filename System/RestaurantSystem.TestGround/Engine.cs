@@ -9,7 +9,7 @@ using RestaurantSystem.DataImporter;
 using RestaurantSystem.JsonModels.JsonModels;
 using JsonFilesGenerator;
 using RestaurantSystem.Models;
-using RestaurantSystem.DataImporter.JsonImporter;
+using RestaurantSystem.DataImporter.SupplyDocumentImporter;
 using RestaurantSystem.Data.Migrations;
 
 namespace RestaurantSystem.TestGround
@@ -61,8 +61,8 @@ namespace RestaurantSystem.TestGround
                 }
             };
 
-            var jsonImporter = new JsonImporter();
-            jsonImporter.Import(testData);
+            var jsonImporter = new SupplyDocumentDataSeeder();
+            jsonImporter.Seed(testData, db);
 
             Console.WriteLine(db.Addresses.All().ToList().Count);
             Console.WriteLine(db.Cities.All().ToList().Count);

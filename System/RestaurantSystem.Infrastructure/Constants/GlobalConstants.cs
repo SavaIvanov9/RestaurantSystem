@@ -7,5 +7,7 @@
 
         public const string JsonSupplyDocumentsFileName = "SupplyDocuments.json";
         public const string JsonSalesFileName = "Sales.json";
+
+        public const int SaveChangesRetryCountIfError = 3;
     }
 }

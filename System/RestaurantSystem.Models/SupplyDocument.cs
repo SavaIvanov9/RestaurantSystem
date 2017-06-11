@@ -22,6 +22,12 @@
         [Key]
         public long Id { get; set; }
 
+        [Required]
+        [ForeignKey("RestaurantBranch")]
+        public virtual long RestaurantBranchId { get; set; }
+
+        public virtual RestaurantBranch RestaurantBranch { get; set; }
+
         public DateTime CreatedOn
         {
             get

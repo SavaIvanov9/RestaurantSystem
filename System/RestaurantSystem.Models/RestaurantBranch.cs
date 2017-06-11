@@ -14,6 +14,7 @@ namespace RestaurantSystem.Models
         private bool isDeleted;
         private ICollection<Sale> sales;
         private ICollection<StoredProduct> storedProducts;
+        private ICollection<SupplyDocument> supplyDocuments;
 
         public RestaurantBranch()
         {
@@ -21,6 +22,7 @@ namespace RestaurantSystem.Models
             this.isDeleted = false;
             this.sales = new HashSet<Sale>();
             this.storedProducts = new HashSet<StoredProduct>();
+            this.supplyDocuments = new HashSet<SupplyDocument>();
         }
 
         [Key]
@@ -101,6 +103,19 @@ namespace RestaurantSystem.Models
             set
             {
                 this.storedProducts = value;
+            }
+        }
+
+        public virtual ICollection<SupplyDocument> SupplyDocuments
+        {
+            get
+            {
+                return this.supplyDocuments;
+            }
+
+            set
+            {
+                this.supplyDocuments = value;
             }
         }
     }

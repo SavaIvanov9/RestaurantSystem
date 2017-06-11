@@ -40,12 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JsonImporter\Abstraction\IExecutable.cs" />
-    <Compile Include="JsonImporter\Abstraction\IJsonImporter.cs" />
-    <Compile Include="JsonImporter\Importers\AddressImporter.cs" />
-    <Compile Include="JsonImporter\Importers\CityImporter.cs" />
-    <Compile Include="JsonImporter\Importers\MeasuringUnitImporter.cs" />
-    <Compile Include="JsonImporter\JsonImporter.cs" />
+    <Compile Include="SupplyDocumentImporter\Abstraction\BaseImporter.cs" />
+    <Compile Include="SupplyDocumentImporter\Abstraction\IImporter.cs" />
+    <Compile Include="SupplyDocumentImporter\Abstraction\ISupplyDocumentDataSeeder.cs" />
+    <Compile Include="SupplyDocumentImporter\Importers\AddressImporter.cs" />
+    <Compile Include="SupplyDocumentImporter\Importers\CityImporter.cs" />
+    <Compile Include="SupplyDocumentImporter\Importers\MeasuringUnitImporter.cs" />
+    <Compile Include="SupplyDocumentImporter\Importers\ProductImporter.cs" />
+    <Compile Include="SupplyDocumentImporter\Importers\SupplierImporter.cs" />
+    <Compile Include="SupplyDocumentImporter\SupplyDocumentDataSeeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +59,10 @@
     <ProjectReference Include="..\RestaurantSystem.Data\RestaurantSystem.Data.csproj">
       <Project>{23371684-3944-4594-A807-22304240BDCE}</Project>
       <Name>RestaurantSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Infrastructure\RestaurantSystem.Infrastructure.csproj">
+      <Project>{982413EE-B429-41CD-9E27-ED319A6E1281}</Project>
+      <Name>RestaurantSystem.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.Models\RestaurantSystem.Models.csproj">
       <Project>{882EB16C-CD96-422E-86CF-B1F4F4992DF3}</Project>
