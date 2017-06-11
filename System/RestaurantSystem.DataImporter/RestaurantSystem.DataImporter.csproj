@@ -48,6 +48,7 @@
     <Compile Include="SupplyDocumentImporter\Importers\MeasuringUnitImporter.cs" />
     <Compile Include="SupplyDocumentImporter\Importers\ProductImporter.cs" />
     <Compile Include="SupplyDocumentImporter\Importers\SupplierImporter.cs" />
+    <Compile Include="SupplyDocumentImporter\Importers\SupplyDocumentImporter.cs" />
     <Compile Include="SupplyDocumentImporter\SupplyDocumentDataSeeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -28,7 +28,7 @@
                             .Where(x => x.Name == name)
                             .FirstOrDefault();
 
-                        if(city != null)
+                        if (city != null)
                         {
                             city.Addresses.Add(new Address
                             {
@@ -49,23 +49,6 @@
             }
         }
 
-        //private bool CheckIfCityExists(City city, IRestaurantSystemData db)
-        //{
-        //    var result = true;
-
-        //    var dbCity = db.Cities
-        //        .All()
-        //        .Where(x => x.Name == city.Name)
-        //        .FirstOrDefault();
-
-        //    if (dbCity == null)
-        //    {
-        //        result = false;
-        //    }
-
-        //    return result;
-        //}
-
         private List<Address> ExtractAddresses(IList<SupplyDocument> documents)
         {
             var result = new List<Address>();
@@ -74,6 +57,7 @@
             {
                 result.Add(doc.Supplier.Address);
             }
+            result.Add(documents[0].RestaurantBranch.Address); //TODO!
 
             return result;
         }
