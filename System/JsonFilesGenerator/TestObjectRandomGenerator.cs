@@ -44,7 +44,7 @@ namespace JsonFilesGenerator
         {
             JsonSupplyDocument result = new JsonSupplyDocument();
 
-            result.
+            result.RestaurantBranch = this.GenerateRestaurantBranch();
             result.ReferenceNumber = random.Next(1, 1000);
             result.DocumentDate = new DateTime(2017, 1, 1).AddDays(random.Next(180));
             result.Supplier = this.GenerateSupplier();
