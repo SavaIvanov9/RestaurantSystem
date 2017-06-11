@@ -9,7 +9,7 @@
 
     public class ProductImporter : BaseImporter, IImporter
     {
-        public int Order => 5;
+        public int Order => 6;
 
         public Action<IRestaurantSystemData, IList<SupplyDocument>> Import
         {

@@ -44,6 +44,7 @@
     <Compile Include="SupplyDocumentImporter\Abstraction\IImporter.cs" />
     <Compile Include="SupplyDocumentImporter\Abstraction\ISupplyDocumentDataSeeder.cs" />
     <Compile Include="SupplyDocumentImporter\Importers\AddressImporter.cs" />
+    <Compile Include="SupplyDocumentImporter\Importers\BranchImporter.cs" />
     <Compile Include="SupplyDocumentImporter\Importers\CityImporter.cs" />
     <Compile Include="SupplyDocumentImporter\Importers\MeasuringUnitImporter.cs" />
     <Compile Include="SupplyDocumentImporter\Importers\ProductImporter.cs" />

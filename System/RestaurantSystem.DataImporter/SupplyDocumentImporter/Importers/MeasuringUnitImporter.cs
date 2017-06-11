@@ -10,7 +10,7 @@
 
     public class MeasuringUnitImporter : BaseImporter, IImporter
     {
-        public int Order => 4;
+        public int Order => 5;
 
         public Action<IRestaurantSystemData, IList<SupplyDocument>> Import
         {

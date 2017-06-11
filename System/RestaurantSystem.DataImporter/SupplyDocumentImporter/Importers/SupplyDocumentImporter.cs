@@ -11,7 +11,7 @@
     public class SupplyDocumentImporter : BaseImporter, IImporter
     {
 
-        public int Order => 6;
+        public int Order => 7;
 
         public Action<IRestaurantSystemData, IList<SupplyDocument>> Import
         {
@@ -30,6 +30,18 @@
                                     SupplierId = documents[i].Supplier.Id,
                                     Supplier = documents[i].Supplier
                                 };
+
+                            var documentBranch = db.RestaurantBranches
+                                .All()
+                                .Where(x => x.Name == documents[i].RestaurantBranch.Name)
+                                .FirstOrDefault();
+
+                            if (documentBranch != null)
+                            {
+                                supplyDocumentToAdd.RestaurantBranchId = documentBranch.Id;
+                                supplyDocumentToAdd.RestaurantBranch = documentBranch;
+                            }
+
                             foreach (var component in documents[i].SupplyDocumentComponents)
                             {
                                 var storedProduct = ProductInStoredProducts(component.Product, db);
