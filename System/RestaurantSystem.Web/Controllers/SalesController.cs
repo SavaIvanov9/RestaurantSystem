@@ -17,7 +17,6 @@ namespace RestaurantSystem.Web.Controllers
         {
         }
 
-        // GET: Sales
         public IActionResult Index()
         {
             var sales = this.Data.Sales
@@ -27,7 +26,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(sales.ToList());
         }
 
-        // GET: Sales/Details/5
         public IActionResult Details(long? id)
         {
             if (id == null)
@@ -47,7 +45,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(sale);
         }
 
-        // GET: Sales/Create
         public IActionResult Create()
         {
             ViewData["RestaurantBranchId"] = new SelectList(this.Data.RestaurantBranches
@@ -66,9 +63,6 @@ namespace RestaurantSystem.Web.Controllers
             return View();
         }
 
-        // POST: Sales/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("Id,RestaurantBranchId,CreatedOn,ModifiedOn,TableNumber,WaiterId")] Sale sale)
@@ -97,7 +91,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(sale);
         }
 
-        // GET: Sales/Edit/5
         public IActionResult Edit(long? id)
         {
             if (id == null)
@@ -130,9 +123,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(sale);
         }
 
-        // POST: Sales/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(long id, [Bind("Id,RestaurantBranchId,CreatedOn,ModifiedOn,TableNumber,WaiterId")] Sale sale)
@@ -180,7 +170,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(sale);
         }
 
-        // GET: Sales/Delete/5
         public IActionResult Delete(long? id)
         {
             if (id == null)
@@ -200,7 +189,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(sale);
         }
 
-        // POST: Sales/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(long id)

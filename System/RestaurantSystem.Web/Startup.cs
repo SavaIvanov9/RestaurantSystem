@@ -9,6 +9,9 @@
     using RestaurantSystem.Data.Abstraction;
     using RestaurantSystem.ErrorLogData;
     using RestaurantSystem.ErrorLogData.Abstraction;
+    using RestaurantSystem.JsonManaging;
+    using RestaurantSystem.Services;
+    using RestaurantSystem.Services.Abstraction;
     using RestaurantSystem.Web.ErrorHandling;
     using RestaurantSystem.Web.StartUpConfigs;
 
@@ -34,7 +37,10 @@
         {
             services.AddTransient<IRestaurantSystemData, RestaurantSystemData>();
             services.AddTransient<IErrorData, ErrorData>();
-            
+
+            services.AddTransient<IJsonProcessingService, JsonProcessingService>();
+            services.AddTransient<IJsonManager, JsonManager>();
+
             // Add framework services.
             services.AddMvc();
         }

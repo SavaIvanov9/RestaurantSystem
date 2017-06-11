@@ -19,14 +19,7 @@
         public IActionResult About()
         {
 
-            //ViewData["Message"] = "Your application description page.";
-
-            var count = this.Data.Addresses
-                .All()
-                .ToList()
-                .Count;
-
-            ViewData["Message"] = count;
+            ViewData["Message"] = "";
 
             return View();
         }

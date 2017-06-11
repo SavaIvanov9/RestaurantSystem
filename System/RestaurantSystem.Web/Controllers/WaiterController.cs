@@ -14,7 +14,6 @@ namespace RestaurantSystem.Web.Controllers
         {
         }
 
-        // GET: Waiter
         public IActionResult Index()
         {
             return View(this.Data.Waiters
@@ -23,7 +22,6 @@ namespace RestaurantSystem.Web.Controllers
                 .ToList());
         }
 
-        // GET: Waiter/Details/5
         public IActionResult Details(long? id)
         {
             if (id == null)
@@ -43,15 +41,11 @@ namespace RestaurantSystem.Web.Controllers
             return View(waiter);
         }
 
-        // GET: Waiter/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Waiter/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("Id,Name,CreatedOn,ModifiedOn,IsDeleted")] Waiter waiter)
@@ -65,7 +59,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(waiter);
         }
 
-        // GET: Waiter/Edit/5
         public IActionResult Edit(long? id)
         {
             if (id == null)
@@ -76,6 +69,7 @@ namespace RestaurantSystem.Web.Controllers
             var waiter = this.Data.Waiters
                 .All()
                 .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
+
             if (waiter == null)
             {
                 return NotFound();
@@ -83,9 +77,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(waiter);
         }
 
-        // POST: Waiter/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(long id, [Bind("Id,Name,CreatedOn,ModifiedOn")] Waiter waiter)
@@ -99,8 +90,7 @@ namespace RestaurantSystem.Web.Controllers
             {
                 try
                 {
-                    this.Data.Waiters
-                        .Update(waiter);
+                    this.Data.Waiters.Update(waiter);
 
                     this.Data.SaveChanges();
                 }
@@ -120,7 +110,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(waiter);
         }
 
-        // GET: Waiter/Delete/5
         public IActionResult Delete(long? id)
         {
             if (id == null)
@@ -140,7 +129,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(waiter);
         }
 
-        // POST: Waiter/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(long id)

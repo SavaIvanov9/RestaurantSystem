@@ -16,7 +16,6 @@ namespace RestaurantSystem.Web.Controllers
         {
         }
 
-        // GET: SupplyDocuments
         public IActionResult Index()
         {
             var documents = this.Data.SupplyDocuments
@@ -27,7 +26,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(documents);
         }
 
-        // GET: SupplyDocuments/Details/5
         public IActionResult Details(long? id)
         {
             if (id == null)
@@ -47,7 +45,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(supplyDocument);
         }
 
-        // GET: SupplyDocuments/Create
         public IActionResult Create()
         {
             ViewData["SupplierId"] = new SelectList(
@@ -60,9 +57,6 @@ namespace RestaurantSystem.Web.Controllers
             return View();
         }
 
-        // POST: SupplyDocuments/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("Id,CreatedOn,ModifiedOn,ReferenceNumber,DocumentDate,SupplierId")] SupplyDocument supplyDocument)
@@ -84,7 +78,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(supplyDocument);
         }
 
-        // GET: SupplyDocuments/Edit/5
         public IActionResult Edit(long? id)
         {
             if (id == null)
@@ -111,9 +104,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(supplyDocument);
         }
 
-        // POST: SupplyDocuments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(long id, [Bind("Id,CreatedOn,ModifiedOn,ReferenceNumber,DocumentDate,SupplierId")] SupplyDocument supplyDocument)
@@ -155,7 +145,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(supplyDocument);
         }
 
-        // GET: SupplyDocuments/Delete/5
         public IActionResult Delete(long? id)
         {
             if (id == null)
@@ -175,7 +164,6 @@ namespace RestaurantSystem.Web.Controllers
             return View(supplyDocument);
         }
 
-        // POST: SupplyDocuments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(long id)

@@ -26,6 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">RestaurantSystem.Web</a>
             </div>
@@ -35,6 +36,7 @@
                     <li><a asp-area="" asp-controller="Waiter" asp-action="Index">Waiters</a></li>
                     <li><a asp-area="" asp-controller="SupplyDocuments" asp-action="Index">Supply Documents</a></li>
                     <li><a asp-area="" asp-controller="Sales" asp-action="Index">Sales</a></li>
+                    <li><a asp-area="" asp-controller="JsonImporter" asp-action="Import">Import Json Files</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
