@@ -6,24 +6,24 @@
 
     public abstract class BaseImporter
     {
-        private int saveChangesCount = 50;
+        //private int saveChangesCount = 50;
 
         protected void SaveChanges(int count, IRestaurantSystemData db)
         {
-            if (count % saveChangesCount == 0)
+            if (true) //(count % saveChangesCount == 0)
             {
                 for (int i = 0; i <= GlobalConstants.SaveChangesRetryCountIfError; i++)
                 {
-                    try
-                    {
-                        db.SaveChanges();
+                    //try
+                    //{
+                        var c = db.SaveChanges();
                         break;
-                    }
-                    catch (Exception ex)
-                    {
-                        //TO DO 
-                        // Handle  exception when postgre error logs db is ready
-                    }
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    //TO DO 
+                    //    // Handle  exception when postgre error logs db is ready
+                    //}
                 }
             }
         }

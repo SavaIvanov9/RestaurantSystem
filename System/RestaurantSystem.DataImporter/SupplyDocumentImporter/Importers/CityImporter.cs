@@ -68,6 +68,8 @@
                 result.Add(doc.Supplier.Address.City);
             }
 
+            result.Add(documents[0].RestaurantBranch.Address.City);
+
             return result;
         }
     }

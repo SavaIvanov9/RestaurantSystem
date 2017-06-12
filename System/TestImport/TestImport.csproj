@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EE5EA432-BD31-4433-9A30-74F2552E75B7}</ProjectGuid>
+    <ProjectGuid>{EDC7C5B2-9A06-45DD-B964-4034040C1E61}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>JsonFilesGenerator</RootNamespace>
-    <AssemblyName>JsonFilesGenerator</AssemblyName>
+    <RootNamespace>TestImport</RootNamespace>
+    <AssemblyName>TestImport</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,13 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>JsonFilesGenerator.Launcher</StartupObject>
+    <StartupObject>TestImport.Launcher</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,36 +57,49 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine.cs" />
-    <Compile Include="ITestObjectRandomGenerator.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="TestObjectRandomGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\RestaurantSystem.JsonModels.csproj">
-      <Project>{FF1BF15B-926C-4D1B-9282-4A35B7B09EB8}</Project>
+      <Project>{ff1bf15b-926c-4d1b-9282-4a35b7b09eb8}</Project>
       <Name>RestaurantSystem.JsonModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonFilesGenerator\JsonFilesGenerator.csproj">
+      <Project>{ee5ea432-bd31-4433-9a30-74f2552e75b7}</Project>
+      <Name>JsonFilesGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.DataImporter\RestaurantSystem.DataImporter.csproj">
+      <Project>{ecc4dc8c-fb71-4c61-897c-84be7944d91c}</Project>
+      <Name>RestaurantSystem.DataImporter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Data\RestaurantSystem.Data.csproj">
+      <Project>{23371684-3944-4594-a807-22304240bdce}</Project>
+      <Name>RestaurantSystem.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.FileManager\RestaurantSystem.FileManager.csproj">
       <Project>{c85c2a43-a7af-4982-bd1a-de326c969216}</Project>
       <Name>RestaurantSystem.FileManager</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestaurantSystem.Infrastructure\RestaurantSystem.Infrastructure.csproj">
-      <Project>{982413ee-b429-41cd-9e27-ed319a6e1281}</Project>
-      <Name>RestaurantSystem.Infrastructure</Name>
+    <ProjectReference Include="..\RestaurantSystem.JsonManaging\RestaurantSystem.JsonManaging.csproj">
+      <Project>{d87ccafc-4869-4a5a-819f-08273ec044ed}</Project>
+      <Name>RestaurantSystem.JsonManaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.JsonModelMapper\RestaurantSystem.JsonModelMapper.csproj">
+      <Project>{0c2d8f5f-88d2-49c7-a338-c36c1f45c0c7}</Project>
+      <Name>RestaurantSystem.JsonModelMapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Models\RestaurantSystem.Models.csproj">
+      <Project>{882eb16c-cd96-422e-86cf-b1f4f4992df3}</Project>
+      <Name>RestaurantSystem.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Services\RestaurantSystem.Services.csproj">
+      <Project>{169be4d3-14ef-4682-916b-7d0cfbfb05e3}</Project>
+      <Name>RestaurantSystem.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

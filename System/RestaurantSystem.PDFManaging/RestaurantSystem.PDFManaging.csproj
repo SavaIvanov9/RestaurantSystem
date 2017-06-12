@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPDFManager.cs" />
-    <Compile Include="PDFManager.cs" />
+    <Compile Include="IProductsPDFManager.cs" />
+    <Compile Include="ISalesPDFManager.cs" />
+    <Compile Include="ProductsPDFManager.cs" />
+    <Compile Include="SalesPDFManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,12 +10,14 @@
         private DateTime createdOn;
         private bool isDeleted;
         private ICollection<Supplier> suppliers;
-        
+        private ICollection<RestaurantBranch> branches;
+
         public Address()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
             this.suppliers = new HashSet<Supplier>();
+            this.branches = new HashSet<RestaurantBranch>();
         }
 
         [Key]
@@ -64,7 +66,7 @@
 
         public string PhoneNumber { get; set; }
 
-        public ICollection<Supplier> Suppliers
+        public virtual ICollection<Supplier> Suppliers
         {
             get
             {
@@ -73,6 +75,18 @@
             set
             {
                 this.suppliers = value;
+            }
+        }
+
+        public virtual ICollection<RestaurantBranch> Branches
+        {
+            get
+            {
+                return this.branches;
+            }
+            set
+            {
+                this.branches = value;
             }
         }
     }

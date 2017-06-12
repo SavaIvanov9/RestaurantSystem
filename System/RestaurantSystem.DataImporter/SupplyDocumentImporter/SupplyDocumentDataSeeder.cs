@@ -23,6 +23,7 @@
                 {
                     x.Import(db, documents);
                 });
+            db.SaveChanges();
         }
     }
 }

@@ -74,9 +74,9 @@
         public WaiterRepository Waiters =>
             (WaiterRepository)this.GetRepository<Waiter>();
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            this._context.SaveChanges();
+            return this._context.SaveChanges();
         }
 
         private IRepository<T> GetRepository<T>() where T : class

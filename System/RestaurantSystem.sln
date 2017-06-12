@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commons", "Commons", "{04DBB175-AFCA-413F-A7FB-738D33461E41}"
 EndProject
@@ -60,6 +60,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystem.ErrorReportsData", "RestaurantSystem.ErrorReportsData\RestaurantSystem.ErrorReportsData.csproj", "{6FE08098-AB7C-45AB-9E9D-335E1CA7E629}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSystemData.TestGround", "RestaurantSystemData.TestGround\RestaurantSystemData.TestGround.csproj", "{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestImport", "TestImport\TestImport.csproj", "{EDC7C5B2-9A06-45DD-B964-4034040C1E61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +161,10 @@ Global
 		{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDC7C5B2-9A06-45DD-B964-4034040C1E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC7C5B2-9A06-45DD-B964-4034040C1E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC7C5B2-9A06-45DD-B964-4034040C1E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC7C5B2-9A06-45DD-B964-4034040C1E61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -186,5 +192,6 @@ Global
 		{682BCA19-03D2-406C-8BA7-7532AFCF3299} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
 		{6FE08098-AB7C-45AB-9E9D-335E1CA7E629} = {15843B1E-BA23-40CA-BA42-B01E9A95009A}
 		{7EA871E4-56AD-4E5D-B62B-6D71FEEA524B} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
+		{EDC7C5B2-9A06-45DD-B964-4034040C1E61} = {A2308C2A-66DA-40A6-AEED-4835DAF09D68}
 	EndGlobalSection
 EndGlobal

@@ -3,7 +3,7 @@
     using RestaurantSystem.Models;
     using System.Collections.Generic;
 
-    public interface IPDFManager
+    public interface ISalesPDFManager
     {
         byte[] ExportSalesFile(IList<Sale> sales);
     }

@@ -33,8 +33,9 @@
                             )
                             .FirstOrDefault();
 
-                        branchToAdd.AddressId = branch.Address.Id;
-                        branchToAdd.Address = branch.Address;
+                        //branchToAdd.AddressId = branch.Address.Id;
+                        //branchToAdd.Address = branch.Address;
+                        branchAddress.Branches.Add(branchToAdd);
                     }
 
                     db.SaveChanges();

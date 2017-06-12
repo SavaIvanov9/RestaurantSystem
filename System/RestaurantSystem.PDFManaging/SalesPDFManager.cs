@@ -6,7 +6,7 @@
     using iTextSharp.text.pdf;
     using System.IO;
 
-    public class PDFManager : IPDFManager
+    public class SalesPDFManager : ISalesPDFManager
     {
         private const string FileHeader = "Sales Report";
         private const string FileFooter = "Total sales: ";

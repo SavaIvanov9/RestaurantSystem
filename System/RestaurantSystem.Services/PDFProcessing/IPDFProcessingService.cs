@@ -8,6 +8,6 @@
     public interface IPDFProcessingService
     {
         PDFProcessingResult ExportDocument(ExportingType exporting,
-            IRestaurantSystemData data, IPDFManager pdfManager);
+            IRestaurantSystemData data, ISalesPDFManager pdfManager);
     }
 }

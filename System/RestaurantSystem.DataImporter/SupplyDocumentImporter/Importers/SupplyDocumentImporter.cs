@@ -23,13 +23,11 @@
                     {
                         if (!SupplyDocumentExists(documents[i], db))
                         {
-                            var supplyDocumentToAdd = new SupplyDocument
-                                {
-                                    ReferenceNumber = documents[i].ReferenceNumber,
-                                    DocumentDate = documents[i].DocumentDate,
-                                    SupplierId = documents[i].Supplier.Id,
-                                    Supplier = documents[i].Supplier
-                                };
+                            var docummentName = documents[i].Supplier.Name;
+
+                            var supplier = db.Suppliers
+                            .All()
+                            .FirstOrDefault(x => x.Name == docummentName);
 
                             var name = documents[i].RestaurantBranch.Name;
 
@@ -38,51 +36,32 @@
                                 .Where(x => x.Name == name)
                                 .FirstOrDefault();
 
-                            if (documentBranch != null)
+                            if (documentBranch != null && supplier != null)
                             {
-                                supplyDocumentToAdd.RestaurantBranchId = documentBranch.Id;
-                                supplyDocumentToAdd.RestaurantBranch = documentBranch;
-                            }
-
-                            foreach (var component in documents[i].SupplyDocumentComponents)
-                            {
-                                var storedProduct = ProductInStoredProducts(component.Product, db);
-                                if (storedProduct != null)
+                                var supplyDocumentToAdd = new SupplyDocument
                                 {
-                                    storedProduct.Quantity += component.Quantity;
-                                    db.StoredProducts.Update(storedProduct);
-                                }
-                                else
-                                {
-                                    var storedProductToAdd = new StoredProduct();
-                                    storedProductToAdd.Product = component.Product;
-                                    storedProductToAdd.Quantity = component.Quantity;
-                                    //TODO: Calculate the average price of the product and update the necessary product
-                                }
+                                    ReferenceNumber = documents[i].ReferenceNumber,
+                                    DocumentDate = documents[i].DocumentDate,
+                                    SupplierId = supplier.Id,
+                                    Supplier = supplier,
+                                    RestaurantBranchId = documentBranch.Id,
+                                    RestaurantBranch = documentBranch
+                                };
 
-                                var product = db.Products
-                                    .All()
-                                    .FirstOrDefault(x => x.Name == component.Product.Name);
+                                //supplier.SupplyDocuments.Add(supplyDocumentToAdd);
+                                //db.Suppliers.Update(supplier);
+                                //db.SaveChanges();
 
-                                if (component.SupplyDocument != null)
-                                {
-                                    var supplyDocument = db.SupplyDocuments
-                                        .All()
-                                        .FirstOrDefault(x => x.ReferenceNumber == component.SupplyDocument.ReferenceNumber);
+                                //documentBranch.SupplyDocuments.Add(supplyDocumentToAdd);
+                                //db.RestaurantBranches.Update(documentBranch);
+                                //db.SaveChanges();
 
-                                    if (product != null && supplyDocument != null)
-                                    {
-                                        db.SupplyDocumentComponents.Add(new SupplyDocumentComponent
-                                        {
-                                            Price = component.Price,
-                                            Product = product,
-                                            ProductId = product.Id,
-                                            Quantity = component.Quantity,
-                                            SupplyDocument = supplyDocument,
-                                            SupplyDocumentId = supplyDocument.Id
-                                        });
-                                    }
-                                }
+                                db.SupplyDocuments.Add(supplyDocumentToAdd);
+                                db.SaveChanges();
+
+                                ImportSupplyDocumentComponents(documents[i], db, documentBranch);
+
+                                db.SaveChanges();
                             }
                         }
 
@@ -91,6 +70,72 @@
 
                     db.SaveChanges();
                 };
+            }
+        }
+
+        private void ImportSupplyDocumentComponents(SupplyDocument document, IRestaurantSystemData db, RestaurantBranch documentBranch)
+        {
+            foreach (var component in document.SupplyDocumentComponents)
+            {
+                var storedProduct = FindProductInStoredProducts(component.Product, db);
+
+                if (storedProduct != null)
+                {
+                    storedProduct.Quantity += component.Quantity;
+                    db.StoredProducts.Update(storedProduct);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var storedProductToAdd = new StoredProduct();
+
+                    storedProductToAdd.Product = component.Product;
+                    storedProductToAdd.Quantity = component.Quantity;
+                    storedProductToAdd.RestaurantBranch = documentBranch;
+                    storedProductToAdd.RestaurantBranchId = documentBranch.Id;
+                    //TODO: Calculate the average price of the product and update the necessary product
+
+                    db.RestaurantBranches.Update(documentBranch);
+                    db.SaveChanges();
+                }
+
+                var product = db.Products
+                    .All()
+                    .FirstOrDefault(x => x.Name == component.Product.Name);
+
+                if (component.SupplyDocument != null && component.SupplyDocument.Supplier != null)
+                {
+                    var supplyDocument = db.SupplyDocuments
+                        .All()
+                        .FirstOrDefault(x => x.ReferenceNumber == component.SupplyDocument.ReferenceNumber
+                            && x.Supplier.Name == component.SupplyDocument.Supplier.Name);
+
+                    if (product != null && supplyDocument != null)
+                    {
+                        //db.SupplyDocumentComponents.Add(new SupplyDocumentComponent
+                        //{
+                        //    Price = component.Price,
+                        //    Product = product,
+                        //    ProductId = product.Id,
+                        //    Quantity = component.Quantity,
+                        //    //SupplyDocument = supplyDocument,
+                        //    //SupplyDocumentId = supplyDocument.Id
+                        //});
+
+                        supplyDocument.SupplyDocumentComponents.Add(new SupplyDocumentComponent
+                        {
+                            Price = component.Price,
+                            Product = product,
+                            ProductId = product.Id,
+                            Quantity = component.Quantity,
+                            //SupplyDocument = supplyDocument,
+                            //SupplyDocumentId = supplyDocument.Id
+                        });
+
+                        db.SupplyDocuments.Update(supplyDocument);
+                        db.SaveChanges();
+                    }
+                }
             }
         }
 
@@ -114,7 +159,7 @@
             return result;
         }
 
-        private StoredProduct ProductInStoredProducts(Product product, IRestaurantSystemData db)
+        private StoredProduct FindProductInStoredProducts(Product product, IRestaurantSystemData db)
         {
             StoredProduct result = db.StoredProducts
                 .All()

@@ -38,6 +38,6 @@
 
         WaiterRepository Waiters { get; }
 
-        void SaveChanges();
+        int SaveChanges();
     }
 }

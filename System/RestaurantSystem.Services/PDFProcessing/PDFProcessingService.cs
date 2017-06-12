@@ -11,7 +11,7 @@
     public class PDFProcessingService : IPDFProcessingService
     {
         public PDFProcessingResult ExportDocument(ExportingType exporting,
-            IRestaurantSystemData data, IPDFManager pdfManager)
+            IRestaurantSystemData data, ISalesPDFManager pdfManager)
         {
             var result = new PDFProcessingResult
             {
