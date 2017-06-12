@@ -15,7 +15,7 @@ namespace RestaurantSystem.PDFManaging
         private const int NumberOfColumns = 4;
         private const string FileHeader = "Product Types Report";
         private const string FileFooter = "Total number of product types: ";
-        private readonly string fileName = Directory.GetCurrentDirectory() + "/Reports/ProductReport.pdf";
+        //private readonly string fileName = Directory.GetCurrentDirectory() + "/Reports/ProductReport.pdf";
 
         public byte[] ExportProductsFile(IList<Product> products)
         {
@@ -24,12 +24,15 @@ namespace RestaurantSystem.PDFManaging
 
             using (MemoryStream stream = new MemoryStream())
             {
-                PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(this.fileName, FileMode.Create));
+                //PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(this.fileName, FileMode.Create));
+                PdfWriter writer = PdfWriter.GetInstance(doc, stream);
+
                 doc.Open();
                 this.CreateTitleHeader(doc);
                 this.CreateTableHeader(doc);
                 this.CreateTable(products, doc);
                 doc.Close();
+
                 return stream.ToArray();
             }
         }

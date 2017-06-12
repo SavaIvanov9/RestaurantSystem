@@ -12,6 +12,7 @@
     using RestaurantSystem.ErrorLogData;
     using RestaurantSystem.ErrorLogData.Abstraction;
     using RestaurantSystem.JsonManaging;
+    using RestaurantSystem.PDFManaging;
     using RestaurantSystem.Services;
     using RestaurantSystem.Services.Abstraction;
     using RestaurantSystem.Web.ErrorHandling;
@@ -40,8 +41,11 @@
             services.AddTransient<IJsonProcessingService, JsonProcessingService>();
             services.AddTransient<IJsonManager, JsonManager>();
 
+            services.AddTransient<IProductsPDFManager, ProductsPDFManager>();
+            
             services.AddTransient<ISupplyDocumentDataSeeder, SupplyDocumentDataSeeder>();
             
+
             // Add framework services.
             services.AddMvc();
         }
