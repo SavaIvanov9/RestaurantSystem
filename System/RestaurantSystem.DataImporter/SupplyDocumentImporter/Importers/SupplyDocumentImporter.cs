@@ -79,6 +79,10 @@
             {
                 var storedProduct = FindProductInStoredProducts(component.Product, db);
 
+                var product = db.Products
+                        .All()
+                        .FirstOrDefault(x => x.Name == component.Product.Name);
+
                 if (storedProduct != null)
                 {
                     storedProduct.Quantity += component.Quantity;
@@ -87,22 +91,19 @@
                 }
                 else
                 {
-                    var storedProductToAdd = new StoredProduct();
+                    var storedProductToAdd = new StoredProduct
+                    {
+                        Product = product,
+                        ProductId = product.Id,
+                        Quantity = component.Quantity,
+                        RestaurantBranch = documentBranch,
+                        RestaurantBranchId = documentBranch.Id
+                    };
 
-                    storedProductToAdd.Product = component.Product;
-                    storedProductToAdd.Quantity = component.Quantity;
-                    storedProductToAdd.RestaurantBranch = documentBranch;
-                    storedProductToAdd.RestaurantBranchId = documentBranch.Id;
-                    //TODO: Calculate the average price of the product and update the necessary product
-
-                    db.RestaurantBranches.Update(documentBranch);
+                    db.StoredProducts.Add(storedProductToAdd);
                     db.SaveChanges();
                 }
-
-                var product = db.Products
-                    .All()
-                    .FirstOrDefault(x => x.Name == component.Product.Name);
-
+                
                 if (component.SupplyDocument != null && component.SupplyDocument.Supplier != null)
                 {
                     var supplyDocument = db.SupplyDocuments
