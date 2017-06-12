@@ -5,6 +5,7 @@
     using iTextSharp.text;
     using iTextSharp.text.pdf;
     using System.IO;
+    using System.Linq;
 
     public class PDFManager : IPDFManager
     {
@@ -73,17 +74,12 @@
 
         private void CreateTable(IList<Sale> sales, Document doc)
         {
-            // TODO: sort the different fields of the db into lists using sales.XXXX.ToList();
-            // and save them into variables here
-
             PdfPTable tableBody = new PdfPTable(5);
 
-            // TODO: Using foreach fill up the table with the data; quick example:
-            // foreach (var sale in sales)
-            // {
-            //      var currentSale = sales.Where(s => s.Id = sale.SaleID).FirstOrDefault();
-            //      tableBody.AddCell(currentSale.saleId); 
-            // }
+            foreach (var sale in sales)
+            {
+                 tableBody.AddCell(sale.ToString()); 
+            }
 
             PdfPTable footer = new PdfPTable(5);
 
@@ -92,10 +88,10 @@
             totalSalesTextCell.HorizontalAlignment = 2;
             footer.AddCell(totalSalesTextCell);
 
-            // TODO: Count how many sales have been added to the table and write it in the footer
-            // PdfPCell totalSalesCell = new PdfPCell(new Phrase(sales.ToList().Count.ToString()));
-            // totalSalesCell.HorizontalAlignment = 1;
-            // footer.AddCell(totalSalesCell);
+            // Count how many sales have been added to the table and write it in the footer
+            PdfPCell totalSalesCell = new PdfPCell(new Phrase(sales.ToList().Count.ToString()));
+            totalSalesCell.HorizontalAlignment = 1;
+            footer.AddCell(totalSalesCell);
 
             doc.Add(tableBody);
             doc.Add(footer);
