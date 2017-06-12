@@ -27,35 +27,30 @@
             this.seeder = seeder;
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
         public IActionResult Index()
         {
             return View();
         }
 
-        //[HttpPost("ImportFiles")]
         [HttpPost("JsonImporter")]
         public async Task<IActionResult> Post(List<IFormFile> files)
         {
-            //foreach (var formFile in files)
-            //{
-            //    if (formFile.Length > 0)
-            //    {
-            //        using (var stream = new MemoryStream())
-            //        {
-            //            await formFile.CopyToAsync(stream);
+            foreach (var formFile in files)
+            {
+                if (formFile.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await formFile.CopyToAsync(stream);
 
-            //            this.jsonProcessingService.ImportDocument(ImportingType.Products,
-            //                this.Data, this.jsonManager, stream.ToArray(), seeder);
-            //        }
-            //    }
-            //}
+                        this.jsonProcessingService.ImportDocument(ImportingType.Products,
+                            this.Data, this.jsonManager, stream.ToArray(), seeder);
+                    }
+                }
+            }
 
             ViewData["Message"] = "Successful Importing!";
 
-            //return RedirectToAction("Index");
-            //return Ok();
             return View("Index");
         }
     }

@@ -5,6 +5,7 @@
     using RestaurantSystem.JsonModels.JsonModels;
     using RestaurantSystem.Models;
     using System.Collections.Generic;
+    using System.IO;
 
     public class JsonManager : IJsonManager
     {
@@ -14,11 +15,14 @@
         {
             var result = new List<SupplyDocument>();
 
-            var jsonSupplyDocuments = JsonConvert.DeserializeObject<List<JsonSupplyDocument>>(document.ToString());
-
-            foreach (var item in jsonSupplyDocuments)
+            using (var stream = new StreamReader(new MemoryStream(document)))
             {
-                result.Add(jsonModelMapper.ConvertSupplyDocument(item));
+                var jsonSupplyDocuments = JsonConvert.DeserializeObject<List<JsonSupplyDocument>>(stream.ReadToEnd());
+
+                foreach (var item in jsonSupplyDocuments)
+                {
+                    result.Add(jsonModelMapper.ConvertSupplyDocument(item));
+                }
             }
 
             return result;

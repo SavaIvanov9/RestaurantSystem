@@ -113,6 +113,8 @@
                 type = typeof(StoredProductsRepository);
             else if (repositoryType.IsAssignableFrom(typeof(ProductType)))
                 type = typeof(ProductTypeRepository);
+            else if (repositoryType.IsAssignableFrom(typeof(Product)))
+                type = typeof(ProductRepository);
             else if (repositoryType.IsAssignableFrom(typeof(RestaurantBranch)))
                 type = typeof(RestaurantBranchRepository);
             else if (repositoryType.IsAssignableFrom(typeof(SaleComponent)))

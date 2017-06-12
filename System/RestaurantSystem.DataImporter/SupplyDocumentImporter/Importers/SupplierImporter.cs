@@ -26,12 +26,13 @@
                             var supplierToAdd = new Supplier();
                             supplierToAdd.Name = suppliers[i].Name;
 
+                            var street = suppliers[i].Address.Street;
+                            var postCode = suppliers[i].Address.PostCode;
+
                             var supplierAddress = db.Addresses
                                 .All()
-                                .Where(
-                                    x => x.Street == suppliers[i].Address.Street &&
-                                        x.PostCode == suppliers[i].Address.PostCode
-                                )
+                                .Where(x => x.Street == street
+                                    && x.PostCode == postCode)
                                 //.Select(x => x.Id)
                                 .FirstOrDefault();
 

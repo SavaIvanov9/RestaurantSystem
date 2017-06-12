@@ -18,7 +18,10 @@
             {
                 return (db, documents) =>
                 {
-                    var measuringUnits = ExtractMeasuringUnits(documents);
+                    var measuringUnits = ExtractMeasuringUnits(documents)
+                        .Select(x => x.Name)
+                        .Distinct()
+                        .ToList(); ;
 
                     for (int i = 0; i < measuringUnits.Count; i++)
                     {
@@ -26,7 +29,7 @@
                         {
                             db.MeasuringUnits.Add(new MeasuringUnit
                             {
-                                Name = measuringUnits[i].Name
+                                Name = measuringUnits[i]
                             });
                         }
 
@@ -38,11 +41,11 @@
             }
         }
 
-        private bool MeasuringUnitExists(MeasuringUnit unit, IRestaurantSystemData db)
+        private bool MeasuringUnitExists(string unit, IRestaurantSystemData db)
         {
             var dbMeasuringUnit = db.MeasuringUnits
                 .All()
-                .Where(x => x.Name == unit.Name)
+                .Where(x => x.Name == unit)
                 .FirstOrDefault();
 
                 var result = dbMeasuringUnit != null;

@@ -45,6 +45,7 @@
     <Compile Include="Enumerations\DocumentProcessingResult.cs" />
     <Compile Include="Enumerations\ExportingType.cs" />
     <Compile Include="Enumerations\ImportingType.cs" />
+    <Compile Include="Extentions\CollectionExtentions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

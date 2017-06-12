@@ -19,7 +19,10 @@
             {
                 return (db, documents) =>
                 {
-                    var cities = ExtractCities(documents);
+                    var cities = ExtractCities(documents)
+                        .Select(x => x.Name)
+                        .Distinct()
+                        .ToList();
 
                     for (int i = 0; i < cities.Count; i++)
                     {
@@ -27,7 +30,7 @@
                         {
                             db.Cities.Add(new City
                             {
-                                Name = cities[i].Name
+                                Name = cities[i]
                             });
                         }
 
@@ -39,13 +42,13 @@
             }
         }
 
-        private bool CityExists(City city, IRestaurantSystemData db)
+        private bool CityExists(string city, IRestaurantSystemData db)
         {
             var result = true;
 
             var dbCity = db.Cities
                 .All()
-                .Where(x => x.Name == city.Name)
+                .Where(x => x.Name == city)
                 .FirstOrDefault();
 
             if(dbCity == null)

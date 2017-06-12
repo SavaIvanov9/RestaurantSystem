@@ -31,9 +31,11 @@
                                     Supplier = documents[i].Supplier
                                 };
 
+                            var name = documents[i].RestaurantBranch.Name;
+
                             var documentBranch = db.RestaurantBranches
                                 .All()
-                                .Where(x => x.Name == documents[i].RestaurantBranch.Name)
+                                .Where(x => x.Name == name)
                                 .FirstOrDefault();
 
                             if (documentBranch != null)
@@ -57,7 +59,30 @@
                                     storedProductToAdd.Quantity = component.Quantity;
                                     //TODO: Calculate the average price of the product and update the necessary product
                                 }
-                                db.SupplyDocumentComponents.Add(component);
+
+                                var product = db.Products
+                                    .All()
+                                    .FirstOrDefault(x => x.Name == component.Product.Name);
+
+                                if (component.SupplyDocument != null)
+                                {
+                                    var supplyDocument = db.SupplyDocuments
+                                        .All()
+                                        .FirstOrDefault(x => x.ReferenceNumber == component.SupplyDocument.ReferenceNumber);
+
+                                    if (product != null && supplyDocument != null)
+                                    {
+                                        db.SupplyDocumentComponents.Add(new SupplyDocumentComponent
+                                        {
+                                            Price = component.Price,
+                                            Product = product,
+                                            ProductId = product.Id,
+                                            Quantity = component.Quantity,
+                                            SupplyDocument = supplyDocument,
+                                            SupplyDocumentId = supplyDocument.Id
+                                        });
+                                    }
+                                }
                             }
                         }
 
