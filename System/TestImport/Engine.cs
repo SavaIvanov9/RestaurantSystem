@@ -10,6 +10,7 @@ using RestaurantSystem.DataImporter.SupplyDocumentImporter.Importers;
 using RestaurantSystem.MapperJsonModel;
 using System.Linq;
 using System.Data.Entity;
+using RestaurantSystem.PDFManaging;
 
 namespace TestImport
 {
@@ -17,6 +18,7 @@ namespace TestImport
     {
         private IFileManager fileManager;
         private ITestObjectRandomGenerator objGenerator;
+        private ProductsPDFManager productPDFManager = new ProductsPDFManager();
 
         public Engine(IFileManager fileManager, ITestObjectRandomGenerator objGenerator)
         {
@@ -31,6 +33,7 @@ namespace TestImport
 
         public void TestImporters()
         {
+
             var db = new RestaurantSystemData();
 
             Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantSystemDbContext>());
@@ -56,6 +59,9 @@ namespace TestImport
 
             var jsonImporter = new SupplyDocumentDataSeeder();
             jsonImporter.Seed(suppliers, db);
+
+            var products = db.Products.All().ToList();
+            this.productPDFManager.ExportProductsFile(products);
 
             Console.WriteLine(db.Addresses.All().ToList().Count);
             Console.WriteLine(db.Cities.All().ToList().Count);

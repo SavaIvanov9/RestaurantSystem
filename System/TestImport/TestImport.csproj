@@ -97,6 +97,10 @@
       <Project>{882eb16c-cd96-422e-86cf-b1f4f4992df3}</Project>
       <Name>RestaurantSystem.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.PDFManaging\RestaurantSystem.PDFManaging.csproj">
+      <Project>{15FFED11-B944-4710-A021-93F67B8E8C43}</Project>
+      <Name>RestaurantSystem.PDFManaging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.Services\RestaurantSystem.Services.csproj">
       <Project>{169be4d3-14ef-4682-916b-7d0cfbfb05e3}</Project>
       <Name>RestaurantSystem.Services</Name>
