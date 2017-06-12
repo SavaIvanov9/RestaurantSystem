@@ -21,9 +21,6 @@
     {
         public Startup(IHostingEnvironment env)
         {
-            ErrorLogDataConfig.Initizlize();
-            RestaurantSystemDataConfig.Initizlize();
-
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)

@@ -146,7 +146,7 @@ namespace RestaurantSystem.MapperJsonModel
             result.Product = this.ConvertProduct(supplyDocumentComponent.Product);
             result.Quantity = supplyDocumentComponent.Quantity;
             result.Price = supplyDocumentComponent.Price;
-
+            
             return result;
         }
 
