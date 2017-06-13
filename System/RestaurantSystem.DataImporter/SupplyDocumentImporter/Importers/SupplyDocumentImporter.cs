@@ -10,7 +10,6 @@
 
     public class SupplyDocumentImporter : BaseImporter, IImporter
     {
-
         public int Order => 7;
 
         public Action<IRestaurantSystemData, IList<SupplyDocument>> Import
@@ -47,14 +46,6 @@
                                     RestaurantBranchId = documentBranch.Id,
                                     RestaurantBranch = documentBranch
                                 };
-
-                                //supplier.SupplyDocuments.Add(supplyDocumentToAdd);
-                                //db.Suppliers.Update(supplier);
-                                //db.SaveChanges();
-
-                                //documentBranch.SupplyDocuments.Add(supplyDocumentToAdd);
-                                //db.RestaurantBranches.Update(documentBranch);
-                                //db.SaveChanges();
 
                                 db.SupplyDocuments.Add(supplyDocumentToAdd);
                                 db.SaveChanges();
@@ -108,31 +99,14 @@
                         db.SaveChanges();
                     }
 
-                    //var supplyDocument = db.SupplyDocuments
-                    //    .All()
-                    //    .FirstOrDefault(x => x.ReferenceNumber == component.SupplyDocument.ReferenceNumber
-                    //        && x.Supplier.Name == component.SupplyDocument.Supplier.Name);
-
                     if (supplyDocument != null)
                     {
-                        //db.SupplyDocumentComponents.Add(new SupplyDocumentComponent
-                        //{
-                        //    Price = component.Price,
-                        //    Product = product,
-                        //    ProductId = product.Id,
-                        //    Quantity = component.Quantity,
-                        //    //SupplyDocument = supplyDocument,
-                        //    //SupplyDocumentId = supplyDocument.Id
-                        //});
-
                         supplyDocument.SupplyDocumentComponents.Add(new SupplyDocumentComponent
                         {
                             Price = component.Price,
                             Product = product,
                             ProductId = product.Id,
                             Quantity = component.Quantity,
-                            //SupplyDocument = supplyDocument,
-                            //SupplyDocumentId = supplyDocument.Id
                         });
 
                         db.SupplyDocuments.Update(supplyDocument);

@@ -18,7 +18,7 @@
             {
                 return (db, documents) =>
                 {
-                    var branch = documents[0].RestaurantBranch; //TODO: for many branches
+                    var branch = documents[0].RestaurantBranch;
 
                     if (!BranchExists(branch, db))
                     {
@@ -33,8 +33,6 @@
                             )
                             .FirstOrDefault();
 
-                        //branchToAdd.AddressId = branch.Address.Id;
-                        //branchToAdd.Address = branch.Address;
                         branchAddress.Branches.Add(branchToAdd);
                     }
 

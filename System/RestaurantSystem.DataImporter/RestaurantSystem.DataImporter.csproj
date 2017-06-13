@@ -62,6 +62,10 @@
       <Project>{23371684-3944-4594-A807-22304240BDCE}</Project>
       <Name>RestaurantSystem.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.ErrorLogData\RestaurantSystem.ErrorLogData.csproj">
+      <Project>{a85a095c-1fea-41d0-9c56-03c0dbf614df}</Project>
+      <Name>RestaurantSystem.ErrorLogData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantSystem.Infrastructure\RestaurantSystem.Infrastructure.csproj">
       <Project>{982413EE-B429-41CD-9E27-ED319A6E1281}</Project>
       <Name>RestaurantSystem.Infrastructure</Name>

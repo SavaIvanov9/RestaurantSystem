@@ -33,7 +33,6 @@
                                 .All()
                                 .Where(x => x.Street == street
                                     && x.PostCode == postCode)
-                                //.Select(x => x.Id)
                                 .FirstOrDefault();
 
                             supplierToAdd.AddressId = supplierAddress.Id;
@@ -73,6 +72,5 @@
 
             return result;
         }
-
     }
 }

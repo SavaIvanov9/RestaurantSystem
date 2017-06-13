@@ -1,18 +1,9 @@
 ﻿namespace RestaurantSystem.Web.Controllers
 {
-    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using RestaurantSystem.Data.Abstraction;
-    using RestaurantSystem.DataImporter.SupplyDocumentImporter.Abstraction;
-    using RestaurantSystem.Infrastructure.Enumerations;
-    using RestaurantSystem.JsonManaging;
     using RestaurantSystem.PDFManaging;
-    using RestaurantSystem.Services.Abstraction;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
-    using System.Threading.Tasks;
 
     public class PdfExporterController : BaseController
     {

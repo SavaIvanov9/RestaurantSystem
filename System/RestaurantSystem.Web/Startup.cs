@@ -32,7 +32,6 @@
 
         public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IRestaurantSystemData, RestaurantSystemData>();
@@ -45,27 +44,15 @@
             
             services.AddTransient<ISupplyDocumentDataSeeder, SupplyDocumentDataSeeder>();
             
-
-            // Add framework services.
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //    app.UseBrowserLink();
-            //}
-            //else
-            //{
-                app.UseCustomErrorHandler();
-                //app.UseExceptionHandler("/Home/Error");
-            //}
+            app.UseCustomErrorHandler();
 
             app.UseStaticFiles();
 

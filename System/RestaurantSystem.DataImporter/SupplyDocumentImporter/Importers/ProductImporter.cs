@@ -72,7 +72,7 @@
             {
                 foreach (var component in doc.SupplyDocumentComponents)
                 {
-                    component.Product.AveragePrice = component.Price; //TODO: SET AVERAGE PRICE!
+                    component.Product.AveragePrice = component.Price;
 
                     if (!result.Select(x => x.Name).Contains(component.Product.Name))
                     {

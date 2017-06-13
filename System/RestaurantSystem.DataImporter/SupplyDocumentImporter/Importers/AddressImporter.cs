@@ -57,7 +57,7 @@
             {
                 result.Add(doc.Supplier.Address);
             }
-            result.Add(documents[0].RestaurantBranch.Address); //TODO!
+            result.Add(documents[0].RestaurantBranch.Address);
 
             return result;
         }

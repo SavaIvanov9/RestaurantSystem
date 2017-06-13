@@ -5,7 +5,7 @@
 
     public abstract class BaseErrorHandler
     {
-        private IErrorData _data;
+        private readonly IErrorData _data;
 
         public BaseErrorHandler(IErrorData data)
         {
@@ -22,10 +22,6 @@
             get
             {
                 return this._data;
-            }
-            private set
-            {
-                this._data = value;
             }
         }
     }

@@ -26,7 +26,7 @@
 
         public IActionResult Contact()
         {
-            throw new Exception("Test error");
+            throw new Exception("Test error 1");
 
             ViewData["Message"] = "Your contact page.";
 
@@ -35,7 +35,7 @@
 
         public IActionResult TestError()
         {
-            throw new Exception("Test error");
+            throw new Exception("Test error 2");
         }
 
         public IActionResult Error()

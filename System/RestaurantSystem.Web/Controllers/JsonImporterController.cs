@@ -7,10 +7,8 @@
     using RestaurantSystem.Infrastructure.Enumerations;
     using RestaurantSystem.JsonManaging;
     using RestaurantSystem.Services.Abstraction;
-    using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
     using System.Threading.Tasks;
 
     public class JsonImporterController : BaseController
@@ -35,21 +33,24 @@
         [HttpPost("JsonImporter")]
         public async Task<IActionResult> Post(List<IFormFile> files)
         {
-            foreach (var formFile in files)
+            if (files.Count > 0)
             {
-                if (formFile.Length > 0)
+                foreach (var formFile in files)
                 {
-                    using (var stream = new MemoryStream())
+                    if (formFile.Length > 0)
                     {
-                        await formFile.CopyToAsync(stream);
+                        using (var stream = new MemoryStream())
+                        {
+                            await formFile.CopyToAsync(stream);
 
-                        this.jsonProcessingService.ImportDocument(ImportingType.Products,
-                            this.Data, this.jsonManager, stream.ToArray(), seeder);
+                            this.jsonProcessingService.ImportDocument(ImportingType.Products,
+                                this.Data, this.jsonManager, stream.ToArray(), seeder);
+                        }
+
+                        ViewData["Message"] = "Successful Importing!";
                     }
                 }
             }
-
-            ViewData["Message"] = "Successful Importing!";
             
             return View("Index");
         }

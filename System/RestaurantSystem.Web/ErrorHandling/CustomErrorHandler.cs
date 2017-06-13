@@ -118,18 +118,14 @@
             {
                 message.Append(" Could not save log.");
 
-                //if (GlobalConstants.IsDevelopment)
-                //{
-                    message.AppendLine();
-                    message.AppendLine(ex.ToString());
-                //}
+                message.AppendLine();
+                message.AppendLine(ex.ToString());
             }
 
             return context.Response.WriteAsync(message.ToString());
         }
     }
 
-    // Extension method used to add the middleware to the HTTP request pipeline.
     public static class MiddlewareExtensions
     {
         public static IApplicationBuilder UseCustomErrorHandler(this IApplicationBuilder builder)
