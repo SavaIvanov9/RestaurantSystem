@@ -1,13 +1,20 @@
 ﻿namespace RestaurantSystem.PricingData
 {
+    using RestaurantSystem.PricingData.Abstraction;
     using RestaurantSystem.PricingData.Models;
     using System;
     using System.Data.Common;
     using System.Data.Entity;
     using System.Linq;
 
-    public class PricingDataDbContext : DbContext
+    public class PricingDataDbContext : DbContext, IPricingDataDbContext
     {
+        public PricingDataDbContext()
+            : base("RestaurantSystemNewPrices")
+        {
+            Configure();
+        }
+
         public PricingDataDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
@@ -34,5 +41,10 @@
         }
 
         public virtual IDbSet<NewPrices> NewPrices { get; set; }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
     }
 }

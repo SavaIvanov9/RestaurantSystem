@@ -2,8 +2,11 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using RestaurantSystem.Data.Abstraction;
+    using RestaurantSystem.PricingData;
     using System;
+    using System.IO;
     using System.Linq;
+    using System.Reflection;
 
     public class HomeController : BaseController
     {
@@ -19,7 +22,10 @@
         public IActionResult About()
         {
 
-            ViewData["Message"] = "";
+            //var db = new PricingDataDbContext();
+            //ViewData["Message"] = db.NewPrices.ToList().Count();
+
+            ViewData["Message"] = Directory.GetCurrentDirectory();
 
             return View();
         }

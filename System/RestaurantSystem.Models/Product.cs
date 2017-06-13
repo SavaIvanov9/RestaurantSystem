@@ -55,11 +55,10 @@
         }
 
         [Required]
-        public virtual MeasuringUnit MeasuringUnit { get; set; }
-
-        [Required]
         [ForeignKey("MeasuringUnit")]
         public long MeasuringUnitId { get; set; }
+
+        public virtual MeasuringUnit MeasuringUnit { get; set; }
 
         [Required]
         public decimal AveragePrice { get; set; }

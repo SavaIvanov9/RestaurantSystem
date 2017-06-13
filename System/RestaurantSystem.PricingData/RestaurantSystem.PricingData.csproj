@@ -80,13 +80,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstraction\IPricingDataDbContext.cs" />
+    <Compile Include="Abstraction\IPricingData.cs" />
     <Compile Include="Configuration\CustomHistory.cs" />
     <Compile Include="Configuration\DbInitializer.cs" />
     <Compile Include="Configuration\ModelConfiguration.cs" />
+    <Compile Include="DbGenerator.cs" />
     <Compile Include="Models\NewPrices.cs" />
+    <Compile Include="PriceImporter.cs" />
+    <Compile Include="PricingData.cs" />
     <Compile Include="PricingDataDbContext.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Abstraction\GenericRepository.cs" />
+    <Compile Include="Repositories\Abstraction\IRepository.cs" />
+    <Compile Include="Repositories\NewPricesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -113,6 +121,20 @@
     <Content Include="x86\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantSystem.Data\RestaurantSystem.Data.csproj">
+      <Project>{23371684-3944-4594-a807-22304240bdce}</Project>
+      <Name>RestaurantSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Infrastructure\RestaurantSystem.Infrastructure.csproj">
+      <Project>{982413ee-b429-41cd-9e27-ed319a6e1281}</Project>
+      <Name>RestaurantSystem.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantSystem.Models\RestaurantSystem.Models.csproj">
+      <Project>{882eb16c-cd96-422e-86cf-b1f4f4992df3}</Project>
+      <Name>RestaurantSystem.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
