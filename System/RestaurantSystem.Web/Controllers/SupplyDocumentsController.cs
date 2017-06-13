@@ -5,7 +5,6 @@ namespace RestaurantSystem.Web.Controllers
     using Microsoft.EntityFrameworkCore;
     using RestaurantSystem.Data.Abstraction;
     using RestaurantSystem.Models;
-    using RestaurantSystem.Web.Models;
     using System.Linq;
     using System.Threading.Tasks;
     using RestaurantSystem.Data;

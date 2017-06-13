@@ -10,12 +10,14 @@
         private DateTime createdOn;
         private bool isDeleted;
         private ICollection<Sale> sales;
+        private ICollection<Waiter> waiters;
 
         public Waiter()
         {
             this.createdOn = DateTime.Now;
             this.isDeleted = false;
             this.sales = new HashSet<Sale>();
+            this.waiters = new HashSet<Waiter>();
         }
 
         [Key]
@@ -25,6 +27,11 @@
         [MaxLength(50)]
         [Index(IsUnique = true)]
         public string Name { get; set; }
+
+        [ForeignKey("Manager")]
+        public long? ManagerId { get; set; }
+
+        public virtual Waiter Manager { get; set; }
 
         public DateTime CreatedOn
         {
@@ -62,6 +69,19 @@
             set
             {
                 this.sales = value;
+            }
+        }
+
+        public virtual ICollection<Waiter> Waiters
+        {
+            get
+            {
+                return this.waiters;
+            }
+
+            set
+            {
+                this.waiters = value;
             }
         }
     }

@@ -52,5 +52,14 @@
         {
             return base.Set<T>();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Waiter>()
+                .HasOptional<Waiter>(e => e.Manager)
+                .WithMany(m => m.Waiters);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

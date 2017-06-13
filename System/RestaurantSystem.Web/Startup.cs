@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using RestaurantSystem.Web.Models;
-namespace RestaurantSystem.Web
+﻿namespace RestaurantSystem.Web
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -48,9 +45,6 @@ namespace RestaurantSystem.Web
             services.AddTransient<ISupplyDocumentDataSeeder, SupplyDocumentDataSeeder>();
             
             services.AddMvc();
-
-            services.AddDbContext<hjgjContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("hjgjContext")));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

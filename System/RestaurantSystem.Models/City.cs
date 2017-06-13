@@ -18,7 +18,6 @@
             this.addresses = new HashSet<Address>();
         }
 
-        //[JsonIgnore]
         [Key]
         public long Id { get; set; }
 

@@ -1,12 +1,11 @@
 namespace RestaurantSystem.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.EntityFrameworkCore;
     using RestaurantSystem.Data.Abstraction;
     using RestaurantSystem.Models;
-    using RestaurantSystem.Web.Models;
     using System.Linq;
-    using System.Threading.Tasks;
 
     public class WaiterController : BaseController
     {
@@ -41,14 +40,22 @@ namespace RestaurantSystem.Web.Controllers
             return View(waiter);
         }
 
+        // GET: Waiter/Create
         public IActionResult Create()
         {
+            ViewData["ManagerId"] = new SelectList(
+                this.Data.Waiters
+                .All()
+                .Where(m => m.IsDeleted != true)
+                .ToList(),
+            "Id", "Name");
+
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Name,CreatedOn,ModifiedOn,IsDeleted")] Waiter waiter)
+        public IActionResult Create([Bind("Id,Name,ManagerId,CreatedOn,ModifiedOn")] Waiter waiter)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +63,14 @@ namespace RestaurantSystem.Web.Controllers
                 this.Data.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            ViewData["ManagerId"] = new SelectList(
+                this.Data.Waiters
+                    .All()
+                    .Where(m => m.IsDeleted != true)
+                    .ToList(),
+                "Id", "Name", waiter.ManagerId);
+
             return View(waiter);
         }
 
@@ -74,12 +89,20 @@ namespace RestaurantSystem.Web.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["ManagerId"] = new SelectList(
+                this.Data.Waiters
+                    .All()
+                    .Where(m => m.IsDeleted != true)
+                    .ToList(),
+                "Id", "Name", waiter.ManagerId);
+
             return View(waiter);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(long id, [Bind("Id,Name,CreatedOn,ModifiedOn")] Waiter waiter)
+        public IActionResult Edit(long id, [Bind("Id,Name,ManagerId,CreatedOn,ModifiedOn")] Waiter waiter)
         {
             if (id != waiter.Id)
             {
@@ -105,8 +128,17 @@ namespace RestaurantSystem.Web.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction("Index");
             }
+
+            ViewData["ManagerId"] = new SelectList(
+                this.Data.Waiters
+                    .All()
+                    .Where(m => m.IsDeleted != true)
+                    .ToList(), 
+                "Id", "Name", waiter.ManagerId);
+
             return View(waiter);
         }
 

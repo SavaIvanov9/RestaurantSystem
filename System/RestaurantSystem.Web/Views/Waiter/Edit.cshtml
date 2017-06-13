@@ -20,6 +20,13 @@
             </div>
         </div>
         <div class="form-group">
+            <label asp-for="ManagerId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="ManagerId" class="form-control" asp-items="ViewBag.ManagerId"></select>
+                <span asp-validation-for="ManagerId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
             <label asp-for="CreatedOn" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="CreatedOn" class="form-control" />
@@ -33,14 +40,6 @@
                 <span asp-validation-for="ModifiedOn" class="text-danger"></span>
             </div>
         </div>
-        @*<div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <div class="checkbox">
-                    <input asp-for="IsDeleted" />
-                    <label asp-for="IsDeleted"></label>
-                </div>
-            </div>
-        </div>*@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
