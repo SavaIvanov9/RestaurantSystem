@@ -33,11 +33,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Waiter" asp-action="Index">Waiters</a></li>
                     <li><a asp-area="" asp-controller="SupplyDocuments" asp-action="Index">Supply Documents</a></li>
+                    <li><a asp-area="" asp-controller="Product" asp-action="Index">Products</a></li>
+                    <li><a asp-area="" asp-controller="Waiter" asp-action="Index">Waiters</a></li>
                     <li><a asp-area="" asp-controller="Sales" asp-action="Index">Sales</a></li>
-                    <li><a asp-area="" asp-controller="JsonImporter" asp-action="Import">Import Json Files</a></li>
+                    <li><a asp-area="" asp-controller="JsonImporter" asp-action="Index">Import Json Files</a></li>
                     <li><a asp-area="" asp-controller="PdfExporter" asp-action="Index">Export DPF Reports</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")

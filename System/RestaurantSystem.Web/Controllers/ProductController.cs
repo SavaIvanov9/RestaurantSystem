@@ -7,19 +7,19 @@ namespace RestaurantSystem.Web.Controllers
     using RestaurantSystem.Models;
     using System.Linq;
 
-    public class SalesController : BaseController
+    public class ProductController : BaseController
     {
-        public SalesController(IRestaurantSystemData data) : base(data)
+        public ProductController(IRestaurantSystemData data) : base(data)
         {
         }
 
         public IActionResult Index()
         {
-            var sales = this.Data.Sales
+            var products = this.Data.Products
                 .All()
                 .Where(x => x.IsDeleted != true);
 
-            return View(sales.ToList());
+            return View(products.ToList());
         }
 
         public IActionResult Details(long? id)
@@ -29,62 +29,49 @@ namespace RestaurantSystem.Web.Controllers
                 return NotFound();
             }
 
-            var sale = this.Data.Sales
-                .All()
-                .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
+            var product = this.Data.Products
+             .All()
+             .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
 
-            if (sale == null)
+            if (product == null)
             {
                 return NotFound();
             }
 
-            return View(sale);
+            return View(product);
         }
 
         public IActionResult Create()
         {
-            ViewData["RestaurantBranchId"] = new SelectList(this.Data.RestaurantBranches
+            ViewData["MeasuringUnitId"] = new SelectList(
+                this.Data.MeasuringUnits
                     .All()
                     .Where(x => x.IsDeleted != true)
                     .ToList(),
                     "Id", "Name");
-
-            ViewData["WaiterId"] = new SelectList(
-                this.Data.Waiters
-                    .All()
-                    .Where(x => x.IsDeleted != true)
-                    .ToList(),
-                "Id", "Name");
 
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,RestaurantBranchId,CreatedOn,ModifiedOn,TableNumber,WaiterId")] Sale sale)
+        public IActionResult Create([Bind("Id,Name,CreatedOn,ModifiedOn,MeasuringUnitId,AveragePrice")] Product product)
         {
             if (ModelState.IsValid)
             {
-                this.Data.Sales.Add(sale);
+                this.Data.Products.Add(product);
                 this.Data.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewData["RestaurantBranchId"] = new SelectList(
-                this.Data.RestaurantBranches
+            ViewData["MeasuringUnitId"] = new SelectList(
+                this.Data.MeasuringUnits
                     .All()
                     .Where(x => x.IsDeleted != true)
-                    .ToList(),
-                "Id", "Name", sale.RestaurantBranchId);
+                    .ToList(), 
+                "Id", "Name", product.MeasuringUnitId);
 
-            ViewData["WaiterId"] = new SelectList(
-                this.Data.Waiters
-                    .All()
-                    .Where(x => x.IsDeleted != true)
-                    .ToList(),
-                "Id", "Name", sale.WaiterId);
-
-            return View(sale);
+            return View(product);
         }
 
         public IActionResult Edit(long? id)
@@ -94,36 +81,30 @@ namespace RestaurantSystem.Web.Controllers
                 return NotFound();
             }
 
-            var sale = this.Data.Sales
-                .All()
-                .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
+            var product = this.Data.Products
+           .All()
+           .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
 
-            if (sale == null)
+            if (product == null)
             {
                 return NotFound();
             }
 
-            ViewData["RestaurantBranchId"] = new SelectList(
-                this.Data.RestaurantBranches
-                    .All()
-                    .Where(x => x.IsDeleted != true)
-                    .ToList(), 
-                "Id", "Name", sale.RestaurantBranchId);
-
-            ViewData["WaiterId"] = new SelectList(this.Data.Waiters
+            ViewData["MeasuringUnitId"] = new SelectList(
+                this.Data.MeasuringUnits
                     .All()
                     .Where(x => x.IsDeleted != true)
                     .ToList(),
-            "Id", "Name", sale.WaiterId);
+                    "Id", "Name", product.MeasuringUnitId);
 
-            return View(sale);
+            return View(product);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(long id, [Bind("Id,RestaurantBranchId,CreatedOn,ModifiedOn,TableNumber,WaiterId")] Sale sale)
+        public IActionResult Edit(long id, [Bind("Id,Name,CreatedOn,ModifiedOn,MeasuringUnitId,AveragePrice")] Product product)
         {
-            if (id != sale.Id)
+            if (id != product.Id)
             {
                 return NotFound();
             }
@@ -132,12 +113,12 @@ namespace RestaurantSystem.Web.Controllers
             {
                 try
                 {
-                    this.Data.Sales.Update(sale);
+                    this.Data.Products.Update(product);
                     this.Data.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SaleExists(sale.Id))
+                    if (!ProductExists(product.Id))
                     {
                         return NotFound();
                     }
@@ -146,24 +127,18 @@ namespace RestaurantSystem.Web.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction("Index");
             }
 
-            ViewData["RestaurantBranchId"] = new SelectList(
-                this.Data.RestaurantBranches
+            ViewData["MeasuringUnitId"] = new SelectList(
+                this.Data.MeasuringUnits
                     .All()
                     .Where(x => x.IsDeleted != true)
                     .ToList(), 
-                "Id", "Name", sale.RestaurantBranchId);
+                "Id", "Name", product.MeasuringUnitId);
 
-            ViewData["WaiterId"] = new SelectList(
-                this.Data.Waiters
-                    .All()
-                    .Where(x => x.IsDeleted != true)
-                    .ToList(), 
-                "Id", "Name", sale.WaiterId);
-
-            return View(sale);
+            return View(product);
         }
 
         public IActionResult Delete(long? id)
@@ -173,37 +148,37 @@ namespace RestaurantSystem.Web.Controllers
                 return NotFound();
             }
 
-            var sale = this.Data.Sales
+            var product = this.Data.Products
                 .All()
                 .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
 
-            if (sale == null)
+            if (product == null)
             {
                 return NotFound();
             }
 
-            return View(sale);
+            return View(product);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(long id)
         {
-            var sale = this.Data.Sales
+            var product = this.Data.Products
                 .All()
                 .FirstOrDefault(m => m.Id == id && m.IsDeleted != true);
 
-            sale.IsDeleted = true;
+            product.IsDeleted = true;
 
-            this.Data.Sales.Update(sale);
+            this.Data.Products.Update(product);
             this.Data.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
-        private bool SaleExists(long id)
+        private bool ProductExists(long id)
         {
-            return this.Data.Sales
+            return this.Data.Products
                 .All()
                 .Any(e => e.Id == id && e.IsDeleted != true);
         }
