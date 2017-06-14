@@ -1,4 +1,5 @@
-# Restaurant System - Telerik Databases Course Project May 2017
+# Restaurant System - Telerik Databases Course Project 
+###May 2017
 
 ## Assignement
 
