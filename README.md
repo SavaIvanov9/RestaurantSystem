@@ -1,7 +1,4 @@
-# Restaurant System
-
-# Databases May 2017
-## Practical Teamwork Project
+# Restaurant System - Telerik Databases Course Project May 2017
 
 ## Assignement
 
